@@ -1,0 +1,12 @@
+"check","outcome","g","t","pipeline","manual","abs_diff","pass"
+"manual lm() equals pipeline ATT(g,t)","ln_mtb","2022","2017","0.02897226612","0.02897226612","1.628225332e-12",TRUE
+"manual lm() equals pipeline ATT(g,t)","ln_mcap","2022","2017","0.04290588905","0.04290588905","3.628944367e-12",TRUE
+"manual lm() equals pipeline ATT(g,t)","ln_mtb","2022","2024","0.06317514631","0.06317514631","3.013547745e-12",TRUE
+"manual lm() equals pipeline ATT(g,t)","ln_mcap","2022","2024","-0.06921004026","-0.06921004026","5.050959651e-13",TRUE
+"manual lm() equals pipeline ATT(g,t)","ln_mtb","2020","2016","-0.1915942544","-0.1915942544","4.90878449e-11",TRUE
+"manual lm() equals pipeline ATT(g,t)","ln_mcap","2020","2016","-0.3747668547","-0.3747668547","1.027455898e-11",TRUE
+"manual lm() equals pipeline ATT(g,t)","ln_mtb","2021","2023","-0.04153968779","-0.04153968779","2.068484273e-13",TRUE
+"manual lm() equals pipeline ATT(g,t)","ln_mcap","2021","2023","-0.2240273533","-0.2240273533","1.424768636e-11",TRUE
+"simulation: true ATT 0.10, true run-up 0.00","synthetic",,,"0.09192497098","0.1","0.008075029017",TRUE
+"simulation: true ATT 0.00, true run-up 0.15","synthetic",,,"0.004546573669","0","0.004546573669",TRUE
+"simulation: true ATT 0.00, true run-up 0.00","synthetic",,,"-0.007242331063","0","0.007242331063",TRUE

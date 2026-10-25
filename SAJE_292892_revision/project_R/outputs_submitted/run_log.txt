@@ -1,0 +1,38 @@
+Panel: 36168 firm-years; 3288 firms
+Main: ln_mtb 
+Main: ln_mcap 
+Main: leverage 
+Main: ln_asset 
+Robustness: ln_mtb R1_notyet 
+Robustness: ln_mtb R2_nocovars 
+Robustness: ln_mtb R3_dropcovid 
+Robustness: ln_mtb R4_support 
+Robustness: ln_mtb R5_placebo 
+Robustness: ln_mcap R1_notyet 
+Robustness: ln_mcap R2_nocovars 
+Robustness: ln_mcap R3_dropcovid 
+Robustness: ln_mcap R4_support 
+Robustness: ln_mcap R5_placebo 
+Robustness: leverage R1_notyet 
+Robustness: leverage R2_nocovars 
+Robustness: leverage R3_dropcovid 
+Robustness: leverage R4_support 
+Robustness: leverage R5_placebo 
+Robustness: ln_asset R1_notyet 
+Robustness: ln_asset R2_nocovars 
+Robustness: ln_asset R3_dropcovid 
+Robustness: ln_asset R4_support 
+Robustness: ln_asset R5_placebo 
+Heterogeneity: ln_mtb 
+Heterogeneity: ln_mcap 
+Heterogeneity: leverage 
+Heterogeneity: ln_asset 
+Revision: ln_mtb 
+Revision: ln_mcap 
+Revision: leverage 
+Revision: ln_asset 
+Revision 2: ln_mtb 
+Revision 2: ln_mcap 
+Revision 2: leverage 
+Revision 2: ln_asset 
+Done in 12.8 minutes

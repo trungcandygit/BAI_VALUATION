@@ -1,0 +1,5 @@
+"Estimator","ln(MTB)","ln(market cap)"
+"Static TWFE, all firm-years (R6)","0.064** (0.026)","0.185*** (0.032)"
+"Static TWFE, never-scored controls, event years −5 to 3","0.058** (0.025)","0.149*** (0.030)"
+"Heterogeneity-robust, no covariates (R2)","0.025 (0.022)","0.016 (0.025)"
+"Heterogeneity-robust baseline","0.002 (0.024)","−0.055* (0.030)"

@@ -1,0 +1,7 @@
+"step","firms","firm_years"
+"Universe (all firms)","3709","40799"
+"Non-financial firms","3423","37653"
+"Covered from 2014 (dropped, no pre-period)","135","1485"
+"Estimation firms","3288","36168"
+"  of which treated (first covered 2015-2024)","675","7425"
+"  of which never covered","2613","28743"

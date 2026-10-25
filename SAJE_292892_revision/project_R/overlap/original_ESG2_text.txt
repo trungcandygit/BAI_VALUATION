@@ -1,0 +1,934 @@
+Abstract:  To fully grasp the corporate information disclosure cycle, one needs to study both greenwashing and 
+brownwashing (the shrouding of negative information).
+While greenwashing research has grown substantially, strategic underreporting (brownwashing) has received 
+less attention.
+This study investigates the combined effect of voluntary sustainability-standard adoption and internal 
+governance on brownwashing by publicly listed firms in the five largest ASEAN economies (ASEAN-5) from 2014 
+to 2024.
+Using panel models with firm- and year-fixed effects on 1,506 firm-year observations from 385 listed companies, 
+we examine brownwashing across both the extensive margin (decision to report) and intensive margin (degree 
+of underreporting).
+The adoption of the Global Reporting Initiative (GRI) framework decreases the likelihood of brownwashing.
+However, once brownwashing occurs, estimates indicate a 13.37% increase in underreporting severity.
+This extensive-margin effect is more precisely estimated than the intensive-margin effect.
+Across robustness checks, the directional pattern holds, though statistical significance is weaker in the smallest 
+subsamples.
+No direct evidence connects board gender diversity or board sustainability committees to brownwashing, notably 
+in an environment where female directors occupy an average of only 18.97% of seats.
+Sustainability committees also show no association with GRI adoption, indicating that external reporting 
+guidelines and internal governance structures act as independent channels.
+These findings broaden the scope of ESG decoupling research and suggest that regulators in developing 
+economies should pair voluntary reporting standards with independent assurance rather than relying solely on 
+board governance.
+Keywords: ASEAN-5; Board gender diversity; Brownwashing; ESG decoupling; Global Reporting Initiative (GRI); 
+Sustainability committee.
+Contribution/Originality:  This  study investigates whether the adoption of GRI frameworks impacts the level 
+of corporate brownwashing in two margins: extensive and intensive, and whether external GRI and internal 
+governance mechanisms act as substitutes or complements.
+Findings show no significant relationship.
+Sustainability committee presence is not a significant determinant of GRI adoption.
+Neither sustainability committees nor board gender diversity are significant determinants of corporate 
+brownwashing.
+The main implication is that these governance mechanisms operate through distinct channels.
+As societal and regulatory pressures increase, firms rely more on non-financial disclosures to acquire legitimacy 
+(Eliwa et al., 2023).
+Effective sustainability practices can yield direct market benefits including reduced cost of capital and increased 
+firm value.
+However, the challenge is that sustainability reporting is voluntary and not directly verifiable.
+This creates information asymmetry between corporate insiders and external parties (Roszkowska-Menkes et al., 
+2024), leaving room for strategic disclosure where there is a gap between firms' words and their actual practices.
+We call this misalignment between sustainability reporting and real firm behavior ESG (environmental, social and 
+governance) information decoupling.
+It can take two forms: firms exaggerating their environmental ethics (greenwashing) or firms minimizing their 
+sustainability achievements (brownwashing).
+Initial perspectives treated decoupling as unidirectional, mainly focusing on low sustainability firms overstating 
+their ethical commitment.
+But Kim and Lyon (2015) challenged this narrow view: decoupling is bidirectional, with firms brownwashing by 
+understating genuine sustainability gains they have achieved.
+Firms employ these strategies to shape stakeholder expectations and avoid the operational and reputational costs 
+of setting performance goals they may fail to meet.
+The literature on decoupling has three distinct gaps.
+First, the thematic gap: current research focuses heavily on greenwashing with less attention to brownwashing.
+Second, the structural gap: research on external drivers like the adoption of Global Reporting Initiative (GRI) 
+standards and internal drivers like having diverse boards or sustainability committees too often occurs in silos, 
+with each driver viewed as one of many in a system of independent effects.
+Third, the geographic gap: empirical evidence on decoupling remains concentrated in Western and developed 
+markets, leaving limited insight into fast-growing ASEAN-5 (the five largest economies of the Association of 
+Southeast Asian Nations), which are attracting ESG investments in massive quantities.
+The heterogeneity of their disclosure frameworks is stark: Singapore (Singapore Exchange, SGX) has mandated 
+ESG disclosure earlier than its regional peers, while others still have voluntary or transitional regimes.
+This paper examines the roles of reporting standards and internal governance mechanisms in ASEAN-5 
+economies (Malaysia, Singapore, Thailand, Indonesia, and the Philippines) on corporate brownwashing from 2014 
+to 2024.
+ASEAN-5 is an interesting context for studying the drivers of bidirectional decoupling given the diversity in 
+regulatory governance and the scale of the economies.
+Drawing on four theories, namely neoinstitutional, stakeholder-agency, gender socialization, and resource 
+dependence theory, we formulate and test four hypotheses.
+First, GRI adoption reduces corporate brownwashing (H1).
+Second, greater board gender diversity lowers the extent of corporate underreporting (H2).
+Third, existence of sustainability committee (H3) directly lowers brownwashing.
+Fourth, sustainability committee existence increases the likelihood of GRI adoption (H4).
+Results from the fixed-effects panel analyses reveal a narrower pattern of relationships than hypothesized.
+Adoption of the GRI reduces brownwashing on both the extensive and intensive margins, with a more precisely 
+estimated effect at the extensive margin.
+However, corporate board gender diversity and the existence of sustainability committees show no significant 
+relationship with brownwashing.
+The paper makes three related contributions to the literature on disclosure.
+First, from a conceptual point of view, it contributes to the literature by refining the notion of greenwashing 
+through decomposing information decoupling into positive and negative exclusive parts and studying the latter 
+in isolation.
+Second, it studies the interaction between external disclosure standardization and internal governance 
+mechanisms.
+The evidence suggests the absence of a reinforcing effect: the presence of sustainability committees does not 
+facilitate the adoption of GRI either as a substitute or a catalyst.
+Third, it distinguishes the extensive from the intensive margin of underreporting, showing that standardized 
+frameworks reduce both the likelihood that brownwashing starts and its severity once underway, with effects 
+similar in magnitude but more precisely estimated for prevention than for cure.
+The paper proceeds as follows: Section 2: Literature Review; Section 3: Theoretical background and Hypotheses, 
+Section 4: Data and Methodology, Section 5: Results and Discussion, and Section 6: Conclusions.
+
+Strong ESG disclosure leads to increased legitimacy and better access to capital, reflected in lower cost of debt 
+and higher valuations (Eliwa et al., 2023; Saeed et al., 2025).
+This presents a tangible incentive for companies to disclose strong sustainability performance.
+However, sustainability reporting is mostly voluntary and hard to verify (Roszkowska-Menkes et al., 2024).
+This leads to a situation where stated practices may diverge from actual conduct.
+Some companies portray inflated image of ethical conduct that does not match their practices (Cepêda, 2026; 
+MacLean & Behnam, 2010).
+In the short term this may boost the reputation but once uncovered it results in market penalties (Di & Li, 2023; 
+Eliwa et al., 2023).
+The concept of decoupling stems from the neoinstitutional theory where organizations adopt formal policies to 
+symbolically comply without changing their actual practices (Meyer & Rowan, 1977; Roszkowska-Menkes et al., 
+2024).
+Kim and Lyon (2015) expanded this into a bidirectional framework where organizations seeking to avoid 
+scrutiny may either overstate their positive actions (greenwashing) or understate their genuine achievements 
+(brownwashing).
+Recent literature begins to operationalize the conceptualization of a reporting-performance gap in ESG practices.
+Hawn and Ioannou (2016) pioneered empirics by contrasting nominal ESG scores with controversy-adjusted 
+scores.
+Building on that work, an emerging stream of research conceptualizes decoupling as bidirectional rather than a 
+unidirectional construct (Moreno-Ureba, 2026; Yue et al., 2026).
+Prior studies identify external and internal forces that limit decoupling.
+Externally, standardized reporting frameworks and assurance serve as limits to symbolic ESG practices 
+(García-Sánchez et al., 2022).
+Yue et al.
+(2026) identify an internal limit: the positive feedback of ESG performance can increase stakeholders' 
+expectations of CSR such that brownwashing is a means to alleviate scrutiny.
+Eliwa et al.
+(2023) show that female board representation correlates with a lower degree of ESG decoupling, and the 
+presence of sustainability committees (Qiu et al., 2026) and specialized board expertise (Moreno-Ureba, 2026) 
+shape ESG reporting.
+Conceptualizations of bidirectional decoupling remain vague in our field, with most concentrating on 
+greenwashing by itself (Moreno-Ureba, 2026).
+Likewise, there are only a few explorations of the joint effect of external forces such as GRI adoption and internal 
+governance mechanisms.
+Moreno-Ureba (2026) calls for research that disaggregates decoupling and tests the moderating role of internal 
+governance; this study takes up that call by analyzing GRI adoption and internal governance together.
+Global standardization of sustainability reporting provides a key external guardrail to opportunistic disclosure.
+Standardized non-financial metrics built around structured and uniform reporting frameworks enable 
+cross-corporate comparability (Friske, 2024; Sannino et al., 2020).
+Over the last two decades, standards have gradually incorporated more multi-dimensional indicators into their 
+templates, resulting in an increase in disclosure quality and a decrease in corporate opaqueness (García-Sánchez 
+et al., 2022; Roszkowska-Menkes et al., 2024).
+
+There are two competing views on how uniform reporting influences strategic disclosure: as a genuine 
+information-discipline mechanism, or as an opportunity for narrative camouflage, developed formally in Section 
+3.2.
+Our evidence indicates that in the ASEAN-5 countries the key voluntary reporting framework is the Global 
+Reporting Initiative (GRI), adopted by 85.16% of firms.
+The aggregate figure masks cross-country heterogeneity in the pace of adoption and quality of compliance with 
+standards.
+Institutional paths diverged, with Singapore pushing mandatory general ESG disclosure early on, though the 
+choice to report specifically under GRI remains voluntary even there, as Malaysia, Thailand, Indonesia, and 
+Philippine firms staggered through multiple phases of voluntary guidance and new frameworks.
+This heterogeneity manifests in an uneven spread of standardized reporting during 2014-2024, with adoption 
+driven by institutional pressure in home countries (García-Sánchez et al., 2022; Sannino et al., 2020).
+It was founded to harmonize reporting of non-financial information, but in the context of ASEAN-5, with uneven 
+enforcement and institutional differences, firms will still diverge.
+Narrative camouflage will persist in weak-oversight regions via selective disclosure to highlight positive aspects 
+and to obscure negative ones.
+Stakeholder theory is the underpinning theory since stakeholders are "any group or individual who can affect or 
+is affected by the achievement of the organization's objectives" (Freeman, 1984, p. 46), and the stakeholder 
+groups provide resources a firm needs to survive and grow and demand accountability (Roszkowska-Menkes et 
+al., 2024).
+Note that stakeholders hold misaligned interests.
+For example, community groups may seek more environmental disclosure whereas shareholders may worry that 
+such disclosure jeopardizes short-term profits.
+Executives, as agents of the firm, must manage these competing demands (Qiu et al., 2026).
+Stakeholder-agency theory helps explain this behavior by arguing that differences in the sources of power and 
+information asymmetry influence which demands managers respond to, and the internal governance structures 
+constrain opportunistic disclosure that aligns manager behavior with stakeholder expectations (Moreno-Ureba, 
+2026).
+Information discipline, the pressure that standardized, comparable metrics place on managers to align disclosed 
+and actual practice, should improve transparency when firms adopt frameworks such as the GRI, which equips 
+firms with a vocabulary for rigorous and comparable disclosure (Friske, 2024; Wang et al., 2026).
+Information discipline is the mechanism through which GRI adoption should reduce brownwashing.
+Standardized data collection and reporting across multiple ESG indicators makes firm performance easier to 
+evaluate by rating agencies and analysts and so increases the visibility cost of what Kim and Lyon (2015) term 
+“green hushing,” the informal label for the same brownwashing behavior this study measures.
+This in turn should create pressure on managers to narrow the negative decoupling gap by aligning actual conduct 
+with disclosed commitments.
+However, as mentioned before, a less optimistic view is narrative camouflage.
+Since voluntary guidelines such as GRI allow flexible application symbolic compliance remains possible 
+(Roszkowska-Menkes et al., 2024).
+Because sustainability reporting is voluntary and unverifiable, insiders know more about actual practices than 
+outside stakeholders can observe, and managers might use standardized metrics as a “ceremonial shield” to 
+draw attention to favorable data points and obscure unfavorable ones in lengthy qualitative disclosures (Boiral et 
+al., 2019; Wijen, 2014).
+From this perspective voluntary standards may not function as a binding constraint on communication and could 
+even enable misrepresentation rather than transparency (Roszkowska-Menkes et al., 2024).
+Section 5 tests which of these two effects, information discipline or narrative camouflage, dominates empirically.
+Hypothesis 1 (H1).
+GRI reporting-standard adoption correlates negatively with corporate brownwashing.
+The literature widely accepts the link between board gender diversity and firm transparency (Eliwa et al., 2023; 
+Moreno-Ureba, 2026).
+Gender socialization and stakeholder-agency theories provide the major foundation for this link.
+These theories suggest that male and female directors have distinct cognitive and ethical frameworks and that 
+they vary in their tolerance of risk because of their different socialization (Boulouta, 2013; Manita et al., 2018).
+This division has ramifications for a board's oversight capacity in practice.
+Research indicates that female directors have a greater orientation toward stakeholders and a greater sensitivity 
+to social and environmental concerns (Eagly et al., 2003; Eliwa et al., 2023).
+Gender diverse boards, then, should be more vigilant monitors, less likely to accept unethical or deceptive firm 
+disclosure (Manita et al., 2018) and less likely to excuse managers for misreporting.
+The opposing perspective, though, is a more guarded one.
+Adding women to the board may not produce effective governance, since the dynamics of inequality and 
+tokenism can diminish their influence (Kanter, 1977; Konrad et al., 2008; Manita et al., 2018).
+Board composition alone is not sufficient; the level of influence women hold within the board matters as much.
+Healthy male majority on board may dilute board's ethical voice because prevailing norms absorb or suppress 
+that voice (Torchia et al., 2011).
+Again, female directors may not have enough tenure or authority to influence decisions (Moreno-Ureba, 2026).
+Practically, extending disclosure requires less organizational will than changing core practices.
+Thus, female directors might affect reporting practices more than core practices, decreasing brownwashing when 
+performance is strong but increasing greenwashing when performance is weak.
+Even so, female directors' monitoring role should still deter non-disclosure overall, supporting a negative sign for 
+H2.
+Hypothesis 2 (H2) follows: board gender diversity correlates negatively with corporate brownwashing.
+It is important to study external voluntary standards and internal corporate governance jointly when explaining 
+strategic disclosure (Qiu et al., 2026).
+Resource dependence theory and stakeholder-agency theory suggest internal governance, especially 
+sustainability committees, works with GRI adoption as a complementary control.
+Board-level sustainability committees should improve the oversight of ESG risks and reporting.
+This is relevant for brownwashing and reporting as well.
+First, a board-level sustainability committee is a subgroup of the board of directors dedicated to handling ESG 
+risks and reporting (Qiu et al., 2026).
+Structurally, sustainability committees provide the board of directors with additional capacity and expertise, 
+which general boards lack (Qiu et al., 2026; Velte, 2017).
+In theory and practice, then, sustainability committees serve as more rigorous internal monitors (Velte, 2017).
+Stakeholder-agency theory provides another perspective.
+An active sustainability committee can help firms achieve substantive ESG-related goals instead of symbolic 
+gestures (Ştefănescu & Suciu, 2026).
+This reduces the likelihood of brownwashing through consistent communication with stakeholders and setting 
+concrete ESG targets.
+Based on this we propose the third hypothesis: Hypothesis 3 (H3).
+A board-level sustainability committee correlates negatively with corporate brownwashing.
+Second, the board-level sustainability committee's role in ESG reporting extends beyond direct oversight.
+The committee can act as a catalyst for more formalized ESG reporting.
+Resource dependence theory suggests that the presence of a board-level sustainability committee predicts a 
+firm's willingness to adopt GRI reporting guidelines.
+Covering as many indicator categories as GRI does requires specialized expertise to collect and disclose 
+multi-dimensional data.
+A sustainability committee helps meet that requirement by bringing directors with relevant experience onto the 
+board (Qiu et al., 2026), and by keeping non-financial accountability on the agenda, it pushes the board toward 
+formal, indicator-based reporting.
+We therefore expect listed firms with such a committee to be more likely to adopt GRI standards:
+Hypothesis 4 (H4).
+The presence of a board-level sustainability committee correlates positively with the likelihood of GRI adoption.
+Figure 1 depicts the framework of our research.
+Figure 1.
+Proposed conceptual framework.
+Source: Authors' own work.
+We collect data from multiple databases using ISIN (International Securities Identification Number) and fiscal year 
+as the matching key (Eliwa et al., 2023).
+We drop observations whose firm-years do not match across databases or that have incomplete data, then apply 
+the further filters described below.
+We obtain the 2014-2024 ASEAN-5 sample from three databases: we derive ESG data from LSEG (London 
+Stock Exchange Group) Workspace, obtain governance data from BoardEx and official corporate disclosures, 
+and extract financial data from Compustat Global.
+The estimation sample consists of 40,799 firm-years observed over 3,709 firms.
+We exclude observations with missing values, financial firms, and firms not reporting CO2 emissions, which 
+leaves 1,995 firm-years that satisfy the data-availability filters.
+We handle remaining missing values through listwise deletion and chained-equations imputation.
+We lag all independent, control, and moderating variables (FemD, BSize, InD, SustCom, Size, Lev, ROA, MTB, 
+GRI, log_co2; defined in Table 2 below) by one year (t-1) relative to the brownwashing outcome (t); CM, Blau, 
+and Shannon, described below, serve as descriptive-only alternatives to FemD, and we do not enter them as 
+regressors.
+We use this lag structure to reduce concerns about reverse causality and to mirror the realistic time lag in the 
+effect of governance and reporting practices on corporate disclosures.
+The lag structure removes each firm's first sample year from estimation, which leaves an estimation panel of 
+1,506 firm-years over 385 firms (see Table 1).
+Table 1.
+Sample distribution by country
+Country
+Firms
+Firm years
+Malaysia (Bursa)
+132
+459
+30 5
+Thailand (SET)
+113
+435
+28 9
+Singapore (SGX)
+64
+299
+19 9
+Indonesia (IDX)
+47
+179
+11 9
+Philippines (PSE)
+29
+134
+8 9
+Total
+385
+1 506
+100
+Note: Bursa = Bursa Malaysia; SET = Stock Exchange of Thailand; SGX = Singapore Exchange; IDX = Indonesia 
+Stock Exchange; PSE = Philippine Stock Exchange.
+Source: Authors' own work.
+We winsorize ROA, Lev, MTB, and log_co2 at the 1st and 99th percentiles to reduce the influence of outliers, and 
+retain their un-winsorized versions for unreported robustness checks
+Table 2.
+Variable definitions and measurement
+Variable
+Detailed Definition and Measurement
+Panel A: ESG information decoupling indices
+GWI
+
+Normalized greenwashing gap (z-score(ESG_Score) − z-score(ESGC_Score)).
+Original variable; we decompose GREENWASH and BROWNWASH directly from it.
+Hawn & Ioannou (2016); Moreno-Ureba (2026); García-Sánchez et al.
+(2022); MacLean & Behnam (2010); Di & Li (2023)
+GREENWASH
+Positive part of GWI: = GWI if GWI > 0, otherwise = 0.
+Kim & Lyon (2015); Moreno-Ureba (2026); Boiral et al.
+(2019); Crilly et al.
+2016
+BROWNWASH
+Negative part (absolute value) of GWI: = −GWI if GWI < 0, otherwise = 0.
+Kim & Lyon (2015); Moreno-Ureba (2026); Yue et al.
+(2026); MacLean & Behnam (2010); Wijen (2014)
+Algebraic constraint: GWI = GREENWASH − BROWNWASH; the two variables are mutually exclusive.
+Frequencies sum to 100%, confirming exclusivity.
+Nominal ESG score (voluntary information).
+Nominal ESG score voluntary information.
+(2023); Moreno-Ureba (2026); Roszkowska-Menkes et al.
+2023 Moreno Ureba 2026 Roszkowska Menkes et al.
+2024
+ESGC Score
+Practical ESG score controversy adjusted.
+(2023); Moreno-Ureba (2026); Roszkowska-Menkes et al.
+2023 Moreno Ureba 2026 Roszkowska Menkes et al.
+2024 Di Li 2023
+Panel B Independent control and moderating variables
+FemD
+
+of female board members.
+(2023); Moreno-Ureba (2026); Manita et al.
+(2018); Boulouta (2013); Konrad et al.
+2018 Boulouta 2013 Konrad et al.
+2008
+CM
+Critical mass 1 if female 30.
+Kanter 1977 Torchia et al.
+2011
+Blau diversity index (from FemD).
+Blau diversity index from FemD.
+Eliwa et al.
+2023 Moreno Ureba 2026
+Shannon entropy index (from FemD).
+Shannon entropy index from FemD.
+Eliwa et al.
+2023 Moreno Ureba 2026
+BSize
+Board size total members.
+Eliwa et al.
+2023 Moreno Ureba 2026
+InD
+Board independence.
+(2023); Moreno-Ureba (2026); Manita et al.
+2023 Moreno Ureba 2026 Manita et al.
+2018
+SustCom
+Sustainability committee 1 if present.
+Qiu et al.
+2026 Velte 2017 Stefanescu Suciu 2026
+Size
+Natural logarithm of total assets.
+Eliwa et al.
+2023 Moreno Ureba 2026 Cepeda 2026
+Lev
+Financial leverage.
+(2023); Moreno-Ureba (2026); Saeed et al.
+2023 Moreno Ureba 2026 Saeed et al.
+2025
+ROA
+Return on total assets.
+(2023); Moreno-Ureba (2026); Saeed et al.
+2023 Moreno Ureba 2026 Saeed et al.
+2025
+MTB
+Growth opportunities Market Book value.
+(2023); Moreno-Ureba (2026); Saeed et al.
+2023 Moreno Ureba 2026 Saeed et al.
+2025
+GRI
+GRI reporting standard adoption 1 if adopted.
+(2026); Roszkowska-Menkes et al.
+(2024); García-Sánchez et al.
+(2022); Sannino et al.
+2022 Sannino et al.
+2020
+Log of actual CO2 emissions.
+Log of actual CO2 emissions.
+Moreno Ureba 2026 Yue et al.
+2026
+Note This table defines the study s key variables their measurement and the sources that motivate their inclusion.
+Panel A lists the ESG information decoupling indices Panel B lists the independent control and moderating 
+variables.
+Section 4 explains why we report CM Blau and Shannon here as descriptive alternatives to FemD but exclude 
+them from the regression tables.
+Source Authors own work.
+Table 2 also reports three alternative measures of gender diversity critical mass CM the Blau index and the 
+Shannon entropy index.
+We include these for completeness and for comparability with prior studies.
+Because Blau 1 p2 q2 and Shannon p ln p q ln q where p is the share of female directors FemD 100 and q 1 p both 
+indices are deterministic monotonic transformations of FemD and CM is a binary recoding of the same underlying 
+variable at the 30 threshold Kanter 1977.
+Entering FemD alongside any of these transformations would introduce near perfect collinearity rather than new 
+information so we retain FemD as the continuous gender diversity measure in Tables 4 and 5 since it uses the 
+full information in board composition rather than a threshold or a rescaled aggregate.
+CM Blau and Shannon appear in Tables 2 and 3 for descriptive completeness only.
+Table 3.
+Descriptive statistics
+Variable
+Mean
+Std.
+Dev.
+Min
+Median
+Max
+Frequency
+Panel A ESG information decoupling indices
+GWI
+0 00
+1 47
+3 43
+0 14
+8 40
+GREENWASH
+0 51
+1 08
+0 00
+0 00
+8 40
+45 56
+BROWNWASH
+0 51
+0 68
+0 00
+0 14
+3 43
+54 44
+ESG Score
+55 30
+15 66
+5 34
+55 95
+92 07
+ESGC Score
+97 13
+11 89
+4 55
+100 00
+100 00
+Panel B: Independent, control, and moderating variables
+FemD
+18 97
+13 20
+0 00
+16 67
+75 00
+CM
+19 95
+Blau
+0 27
+0 15
+0 00
+0 28
+0 50
+Shannon
+0 42
+0 21
+0 00
+0 45
+0 69
+BSize
+9 54
+3 15
+1 00
+9 00
+21 00
+InD
+49 37
+14 36
+0 00
+50 00
+100 00
+SustCom
+22 71
+Size
+21 62
+1 55
+16 31
+21 79
+25 34
+Lev
+28 77
+17 14
+0 15
+29 64
+66 37
+ROA
+5 84
+6 40
+9 12
+4 40
+36 84
+MTB
+3 00
+5 48
+0 24
+1 42
+42 01
+GRI
+85 16
+log co2
+11 77
+2 66
+2 38
+11 64
+19 10
+Note This table reports descriptive statistics for the study s key variables mean standard deviation minimum 
+median and maximum for continuous variables and frequency for binary variables.
+Source Authors own work.
+We test the hypotheses with panel regressions that include firm fixed effects ui which absorb time invariant 
+unobserved heterogeneity and year fixed effects lt which absorb macroeconomic shocks and region wide 
+regulatory trends common to all firms in a given year.
+We cluster standard errors at the firm level throughout Wooldridge 2010.
+To test the baseline effects of GRI FemD and SustCom on brownwashing H1 H3 we estimate
+where i and t denote firm and year Controls it includes BSize InD Size Lev ROA MTB and log co2 and eit is the 
+error term.
+Because 45 56 of the sample has a BROWNWASH value of zero Table 3 we define the measure formally below 
+Ordinary least squares OLS estimates of Model 1 may not be consistent.
+Following standard corner solution treatment Wooldridge 2010 we therefore split the analysis into an extensive 
+margin whether a firm brownwashes at all and an intensive margin how much it brownwashes conditional on 
+brownwashing.
+We model the extensive margin with a linear probability model LPM that includes firm and year fixed effects
+In this specification the GRI coefficient is directly interpretable as a percentage point change in the probability of 
+brownwashing.
+We estimate the intensive margin underreporting severity conditional on GWI 0 GWI is the continuous decoupling 
+gap defined in Table 2 BROWNWASH equals GWI when GWI is negative and 0 otherwise using Eq.
+1 on the subsample of firm years that brownwash.
+As a supplementary test of H3 s logic we also ask whether internal governance moderates the effect of external 
+reporting pressure on the extensive margin.
+We add GRI itxSustCom it to the linear probability model reported in Table 5 Panel A
+Finally to test whether sustainability committees are an antecedent of GRI adoption H4 we estimate
+As a robustness check we also estimate a Heckman two stage model Heckman 1979 to address possible sample 
+selection since only firm years with a complete set of lagged governance and financial covariates enter the 
+estimation panel Qiu et al 2026.
+Probit model for selection performed on 1 995 firm years post initial data filtrations described in Section 4 but 
+prior to the one year lag that drops each firm s first sample year.
+The objective of this first step is to predict the probability that a firm year enters the analytic panel.
+The exclusion restriction is defined as a firm s leave one out GRI adoption rate i e the mean GRI adoption status 
+over its other sample years.
+Specifically this variable reflects how consistently a firm is observed in the analytic sample conditional on 
+reporting propensities but does not directly affect the brownwashing decision in any particular year.
+The identification strategy is validated by several robustness checks.
+In particular We re estimate the extensive margin specification with two way clustered firm and year standard 
+errors which account for the cross sectional dependence of shocks and unobservables Wooldridge 2010.
+Because the firm fixed effects model exploits within firm variation to identify the coefficient of GRI We re estimate 
+the baseline specification on narrower samples.
+One is the switchers sample consisting of firms that switch GRI adoption status at least once during the sample 
+period.
+The other is the clean switchers sample consisting of firms that switch GRI status only once and do not switch it 
+back.
+A final check is to compare the baseline model with the pooled model evaluating whether the omitted variable 
+bias is sizeable
+We first estimate the baseline relationships between GRI adoption internal governance and brownwashing using 
+firm and year fixed effects panel models.
+Table 4 reports three specifications Column 1 is the pooled model for the continuous brownwashing gap Eq.
+1 Column 2 is the extensive margin Eq.
+2 and Column 3 is the intensive margin the same continuous specification as Eq.
+1 but restricted to firm years with GWI 0.
+Table 4.
+The extensive and intensive margins of GRI adoption on corporate brownwashing behaviors
+Variables
+1
+BROWNWASH
+pooled
+2
+P BROWNWASH 1
+extensive margin
+3
+BROWNWASH GWI 0
+intensive margin
+FemD
+0 0011
+0 0015
+0 0023
+0 0022
+0 0018
+0 0029
+GRI
+0 2146
+0 0566
+
+0 1337
+0 0476
+0 1285
+0 0732
+BSize
+0 0075
+0 0091
+0 0109
+0 0132
+0 0043
+0 0199
+InD
+0 0001
+0 0011
+0 0021
+0 0016
+0 0036
+0 0022
+SustCom
+0 0202
+0 0297
+0 0075
+
+0 0372
+0 0376
+0 0656
+Size
+0 0022
+0 0766
+0 0299
+0 0798
+0 2413
+0 1401
+ROA
+0 0031
+0 0023
+0 0062
+0 0027
+0 0032
+0 0050
+Lev
+0 0018
+0 0023
+0 0024
+0 0022
+
+0 0018
+0 0038
+MTB
+0 0044
+0 0024
+0 0020
+0 0029
+0 0127
+0 0054
+log co2
+0 0098
+0 0139
+0 0343
+0 0185
+0 0213
+0 0248
+Firm FE
+Yes
+Yes
+Yes
+Year FE
+Yes
+
+Yes
+Yes
+Observations
+1 506
+1 506
+704
+Firms
+385
+385
+296
+R squared
+0 820
+0 662
+0 858
+Note This table reports fixed effects panel regressions of GRI reporting standard adoption on brownwashing.
+Column 1 is the pooled model on the continuous gap column 2 is the extensive margin model whether a firm 
+brownwashes and column 3 is the intensive margin model severity conditional on brownwashing occurring.
+We omit the greenwashing side results the algebraic mirror image of columns 1 2 for brevity.
+We report cluster robust standard errors in parentheses.
+denote statistical significance at 1 5 10.
+Source Authors own work.
+Column 1 shows that GRI adoption is significantly and negatively associated with the continuous magnitude of 
+brownwashing ss 0 2146 p 0 01 supporting H1 Hawn Ioannou 2016.
+Decomposing this relationship reveals an asymmetry.
+In Column 2 GRI remains a significant negative predictor on the extensive margin ss 0 1337 p 0 01 adopting GRI 
+lowers the probability of brownwashing by 13 37 percentage points.
+
+Among firms that already brownwash GWI 0 Column 3 shows the GRI coefficient on the intensive margin stays 
+negative and remains significant at the 10 level ss 0 1285 p 0 10 close in magnitude to the extensive margin 
+coefficient.
+Standardized disclosure therefore works as both a preventive and a corrective mechanism though we 
+estimate the effect with less precision once brownwashing has already started consistent with a smaller more 
+heterogeneous subsample of brownwashing firms.
+Structured comparable GRI indicators set a transparency baseline that raises the reputational cost of 
+brownwashing consistent with the observed reduction in its likelihood Friske 2024 Wang et al 2026 Yue et al 
+2026 and the voluntary loosely enforced nature of GRI adoption in emerging ASEAN markets may still explain 
+why the intensive margin effect though present carries a larger standard error than the extensive margin effect 
+Boiral 2013 Roszkowska Menkes et al 2024.
+Board gender diversity FemD is negative but not significant in any specification ss 0 0011 p 0 10 pooled ss 0 0023 
+p 0 10 extensive margin so the data do not support H2.
+Stakeholder agency and gender socialization theory predict that female directors act as vigilant monitors Boulouta 
+2013 Eagly et al 2003 Eliwa et al 2023 but our results fit a tokenism explanation better Kanter 1977 Manita et al 
+2018.
+Female board representation in the ASEAN 5 sample averages only 18 97 Table 3 often below the critical mass 
+needed for substantive influence Konrad et al 2008 and female directors face structural barriers to shaping capital 
+intensive reporting strategies Moreno Ureba 2026.
+Sustainability committee presence SustCom also shows no significant baseline relationship with brownwashing 
+ss 0 0202 p 0 10 pooled ss 0 0075 p 0 10 extensive margin which does not support a direct effect.
+Committees in ASEAN firms may play a symbolic legitimacy seeking role rather than exercise substantive 
+oversight Boiral 2013 Qiu et al 2026 Stefanescu Suciu 2026 and on their own they do not appear to change 
+disclosure incentives unless tied to an external standard such as the GRI.
+Among the controls profitability ROA is negative and significant on the extensive margin ss 0 0062 p 0 05 
+profitable firms are less likely to brownwash which fits the behavioral theory of the firm Kim Lyon 2015 Yue et al 
+2026.
+Profitable firms face less survival anxiety while distressed firms underreport to manage investor expectations 
+and avoid setting a performance benchmark they cannot sustain Yue et al 2026.
+Growth opportunities MTB are negative and significant on the intensive margin ss 0 0127 p 0 05 suggesting 
+that high growth firms brownwash less severely once decoupled likely because they prioritize capital market 
+legitimacy for external financing Cepeda 2026.
+Board independence InD is positive and significant on the intensive margin ss 0 0036 p 0 10 among firms that 
+already brownwash those with more independent boards underreport more severely a result we do not have a 
+strong theoretical prior for and flag for future work.
+Carbon intensity log co2 is negative and significant on the extensive margin ss 0 0343 p 0 10 consistent with 
+higher emission firms facing more scrutiny and so being less likely to brownwash at all.
+We run a series of econometric robustness tests to check the validity and causal identification of the baseline 
+results.
+Note: This table reports fixed-effects panel regressions of GRI reporting-standard adoption on brownwashing.
+Table 5.
+Advanced mechanisms structural sensitivity and endogeneity checks
+Model Specification Subsample
+Coefficient GRI
+Standard Error
+p value
+N Firms
+Panel A Theoretical Mechanisms and Interactions
+1 Interaction with SustCom GRI x SustCom
+0 1169
+0 1760
+0 507
+1 506 385
+Panel B Sensitivity of Statistical Inference
+2 Full sample two way clustering Firm Year
+0 1337
+0 0501
+0 026
+1 506 385
+Panel C Sensitivity of Identification Switcher Subsample
+3 71 switchers only cluster Firm
+0 0974
+0 0512
+
+0 062
+382 71
+4 71 switchers only cluster Firm Year
+0 0974
+0 0562
+0 117
+382 71
+5 62 clean switchers only cluster Firm
+0 0821
+0 0571
+0 156
+302 62
+Panel D Specification and Endogeneity Diagnostics
+6 Industry Country Year FE no Firm FE
+0 2810
+0 0409
+0 001
+1,506 / 385
+Panel E Sample Selection Correction
+7 Heckman two step selection corrected
+0 2799
+0 0532
+
+0 001
+1 506 385
+Note This table shows mechanism interactions sensitivity diagnostics and tests for endogeneity of the GRI effect 
+on the extensive margin of brownwashing.
+Panel A provides a supplementary test of the logic of H3 by using the interaction between GRI and sustainability 
+committee SustCom.
+Panels B C offer sensitivity diagnostics by comparing statistical power across alternative clustering and switcher 
+subsamples.
+Panel D illustrates the importance of firm fixed effects FE in purging unobserved time invariant heterogeneity 
+and Panel E performs a Heckman two step correction for sample selection into the analytical panel reported 
+coefficients are GRI estimates from second stage regression.
+We report cluster robust standard errors in parentheses.
+denote statistical significance at 1 5 10.
+Source Authors own work.
+The interaction term Model 1 is positive but far from significant ss 0 1169 p 0 507 so sustainability committees do 
+not moderate the extensive margin of brownwashing.
+Standardized reporting appears to act as a field level force that operates independently of internal governance 
+GRI s comparability requirements discipline managerial communication on their own Friske 2024 Roszkowska 
+Menkes et al 2024 leaving no additional role for committee presence.
+Panel B checks whether the statistical inference holds up against cross sectional dependence and regional 
+macroeconomic shocks.
+Model 2 re estimates the extensive margin model with standard errors clustered two ways by firm and by year 
+Wooldridge 2010.
+Under this more demanding specification the GRI coefficient stays negative and significant at the 5 level ss 0 1337 
+p 0 026 so the disciplinary effect of standardized reporting on brownwashing holds up against more complex 
+regional error structures.
+Panel C tests the sensitivity of the identification strategy.
+With the firm fixed effects specification within firm variation alone identifies the GRI coefficient drawn only from 
+firms that change their GRI status during 2014 2024 termed switchers.
+In Model 3 we restrict the sample to these 71 switchers 382 observations and cluster standard errors on firm level.
+The estimate of GRI remains negative and significant at 10 ss 0 0974 p 0 062.
+In the following models we narrow the specification further.
+In Model 4 we use two way clustered standard errors the magnitude of GRI s coefficient remains similar ss 0 0974 
+p 0 117 but it loses significance because of the small sample size.
+Model 5 further restricts to 62 clean switchers 302 observations firms that transition to or from GRI once and 
+do not revert to their previous status and still obtains a negative similarly sized estimate of GRI s coefficient ss 0 
+0821 p 0 156 though also not significant at conventional levels.
+Across all three switcher specifications the point estimate stays negative and stable in magnitude consistent with 
+within firm transitions rather than cross sectional differences between firms identifying the baseline result even 
+though statistical power falls as the switcher subsample shrinks.
+This supports the causal interpretation.
+Panel D tests the sensitivity of the specification in Model 6 we remove firm fixed effects and introduce industry 
+country and year dummies instead.
+The GRI coefficient more than doubles in magnitude from 0 1337 in the firm fixed effects specification to 0 2810 p 
+0 001 consistent with omitted variable bias unobserved time invariant firm specific factors such as ethical culture 
+or management quality Eliwa et al 2023 Moreno Ureba 2026 may correlate positively with the decision to adopt 
+the GRI framework and negatively with the level of brownwashing.
+Firm fixed effects are therefore necessary to isolate the effect of the institutional change in sustainability reporting 
+practices.
+In Model 7 reported in Panel E firms may have self selected into the analytic panel analytic panel entry firms may 
+be a non random subset of all firms.
+Applying Heckman two step selection correction yields the same main result the GRI coefficient remains negative 
+and significant at 1 ss 0 2799 p 0 001 close in magnitude to the omitted variable bias estimate in Panel D Selection 
+correction leaves the coefficient s sign and significance unchanged and the Inverse Mills ratio is itself insignificant 
+ss 0 2916 p 0 155 full first and second stage Heckman output available from the corresponding author on request 
+indicating that selection into the panel is not driving the result.
+Because this test uses the same within firm variation as the baseline specification it should be read as a check 
+on the baseline estimate rather than as independent evidence from a different identification source.
+We next test the antecedent pathway implied by H4 whether the presence of a sustainability committee predicts 
+a firm s future GRI adoption.
+Results in Table 6 Model 1 show the antecedent test in which we regress GRI on a one year lagged SustCom in 
+a firm and year fixed effects panel model with the same control variables used throughout the paper.
+Table 6.
+Antecedent test sustainability committee presence and GRI adoption H4
+Model Specification
+Coefficient SustCom
+Standard Error
+p value
+N Firms
+1 Firm Year FE one year lag primary specification
+0 0141
+0 0191
+
+0 461
+1 506 385
+2 Contemporaneous SustCom no lag
+0 0192
+0 0177
+0 279
+1 506 385
+3 Industry Country Year FE
+0 0034
+0 0219
+0 878
+1 506 385
+4 Pooled Year FE only
+0 0111
+0 0218
+0 611
+1 506 385
+Source Authors own work.
+Models 2 4 vary the specification for robustness model 2 uses contemporaneous SustCom without the one year 
+lag model 3 replaces firm fixed effects with industry country and year fixed effects and model 4 uses a pooled 
+specification with year fixed effects only.
+In all models we cluster standard errors by firm and report them in parentheses below the coefficient estimates.
+We include control variables board size board independence firm size leverage ROA market to book and log CO2 
+emissions in all specifications but omit them from the table to save space full regression coefficients are available 
+from the corresponding author on request.
+
+SustCom coefficient is tiny and statistically indistinguishable from zero in the main model ss 0 0141 p 0 461 
+meaning that the data do not support H4.
+The finding is consistent across different model specifications.
+We find the same null effect when we use a non lagged SustCom variable ss 0 0192 p 0 279 when replacing firm 
+fixed effects with industry country and year fixed effects ss 0 0034 p 0 878 or when using a pooled specification 
+with only year fixed effects ss 0 0111 p 0 611.
+All these results imply that the presence of sustainability committees does not predict adoption of the GRI 
+standards by firms.
+The wider implication is that this finding challenges resource dependence theory.
+External reporting and internal governance appear to work through separate channels GRI adoption is a direct 
+discipline mechanism H1 and SustComs neither substitute for nor trigger it.
+Figure 2 shows GRI adoption trends 2014 2024.
+Adoption rises steadily and switching events are spread gradually across years rather than clustered around one 
+macro shock a pattern that favors fixed effects identification because it rules out the possibility that the mitigating 
+effect comes from a single crisis or policy reform.
+Figure 2.
+GRI adoption trends and switcher diffusion timing 2014 2024
+Source Authors own work.
+Figure 3 reports the GRI coefficient across the seven specifications in Table 5.
+The coefficient is negative and stable across every specification except the GRI x SustCom interaction term which 
+captures a different quantity the incremental effect of committee presence not the main GRI effect indicating that 
+the mitigating effect does not depend on any particular set of controls or clustering choices.
+Figure 3.
+Robustness diagnostics and specification testing for the primary GRI coefficient.
+Source Authors own work.
+Main results focus on two way decoupling of ESG reporting practices in ASEAN 5 markets during 2014 2024 
+by jointly considering the effects of external reporting guidance and internal board monitoring on corporate 
+brownwashing.
+Our panel fixed effects findings indicate a consistent pattern.
+The adoption of GRI sustainability reporting standards is negatively and significantly associated with 
+brownwashing but in a non homogeneous manner.
+GRI standards restrict both the extensive margin of brownwashing decisions i e whether a firm initiates 
+brownwashing and the intensive margin i e the severity of ESG score underreporting among brownwashers with 
+coefficients similar in magnitude but the extensive margin effect estimated with greater statistical precision.
+This pattern is congruent with the information discipline hypothesis H1.
+Uniform comparable indicators are likely to increase the reputational risks associated with brownwashing Garcia 
+Sanchez et al 2022 Kim Lyon 2015 and act as a deterrent against the initiation of brownwashing practices and with 
+less precision against its continuation once underway though this effect is more muted for voluntary standards 
+practiced in the developing ASEAN markets Boiral 2013 Roszkowska Menkes et al 2024.
+Second neither FemD nor SustCom correlates significantly with brownwashing H2 H3 which runs against 
+stakeholder agency and gender socialization theories but fits a tokenism explanation instead Kanter 1977 Manita 
+et al 2018 women still hold only 18 97 of ASEAN boardroom seats on average short of the critical mass needed 
+to affect disclosure decisions Moreno Ureba 2026 and sustainability committees may function as a legitimacy 
+seeking symbol rather than a substantive monitor Qiu et al 2026.
+Third the antecedent model results indicate that sustainability committee presence is not a significant predictor 
+of the adoption of GRI guidelines.
+The coefficient estimates for this variable in all model specifications tested are close to zero and statistically 
+insignificant see Table 6.
+So not support for H4 These results shift the analytical focus from the well studied unidirectional exaggeration 
+of greenwashing to the more complex intentional underreporting of brownwashing answering Moreno Ureba s 
+2026 call to disentangle corporate decoupling.
+With this we move the analytical framing away from unidirectional exaggeration greenwashing and into more 
+complicated intentional underreporting brownwashing phenomena.
+And just for the record the findings here answer Moreno Ureba s 2026 call to disentangle corporate decoupling.
+This paper based on neoinstitutional stakeholder agency gender socialization and resource dependence theories 
+analyses respectively interaction and antecedent effects and finds that the coefficients do not significantly differ 
+from zero.
+In practical terms this means that the studied mechanisms act through different paths rather than a single system 
+of reinforcement.
+We repeat the external standardization and internal governance mechanisms are different things.
+The extensive versus intensive margin analysis extends neoinstitutional theory further by showing that standard 
+adoption works as a field level constraint that prevents brownwashing and with a similarly sized but less precisely 
+estimated coefficient corrects it once underway Meyer Rowan 1977 Roszkowska Menkes et al 2024 Wijen 2014.
+Our findings carry implications for regulators directors and capital market participants Freeman 1984.
+For policymakers mandating disclosure or encouraging voluntary GRI ado
