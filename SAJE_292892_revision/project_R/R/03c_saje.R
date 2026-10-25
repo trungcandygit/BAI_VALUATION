@@ -95,7 +95,15 @@ agg_win <- function(cells, ca, lo, hi) {
   sum(ca[s, 1] * ca[s, 2]) / sum(ca[s, 2])
 }
 
+CACHE <- file.path(OUT, "cache_saje"); dir.create(CACHE, showWarnings = FALSE)
 run_win <- function(y, lo = 0L, hi = 3L, ..., W = WBOOT) {
+  # Results are cached by their arguments and the bootstrap matrix, so an interrupted run resumes where it stopped.
+  tf <- tempfile(); saveRDS(list(y, lo, hi, list(...), dim(W), sum(W[1:50, 1:50])), tf)
+  ck <- file.path(CACHE, paste0(unname(tools::md5sum(tf)), ".rds")); unlink(tf)
+  if (file.exists(ck)) return(readRDS(ck))
+  res <- run_win_(y, lo, hi, ..., W = W); saveRDS(res, ck); res
+}
+run_win_ <- function(y, lo = 0L, hi = 3L, ..., W = WBOOT) {
   cells <- build_cells2(y, ...)
   cells <- cells[vapply(cells, function(cl) cl$e >= lo && cl$e <= hi, logical(1))]   # only cells in the window
   est <- agg_win(cells, cell_atts2(cells, rep(1L, NF)), lo, hi)
