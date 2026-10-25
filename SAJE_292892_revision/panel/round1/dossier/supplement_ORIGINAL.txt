@@ -1,0 +1,139 @@
+Supplementary material
+Who Gets an ESG Score? Coverage Selection and Firm Value in Five Southeast Asian Markets
+This supplementary material accompanies "Who Gets an ESG Score? Coverage Selection and Firm Value in Five Southeast Asian Markets." Table S1 re-estimates the average effects of the first score over event years 0 to 3 after excluding one market at a time. Table S2 and Figure S1 show the number of non-financial firms that received their first LSEG ESG score in each year, by market. Table S3 reports the estimates for each market separately, Table S4 the number of firm-years available for each outcome, Table S5 the relative-magnitude bounds of Eq. (10) in the paper, and Table S6 the number of scored and control firms by event year for ln MTB. Table S7 and Figure S2 report the exploratory analyses added after the second review, and Table S8 decomposes the gap between the static two-way fixed effects estimate and the baseline. The pre-analysis plan is provided with the replication package.
+Appendix B. Additional robustness results
+B.1. Event year 4 (Section 5.3)
+Only 141 scored firms from 6 cohorts reach event year 4; therefore, we plot that year in Figure 1 but exclude it from Eq. (6). Its estimates are −0.077 for MTB (p = 0.209) and 0.088 for market capitalization (p = 0.153).
+B.2. Further timing variants of R10 (Section 5.4)
+Under R10, the decline in log MTB loses significance once M̄ in Eq. (10) reaches 0.23. Holding total assets at the original base year gives −0.074 (p = 0.002), so the covariate timing does not drive R10. Dating coverage two years later gives −0.048 (95% interval −0.099 to 0.000), a smaller decline that is no longer significant at the 5% level.
+B.3. Reconciling the R10 and baseline event-time paths (Section 5.4, Fig. S2)
+The baseline path in Figure 1 does not show the R10 decline because its later event years come from early cohorts, while its first post-coverage years pool all cohorts. Re-based within each cohort to the first scored year, the baseline point estimates for event years 3 and 4 are −0.083 and −0.167, respectively. These lie closer to the corresponding R10 estimates of −0.138 and −0.200 than the pooled baseline path suggests. We report the re-based values without standard errors, as a reconciliation of the two paths rather than a test.
+B.4. Size covariate and support (Section 5.5, Table S7, Fig. S2)
+Table S7 and Figure S2 vary the size covariate and support. The run-up does not depend on conditioning on base-year total assets. Without covariates, the MTB run-up from event year −5 to the base year is 6.6%, weaker than the baseline (event year −5 p = 0.068; pre-trend p = 0.028), and the market capitalization run-up is 24.0%. With total assets measured two years before the base year, it is 8.0% for MTB (pre-trend p = 0.176) and 20.3% for market capitalization. The post-coverage MTB effect is −0.008 with total assets measured two years earlier and −0.010 with quintile indicators. Restricting scored firms to those no larger than the 95th percentile of never-scored firms in their cell changes the estimand to the effect on scored firms within the controls' size range. This restriction keeps 492 scored firms and gives −0.021 for MTB (p = 0.426; pre-trend p = 0.212) and −0.096 for market capitalization (p = 0.006). The post-coverage MTB estimate therefore does not depend on extrapolating the size adjustment to the largest firms, whereas the negative market capitalization effect is larger within the controls' size range.
+B.5. Decomposition of the TWFE gap (Section 5.5, Table S8)
+Table S8 shows the decomposition of the gap between the static TWFE estimate in row R6 and the headline MTB estimate. Restricting the regression to never-scored controls and event years −5 to 3 changes the estimate to only 0.058, while the heterogeneity-robust estimator gives 0.025 without covariates and 0.002 with them. Comparing each cohort with its own base year, rather than pooling all years, accounts for approximately half of the gap. Conditioning on base-year total assets accounts for most of the rest, and the choice of controls and window for little.
+B.6. Market-by-market and early versus late cohorts (Section 5.5, Table S3)
+Estimated market by market in Table S3, the MTB effect is 0.009 in Malaysia, with 372 scored firms, and 0.027 in Thailand, with 157. Indonesia, the Philippines, and Singapore have few scored firms and imprecise estimates. The 58 firms first scored by 2019 show a positive post-coverage MTB estimate of 0.094 (p = 0.047; 95% interval 0.002 to 0.185), and the larger group first scored from 2020 shows −0.010 (p = 0.687). The early estimate rests on few firms, is one of many exploratory comparisons, and is not adjusted for multiple testing, so we do not read it as evidence of a gain for early entrants.
+B.7. Breadth of the Malaysian wave (Section 5.3, Fig. 2)
+The Malaysian wave added 289 firms in two years, yet 565 Malaysian firms remained never-scored, so it was broad but not market-wide.
+
+Table S1.  Leave-one-market-out estimates of the average effect of the first LSEG ESG score
+Sample | ln(MTB) | ln(market cap) | Leverage (ratio) | ln(assets)
+Without Indonesia | 0.017 (0.024) | −0.030 (0.030) | 0.011** (0.005) | 0.037* (0.020)
+Without Malaysia | −0.003 (0.035) | 0.037 (0.038) | 0.022*** (0.008) | 0.046 (0.029)
+Without Philippines | −0.001 (0.025) | −0.066** (0.031) | 0.009* (0.005) | 0.031* (0.019)
+Without Singapore | −0.007 (0.025) | −0.066** (0.032) | 0.005 (0.005) | 0.063*** (0.019)
+Without Thailand | 0.004 (0.029) | −0.096** (0.037) | 0.004 (0.005) | 0.040* (0.021)
+Note: Cells show the average effect over event years 0 to 3 without the named market, with bootstrap standard errors in parentheses. *, **, and *** denote significance at 10%, 5%, and 1% (unadjusted p-values).
+Source: Author's calculations from LSEG ESG scores and Compustat Global.
+
+Table S2.  Number of non-financial firms by year of first LSEG ESG score and market
+First score year | Indonesia | Malaysia | Philippines | Singapore | Thailand | Total
+2015 | 2 | 0 | 2 | 0 | 4 | 8
+2016 | 3 | 2 | 1 | 1 | 2 | 9
+2017 | 1 | 4 | 0 | 0 | 2 | 7
+2018 | 2 | 3 | 1 | 0 | 2 | 8
+2019 | 1 | 2 | 0 | 9 | 18 | 30
+2020 | 3 | 5 | 1 | 34 | 47 | 90
+2021 | 6 | 96 | 5 | 3 | 31 | 141
+2022 | 13 | 193 | 4 | 1 | 26 | 237
+2023 | 8 | 83 | 0 | 2 | 16 | 109
+2024 | 3 | 16 | 0 | 0 | 17 | 36
+Note: Firms first scored in 2014 are excluded because they have no pre-coverage year.
+Source: Author's calculations from LSEG ESG scores.
+
+
+Figure S1.  Number of non-financial firms by year of first LSEG ESG score
+Note: Bars show the number of firms in the estimation sample first scored in each year, all five markets combined.
+Source: Author's calculations from LSEG ESG scores.
+
+Table S3.  Estimates of the average effect of the first LSEG ESG score by market
+Market | ln(MTB) | ln(market cap) | Leverage (ratio) | ln(assets) | Scored firms
+Indonesia | 0.054 (0.128) | −0.018 (0.109) | 0.023 (0.018) | 0.123* (0.070) | 39
+Malaysia | 0.009 (0.033) | −0.114** (0.048) | 0.002 (0.006) | 0.033 (0.024) | 372
+Philippines | −0.006 (0.109) | 0.101 (0.128) | 0.041 (0.028) | 0.025 (0.079) | 14
+Singapore | −0.037 (0.073) | 0.143* (0.087) | 0.048** (0.020) | 0.013 (0.084) | 46
+Thailand | 0.027 (0.047) | 0.059 (0.059) | 0.025* (0.013) | 0.017 (0.040) | 157
+Note: Cells show the average effect over event years 0 to 3 estimated within each market, with bootstrap standard errors in parentheses. *, **, and *** denote significance at 10%, 5%, and 1% (unadjusted p-values).
+Source: Author's calculations from LSEG ESG scores and Compustat Global.
+
+Table S4.  Firm-years and firms available for each outcome
+Outcome | Scored firm-years | Scored firms | Never-scored firm-years | Never-scored firms | Share missing
+ln(MTB) | 6,482 | 674 | 20,706 | 2,552 | 0.248
+ln(market cap) | 6,710 | 675 | 22,417 | 2,576 | 0.195
+Leverage (ratio) | 6,524 | 672 | 22,333 | 2,547 | 0.202
+ln(assets) | 6,916 | 675 | 24,814 | 2,611 | 0.123
+Note: Counts refer to the estimation sample; the last column is the share of firm-years with a missing outcome.
+Source: Author's calculations from LSEG ESG scores and Compustat Global.
+
+Table S5.  Relative-magnitude bounds for the average effect of the first LSEG ESG score
+Outcome | M̄ | Max pre-period change | Bias bound | Robust 95% interval
+ln(MTB) | 0.00 | 0.046 | 0.000 | [−0.046, 0.048]
+ln(MTB) | 0.25 | 0.046 | 0.025 | [−0.071, 0.073]
+ln(MTB) | 0.50 | 0.046 | 0.050 | [−0.096, 0.098]
+ln(MTB) | 1.00 | 0.046 | 0.101 | [−0.147, 0.148]
+ln(market cap) | 0.00 | 0.063 | 0.000 | [−0.109, 0.003]
+ln(market cap) | 0.25 | 0.063 | 0.035 | [−0.144, 0.038]
+ln(market cap) | 0.50 | 0.063 | 0.070 | [−0.179, 0.073]
+ln(market cap) | 1.00 | 0.063 | 0.140 | [−0.249, 0.143]
+Leverage (ratio) | 0.00 | 0.012 | 0.000 | [−0.001, 0.018]
+Leverage (ratio) | 0.25 | 0.012 | 0.007 | [−0.007, 0.025]
+Leverage (ratio) | 0.50 | 0.012 | 0.013 | [−0.014, 0.031]
+Leverage (ratio) | 1.00 | 0.012 | 0.026 | [−0.027, 0.044]
+ln(assets) | 0.00 | 0.035 | 0.000 | [0.007, 0.081]
+ln(assets) | 0.25 | 0.035 | 0.020 | [−0.012, 0.101]
+ln(assets) | 0.50 | 0.035 | 0.039 | [−0.032, 0.120]
+ln(assets) | 1.00 | 0.035 | 0.078 | [−0.071, 0.159]
+Note: The bias bound is M̄ times the largest change between consecutive pre-coverage estimates times the weighted mean of (e + 1) over event years 0 to 3 (Eq. 10). The robust interval widens the bootstrap 95% interval by this bound.
+Source: Author's calculations from LSEG ESG scores and Compustat Global.
+
+Table S6.  Scored firms and control firms by event year for ln(MTB)
+Event year | Scored firms | Cohorts | Control firms (range)
+−5 | 497 | 6 | 1,420–1,732
+−4 | 521 | 7 | 1,431–1,800
+−3 | 549 | 8 | 1,444–1,899
+−2 | 581 | 9 | 1,455–2,065
+0 | 615 | 10 | 1,453–2,189
+1 | 578 | 9 | 1,442–2,034
+2 | 483 | 8 | 1,430–1,895
+3 | 270 | 7 | 1,418–1,796
+4 | 141 | 6 | 1,407–1,732
+Note: Scored firms are summed over cohorts; control firms are the smallest and largest number of never-scored firms across cohort cells.
+Source: Author's calculations from LSEG ESG scores and Compustat Global.
+
+Table S7.  Alternative specifications, inference, and initial-score splits for the average effect of the first LSEG ESG score
+Specification | ln(MTB) | Pre-trend p | ln(market cap) | Pre-trend p 
+Baseline | 0.002 (0.024) | 0.074 | −0.055* (0.030) | 0.022
+Baseline, market-by-industry cluster bootstrap | 0.002 (0.027) | 0.225 | −0.055 (0.037) | 0.001
+R10, market-by-industry cluster bootstrap | −0.068*** (0.026) | 0.237 | −0.073** (0.031) | 0.002
+No covariates | 0.025 (0.022) | 0.028 | 0.016 (0.025) | <0.001
+Size measured at g − 3 | −0.008 (0.025) | 0.176 | −0.059* (0.032) | <0.001
+Size quintile indicators | −0.010 (0.023) | 0.072 | −0.053* (0.029) | 0.016
+Scored firms within control size range | −0.021 (0.026) | 0.212 | −0.096*** (0.035) | 0.133
+Dated one year later (R10) | −0.068*** (0.024) | 0.072 | −0.073** (0.030) | 0.002
+R10, size at original g − 1 | −0.074*** (0.024) | 0.066 | −0.060** (0.029) | 0.005
+Dated two years later | −0.048* (0.025) | 0.023 | −0.022 (0.028) | 0.076
+Malaysia, first scored 2021–2022 | 0.021 (0.037) | 0.549 | −0.146*** (0.051) | 0.491
+Thailand and Singapore, 2019–2020 | −0.009 (0.048) | 0.006 | 0.041 (0.052) | <0.001
+All other cohorts | −0.016 (0.034) | 0.006 | 0.005 (0.037) | 0.652
+Cohorts first scored by 2019 | 0.094** (0.047) | 0.003 | 0.185*** (0.052) | <0.001
+Cohorts first scored from 2020 | −0.010 (0.026) | 0.199 | −0.087*** (0.033) | 0.106
+High residual initial score | −0.012 (0.029) |  | −0.051 (0.035) | 
+Low residual initial score | 0.016 (0.033) |  | −0.059 (0.041) | 
+High minus low | −0.027 (0.040) |  | 0.008 (0.046) | 
+Note: Cells show the average effect over event years 0 to 3 with bootstrap standard errors in parentheses and the joint pre-trend p-value of Eq. (8); all rows are exploratory. *, **, and *** denote significance at 10%, 5%, and 1% (unadjusted p-values).
+Source: Author's calculations from LSEG ESG scores and Compustat Global.
+
+Table S8.  Decomposition of the gap between the static two-way fixed effects estimate and the baseline estimate
+Estimator | ln(MTB) | ln(market cap)
+Static TWFE, all firm-years (R6) | 0.064** (0.026) | 0.185*** (0.032)
+Static TWFE, never-scored controls, event years −5 to 3 | 0.058** (0.025) | 0.149*** (0.030)
+Heterogeneity-robust, no covariates (R2) | 0.025 (0.022) | 0.016 (0.025)
+Heterogeneity-robust baseline | 0.002 (0.024) | −0.055* (0.030)
+Note: Rows move step by step from Eq. (11) on all firm-years to the baseline of Eq. (6), with standard errors in parentheses (firm-clustered for TWFE, bootstrap otherwise). *, **, and *** denote significance at 10%, 5%, and 1%.
+Source: Author's calculations from LSEG ESG scores and Compustat Global.
+
+
+Figure S2.  Event-time effects on ln(MTB) under alternative specifications and dating
+Note: Panel A varies the size covariate and the support with the first scored fiscal year as event; panel B dates the event one year later. Marker shape and line type identify the specification, and bars are bootstrap 95% intervals.
+Source: Author's calculations from LSEG ESG scores and Compustat Global.

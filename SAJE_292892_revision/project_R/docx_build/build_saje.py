@@ -95,7 +95,12 @@ class Writer:
 
 
 def heading(d, w, text, level):
-    p = d.add_paragraph(); w.runs(p, text, bold=True, size=13 if level == 1 else 12)
+    p = d.add_paragraph(style='Heading %d' % level); w.runs(p, text, bold=True, size=13 if level == 1 else 12)
+    for r in p.runs:   # real Word headings, typeset like the journal's sample (Times New Roman, black)
+        r.font.name = 'Times New Roman'; r.italic = False
+        r._r.get_or_add_rPr().get_or_add_rFonts().set(qn('w:eastAsia'), 'Times New Roman')
+        if r.font.color.rgb != BLUE:
+            r.font.color.rgb = RGBColor(0, 0, 0)
     set_spacing(p, 1.5, 6, 18 if level == 1 else 8)
     p.paragraph_format.keep_with_next = True
     return p
@@ -160,7 +165,7 @@ def table_exhibit(d, w, caption, csvfile, note, source, widths=None, size=10, bl
     q = d.add_paragraph(); w.runs(q, 'Source: ' + source, size=9, force_blue=blue); set_spacing(q, 1.0, 12)
 
 
-def figure_exhibit(d, w, caption, png, note, source, blue=False, width=6.0):
+def figure_exhibit(d, w, caption, png, note, source, blue=False, width=6.5):
     lab, title = [s.strip() for s in caption.split('|')]
     p = d.add_paragraph(); w.runs(p, lab + '. ' + title, force_blue=blue, size=11)
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER; set_spacing(p, 1.0, 6, 12); p.paragraph_format.keep_with_next = True
@@ -267,7 +272,7 @@ def reference_doc():
     """Pandoc reference document with Times New Roman 12 pt and 1.5 line spacing."""
     from docx import Document
     ref = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'saje_reference.docx')
-    data = subprocess.run(['pandoc', '-o', '-', '--print-default-data-file', 'reference.docx'], check=True,
+    data = subprocess.run(['pandoc', '--print-default-data-file', 'reference.docx'], check=True,
                           capture_output=True).stdout
     open(ref, 'wb').write(data)
     d = Document(ref)

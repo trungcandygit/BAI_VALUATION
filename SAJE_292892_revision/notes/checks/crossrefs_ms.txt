@@ -1,0 +1,24 @@
+# Cross-reference check: 03_Manuscript_Revised_Clean.docx
+
+Summary: 25 hard failures (missing targets, duplicate captions, unmatched citations).
+
+## 1. Tables and figures: 9 captions, 22 distinct mentions
+- Mentioned but no caption found (13): Figure S1 (blocks [40]), Figure S2 (blocks [332]), Table S1 (blocks [478]), Table S10 (blocks [331]), Table S11 (blocks [439]), Table S2 (blocks [40]), Table S3 (blocks [483]), Table S4 (blocks [43]), Table S5 (blocks [335]), Table S6 (blocks [43]), Table S7 (blocks [187, 481]), Table S8 (blocks [187, 479, 495]), Table S9 (blocks [483])
+- Captioned but never mentioned in the text (0): none
+- Duplicate caption numbers (0): none
+- Order and numbering issues (0): none
+
+## 2. Sections and appendices: 35 numbered headings, 17 section mentions, 1 appendix mentions
+- Section mentions with no heading (0): none
+- Appendix mentions with no appendix heading or appendix exhibit (1): Appendix B (blocks [334, 478])
+- Note: no heading starting with 'Appendix' was found; appendix exhibits exist only as captions.
+
+## 3. Equations: 11 numbered, 8 referenced
+- Referenced but not found (0): none
+- Numbered but never referenced (3): (1), (2), (4)
+
+## 4. Citations: 42 distinct in-text author-year keys, 43 reference entries parsed (of 44 reference paragraphs)
+- Cited in text but not in the reference list (5): Exchange 2016 (blocks [38]), Intelligence 2025 (blocks [42]), Keuangan 2017 (blocks [38]), Malaysia 2015 (blocks [38]), Philippines 2019 (blocks [38])
+- Likely year mismatches (0): none
+- In the reference list but never cited (6): Berg 2022, Bursa 2015, Otoritas 2017, S&P 2025, Securities 2019, Singapore 2016
+

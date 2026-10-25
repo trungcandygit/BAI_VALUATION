@@ -1,0 +1,79 @@
+Reviewer Report
+
+The manuscript examines the selection of firms into LSEG ESG coverage and its relationship with firm valuation in five Southeast Asian markets. Using a staggered difference-in-differences framework, the study finds that firms entering ESG coverage generally experienced stronger valuation growth before receiving their first recorded score, while the baseline estimates provide little evidence of a subsequent increase in market-to-book ratios.
+
+The research question is relevant, particularly given the limited ESG rating coverage in emerging markets. The paper also makes a serious effort to address some of the methodological difficulties associated with staggered treatment adoption. I appreciate the distinction between pre-specified and exploratory analyses, as well as the authors' willingness to acknowledge the limitations of their findings.
+
+Nevertheless, I have substantial concerns about the identification strategy, the measurement of treatment timing, and the interpretation of the empirical results. These issues affect the main conclusions and require more than minor revisions.
+
+Major Comments
+
+1. My main concern is whether the first year in which an LSEG ESG score appears in the database represents a meaningful treatment event. Section 3.2 acknowledges that the recorded fiscal year may precede the actual publication of the score and that historical scores may have been backfilled or subsequently revised.
+
+This distinction is particularly important because the study seeks to estimate the valuation consequences of entering ESG coverage. A score recorded retrospectively in a database is not necessarily information that was available to investors at that time. If the actual publication date differs across firms, the estimated treatment effects may combine pre-publication and post-publication observations.
+
+The authors attempt to address this issue by shifting the treatment year forward by one or two years. While these exercises are useful, they do not establish when investors could first observe the scores.
+
+I encourage the authors to investigate whether historical coverage information or archived score publication dates can be obtained, at least for a subset of firms. If this is not feasible, the paper should distinguish more carefully between the first recorded ESG score and the actual initiation of publicly observable ESG coverage. The interpretation of the treatment effects and the claims made in the abstract and conclusion should reflect this distinction.
+
+2. The validity of the difference-in-differences estimates depends heavily on the conditional parallel trends assumption. However, the empirical evidence raises concerns about whether this assumption is reasonable in the present setting.
+
+Section 5.3 reports that firms entering ESG coverage experienced approximately 10% greater growth in their market-to-book ratios before the recorded treatment year. Although the joint pre-trend test for the primary outcome does not reject at the 5% level (p = 0.074), this result should not be interpreted as evidence supporting parallel trends. The significant pre-treatment differences at individual event years and the results for market capitalization warrant particular attention.
+
+The placebo exercise in Table 3 (R5) also produces a significant positive estimate for market-to-book ratios. I recognize that the authors correctly describe this result as another manifestation of the pre-coverage growth pattern rather than independent evidence. Nevertheless, it reinforces the difficulty of constructing a credible counterfactual for the treated firms.
+
+The sensitivity analyses in Section 5.4 are helpful, but they also show that relatively modest departures from parallel trends can materially change the interpretation of the results. I would like the authors to explain more clearly why conditional parallel trends might hold after the base year despite the observed differences in earlier growth trajectories.
+
+The paper would also benefit from a clearer distinction between the observed evolution of valuation differences and the causal effect attributed to ESG coverage. If the identification assumptions cannot be supported convincingly, the conclusions should place greater emphasis on the descriptive evidence concerning selection into coverage.
+
+3. The difference between the baseline estimate and the alternative treatment timing specification deserves more attention.
+
+The baseline estimate for log market-to-book is 0.002, whereas shifting the treatment date forward by one year produces an estimate of −0.068 (Table 3, R10). The latter estimate is statistically significant and economically meaningful.
+
+I acknowledge the authors' discussion of possible mean reversion and the changing composition of cohorts across event years. However, the two specifications appear to support rather different interpretations of what happens around the initiation of ESG coverage.
+
+It would be useful to disentangle the effects of changing the treatment date, changing the reference period, and changing the estimation sample. In particular, comparisons using a common set of firms and cohorts would help establish whether the differences arise primarily from treatment timing or sample composition.
+
+The authors should also explain which treatment definition is most defensible from an economic perspective. Given the uncertainty surrounding actual score publication dates, the baseline specification should not automatically receive greater weight simply because it was pre-specified.
+
+4. The paper documents substantial differences between firms that receive ESG scores and those that remain unscored. According to Table 1, scored firms are considerably larger, and Section 4.2 reports that 24.6% of treated firms have base-year total assets exceeding the 95th percentile of the never-scored firms.
+
+This raises concerns about common support and the extent to which the control firms provide a credible counterfactual for the treated firms.
+
+The decision to use outcome regression rather than the doubly robust estimator is understandable given the reported overlap difficulties. However, outcome regression does not eliminate the underlying support problem and may rely heavily on functional-form assumptions when treated firms lie outside the observed range of the controls.
+
+The additional analysis restricting treated firms to the control group's size range is therefore important. I suggest giving this exercise greater prominence in the main text and reporting more information about the characteristics of the firms retained and excluded.
+
+The authors should also clarify how sensitive the results are to the specification of the size adjustment. This is especially relevant because firm size is closely related to both the probability of receiving ESG coverage and the valuation outcomes being examined.
+
+5. The discussion draws on investor recognition and ESG preference theories to motivate the expected valuation effects of ESG coverage. These are reasonable theoretical starting points, but the empirical analysis does not directly observe the mechanisms through which coverage might affect firm value.
+
+In particular, the study does not contain information on institutional ownership, ESG-related fund holdings, trading activity, or changes in investor participation. It is therefore difficult to determine whether the absence of a detectable valuation increase reflects limited investor recognition, weak demand for ESG-rated firms, or other factors.
+
+The high-score versus low-score comparison in Section 5.6 also requires a more cautious interpretation. The insignificant difference between the two groups does not necessarily imply that ESG preferences are unimportant. The test has limited power to detect moderate differences, and the initial ESG score may be correlated with firm characteristics such as size.
+
+I suggest that the authors distinguish more explicitly between theoretical mechanisms that motivate the hypotheses and mechanisms that can actually be evaluated with the available data. The empirical evidence appears better suited to examining selection into ESG coverage and subsequent valuation patterns than to distinguishing between investor recognition and ESG preference channels.
+
+6. Section 3.2 reports substantial differences in the availability of market-to-book ratios between scored and never-scored firms. The supplementary material further indicates that approximately one-quarter of firm-year observations are missing for the primary outcome.
+
+This is potentially important because missing market-to-book observations may be systematically associated with financial distress, negative book equity, firm size, or the likelihood of receiving ESG coverage.
+
+The authors should provide a more detailed assessment of whether the missing observations affect the composition of the treatment and comparison groups. A comparison of firms with and without usable market-to-book data would be informative.
+
+I am also concerned by the acknowledgment in Section 7 that some market capitalization observations are implausibly large. Winsorization may reduce the influence of extreme observations, but it does not necessarily correct underlying data errors. The authors should explain how these observations were identified and whether the main results are robust to excluding potentially erroneous records.
+
+7. Although the study covers five Southeast Asian markets, the distribution of treated firms is highly uneven. Malaysia and Thailand account for the overwhelming majority of firms entering ESG coverage, while the samples for Indonesia and the Philippines are particularly small.
+
+The supplementary analyses are useful in showing how the estimates vary across countries. However, the limited number of treated firms in some markets makes it difficult to draw meaningful country-specific conclusions.
+
+The Malaysian coverage wave also differs considerably from the other cohorts in terms of pre-treatment valuation dynamics. This raises the question of whether the pooled estimate represents a reasonably coherent treatment effect or averages across substantially different coverage processes.
+
+I suggest that the authors discuss more explicitly what the pooled estimates represent, particularly given the concentration of treatment observations in a few markets and years. The interpretation should acknowledge that the results primarily reflect the markets and coverage waves with the greatest representation in the sample.
+
+8. The most convincing contribution of this paper, in my view, is the evidence that entry into ESG rating coverage is selective and may follow substantial changes in firm characteristics and valuation. This is an important issue for empirical studies that compare ESG-rated and unrated firms.
+
+The evidence regarding the valuation effect of coverage itself is less conclusive. The baseline estimates are close to zero, but the alternative timing specifications, pre-treatment dynamics, and sensitivity analyses leave room for different interpretations.
+
+I therefore encourage the authors to reconsider how the paper's contribution is framed. Rather than presenting the absence of a detectable valuation gain as the central finding, the study could place greater emphasis on the empirical challenges created by selective and potentially retrospective ESG coverage.
+
+The implications for investors, rating providers, and regulators should also be reconsidered in this light. In particular, the results do not establish that expanding ESG coverage has no valuation benefits. They indicate that such benefits cannot be reliably identified from the present data and research design without additional assumptions.
