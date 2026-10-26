@@ -39,3 +39,7 @@ non-missing ESG_Score (01_data.R lines 11-14); 17 scored firms have later gaps (
 
 ## Journal requirements (O-65)
 See 03_saje_checklist.md.
+
+## Round 2 additions (2026-10-26)
+- Bikmetova & Pirinsky (2026), JBE 204(2) 335–365, doi 10.1007/s10551-025-06063-0: VERIFIED by WebSearch (Springer and RePEc pages; online July 2025). Claim "lower emissions and more ownership by high-ESG institutions" matches the abstract.
+- Tsang, Wang, Xiang & Yu (2025), CGIR 33(4) 554–577, doi 10.1111/corg.12615: VERIFIED by WebSearch (Wiley page). Coverage initiation followed by dividend increases; sample includes non-U.S. firms, so the introduction now says "Studies, mostly of U.S. firms".

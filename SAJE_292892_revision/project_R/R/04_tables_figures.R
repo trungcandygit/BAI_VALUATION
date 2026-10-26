@@ -50,7 +50,12 @@ rv2 <- read.csv(file.path(OUT, "robustness_revision2.csv"))
 cellv <- function(e, s, p) paste0(fmt(e), stars(p), " (", fmt(s), ")")
 row_of <- function(label, d) {
   d <- d[match(names(OUTCOMES), d$outcome), ]
-  as.data.frame(as.list(c(Specification = label, setNames(cellv(d$est, d$se, d$p), OUTCOMES))), check.names = FALSE)
+  m <- d[1, ]   # firm counts of the ln(MTB) estimate
+  n <- if (!is.null(m$n_treated_firms) && !is.na(m$n_treated_firms)) {
+    if (!is.null(m$n_control_firms)) paste(fmtn(m$n_treated_firms), "/", fmtn(m$n_control_firms)) else fmtn(m$n_treated_firms)
+  } else if (!is.null(m$n_firms)) paste0(fmtn(m$n_firms), " (all)") else ""
+  as.data.frame(as.list(c(Specification = label, setNames(cellv(d$est, d$se, d$p), OUTCOMES),
+                          `Scored / control firms` = n)), check.names = FALSE)
 }
 t3 <- bind_rows(
   row_of("Baseline", main_tab),
@@ -88,7 +93,7 @@ p1 <- ggplot(ev, aes(x = e, y = est)) +
   facet_wrap(~ panel, ncol = 2, scales = "free_y") +
   labs(x = "Years relative to the first recorded LSEG ESG score (base year = −1)",
        y = "Effect relative to base year (log points; leverage: ratio)") +
-  theme_bw(base_size = 10, base_family = "sans") +
+  theme_bw(base_size = 11.5, base_family = "sans") +
   theme(legend.position = "bottom", panel.grid.minor = element_blank(), strip.background = element_rect(fill = "grey92"))
 ggsave(file.path(FIG, "Fig1.eps"), p1, width = 6.5, height = 5, device = cairo_ps); strip_eps_date(file.path(FIG, "Fig1.eps"))
 ggsave(file.path(FIG, "Fig1.png"), p1, width = 6.5, height = 5, dpi = 600)
@@ -98,7 +103,7 @@ cs <- read.csv(file.path(OUT, "cohort_sizes.csv"))
 pia <- ggplot(cs, aes(x = G, y = total)) + geom_col(fill = "grey60", colour = "black", width = 0.7) +
   scale_x_continuous(breaks = cs$G) +
   labs(x = "Year of first recorded LSEG ESG score", y = "Number of non-financial firms") +
-  theme_bw(base_size = 10) + theme(panel.grid.minor = element_blank())
+  theme_bw(base_size = 11.5) + theme(panel.grid.minor = element_blank())
 ggsave(file.path(FIG, "FigIA1.eps"), pia, width = 6, height = 3.5, device = cairo_ps); strip_eps_date(file.path(FIG, "FigIA1.eps"))
 ggsave(file.path(FIG, "FigIA1.png"), pia, width = 6, height = 3.5, dpi = 600)
 

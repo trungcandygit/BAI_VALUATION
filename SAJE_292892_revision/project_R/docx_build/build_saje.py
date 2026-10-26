@@ -192,7 +192,7 @@ def set_cell(w, cell, text, bold=False, align=None, size=10, blue=False):
         p.alignment = align
 
 
-def table_exhibit(d, w, caption, csvfile, note, source, widths=None, size=10, blue=False):
+def table_exhibit(d, w, caption, csvfile, note, source, widths=None, size=9, blue=False):
     rows = list(csv.reader(open(os.path.join(OUTR, csvfile), encoding='utf-8')))
     lab, title = [s.strip() for s in caption.split('|')]
     p = d.add_paragraph(); w.runs(p, lab + '. ' + title, force_blue=blue, size=11)

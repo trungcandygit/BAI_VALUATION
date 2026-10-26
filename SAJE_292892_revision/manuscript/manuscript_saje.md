@@ -5,7 +5,7 @@
 Who Gets an ESG Score? Coverage Selection and Firm Value in Five Southeast Asian Markets
 
 @@ abstract
-{+Most listed firms in Southeast Asia have no environmental, social, and governance (ESG) score, so investors who screen on scores cannot hold them. We ask which firms enter the London Stock Exchange Group (LSEG) ESG database and what happens to their valuation around entry. We follow {{n_treated_all}} non-financial firms in Indonesia, Malaysia, the Philippines, Singapore, and Thailand that received a first recorded score and compare them with {{n_never}} never-scored firms. Entry is selective. Scored firms are larger, and on average their market-to-book ratio had grown {{mtb_runup_m5}}% faster than that of similar firms before the first recorded score, a run-up absent in a broad Malaysian wave. After entry, the valuation gap stops widening, but whether coverage itself changed valuations depends on when investors first saw the score and on untestable trend assumptions. Research and investment screens that compare rated with unrated firms should model who gets rated and when.+}
+{+Most listed firms in Southeast Asia have no environmental, social, and governance (ESG) score, so investors who screen on scores cannot hold them. We ask which firms enter the London Stock Exchange Group (LSEG) ESG database and what happens to their valuation around entry. We follow {{n_treated_all}} non-financial firms in Indonesia, Malaysia, the Philippines, Singapore, and Thailand that received a first recorded score and compare them with {{n_never}} never-scored firms. Entry is selective. Scored firms are larger, and on average their market-to-book ratio had grown {{mtb_runup_m5}}% faster than that of similar firms before the first recorded score, a run-up not detected in a broad Malaysian wave. After entry, the valuation gap stops widening, but whether coverage itself changed valuations depends on when investors first saw the score and on untestable trend assumptions. Research and investment screens that compare rated with unrated firms should model who gets rated and when.+}
 
 @@ keywords
 ESG ratings, Firm valuation, Rating coverage, {+Selection, Southeast Asia,+} Sustainable finance
@@ -26,15 +26,15 @@ Acknowledgments
 
 {+The economic intuition runs as follows. If a score makes a firm visible to more investors, its price should rise, because a wider investor base shares its risk (Merton, 1987); if the score also tells investors whether the firm is green or brown, prices should move in opposite directions for the two groups (Pástor et al., 2021; Pedersen et al., 2021). A provider, however, is likely to add a firm once it is large, liquid, and discloses enough to be scored, and its scores rise with firm size (Dobrick et al., 2023; Drempetic et al., 2020). If firms enter after a period of rising value, a comparison of scored and unscored firms credits the score with growth that came before it. The paper asks how far the data can separate the effect of being scored from the selection of who is scored.+}
 
-U.S. studies link coverage by more raters to fewer ESG violations (Tsang et al., 2024), lower emissions and more ownership by high-ESG institutions (Bikmetova & Pirinsky, 2026), and dividend increases (Tsang et al., 2025). None examines valuation in emerging markets, where most firms are unscored and coverage has expanded in waves.
+Studies, mostly of U.S. firms, link coverage by more raters to fewer ESG violations (Tsang et al., 2024), lower emissions and more ownership by high-ESG institutions (Bikmetova & Pirinsky, 2026), and dividend increases (Tsang et al., 2025). None examines valuation in emerging markets, where most firms are unscored and coverage has expanded in waves.
 
-We study Indonesia, Malaysia, the Philippines, Singapore, and Thailand. Of the {{n_treated_all}} non-financial firms that entered LSEG coverage between {{n_coh_min_year}} and {{n_coh_max_year}}, {{n_coh_2020_2023}} did so in 2020 to 2023, and {{n_my_2021_2022}} were Malaysian firms first scored in 2021 or 2022. We compare these firms with {{n_never}} never-scored firms before and after each firm's {+first recorded score, the first fiscal year for which the database holds a score+}, using the estimator of Callaway and Sant'Anna (2021), which avoids the biases of two-way fixed effects regressions under staggered timing (Baker et al., 2022; Goodman-Bacon, 2021). {+The first recorded score is not necessarily the date on which investors could first see the score (Section 3.3).+} A pre-analysis plan, committed to version control before the estimation code, records the hypotheses, sample rules, estimator, and robustness checks; we label every later analysis exploratory.
+We study Indonesia, Malaysia, the Philippines, Singapore, and Thailand. Of the {{n_treated_all}} non-financial firms {+whose first recorded LSEG score falls+} between {{n_coh_min_year}} and {{n_coh_max_year}}, {{n_coh_2020_2023}} {+had it+} in 2020 to 2023, and {{n_my_2021_2022}} were Malaysian firms first scored in 2021 or 2022. We compare these firms with {{n_never}} never-scored firms before and after each firm's {+first recorded score, the first fiscal year for which the database holds a score+}, using the estimator of Callaway and Sant'Anna (2021), which avoids the biases of two-way fixed effects regressions under staggered timing (Baker et al., 2022; Goodman-Bacon, 2021). {+The first recorded score is not necessarily the date on which investors could first see the score (Section 3.3).+} A pre-analysis plan, committed to version control before the estimation code, records the hypotheses, sample rules, estimator, and robustness checks; we label every later analysis exploratory.
 
-{+The evidence has three parts. First, entry is selective. Scored firms are larger, and they had outgrown never-scored firms of similar size, country, and industry before their first recorded score (Figure 1).+} From five years before the first {+recorded+} score to the base year (the year before it), their market capitalization grew {{mcap_runup_m5}}% more (95% interval {{mcap_runup_lo}}% to {{mcap_runup_hi}}%) and their market-to-book (MTB) ratio {{mtb_runup_m5}}% more ({{mtb_runup_lo}}% to {{mtb_runup_hi}}%). {+The run-up is large in the {{n_wTHSG}} Thai and Singaporean firms first scored in 2019 and 2020 and absent in the {{n_wMY}} Malaysian firms first scored in 2021 and 2022, the largest wave in the data (Figure 2).+}
+{+The evidence has three parts. First, entry is selective. Scored firms are larger, and they had outgrown never-scored firms of similar size, country, and industry before their first recorded score (Figure 1).+} From five years before the first {+recorded+} score to the base year (the year before it), their market capitalization grew {{mcap_runup_m5}}% more (95% interval {{mcap_runup_lo}}% to {{mcap_runup_hi}}%) and their market-to-book (MTB) ratio {{mtb_runup_m5}}% more ({{mtb_runup_lo}}% to {{mtb_runup_hi}}%). {+The run-up is large in the {{n_wTHSG}} Thai and Singaporean firms first scored in 2019 and 2020 and not detected in the {{n_wMY}} Malaysian firms first scored in 2021 and 2022, the largest wave in the data (Figure 2).+}
 
 {+Second, after entry the MTB gap stops widening, but the data do not pin down a causal effect of coverage. Under parallel trends from the base year, the average change in log MTB over the first four years is {{mtb_att}} (95% interval {{mtb_lo}} to {{mtb_hi}}). Dated one year later, when a score could first have been public, the change is {{mtb_R10_pct}}%. Section 5.4 shows that most of this difference arises because the later dating measures valuations from the first recorded year, at the top of the run-up, and that the decline appears only in the waves that had a run-up. Third, a static two-way fixed effects regression on the same data attributes a {{mtb_R6_pct}}% MTB increase to coverage, an artifact of comparing firms after entry with the same firms before their growth.+}
 
-{+The paper makes three contributions. First, it documents selection into ESG rating coverage in Southeast Asian markets and adds valuation to the rating-coverage literature (Bikmetova & Pirinsky, 2026; Tsang et al., 2024, 2025): outside its largest wave, one provider scored firms that had just outgrown their peers. Second, it shows why the valuation effect of coverage is hard to identify: entry follows growth and the recorded first score may precede publication, so the estimates depend on dating and on trend assumptions. None of the main specifications detects a gain, but the bounds do not exclude one. Third, it warns that comparisons of scored and unscored firms, and regressions that pool all years around entry, can attribute selection to the score.+}
+{+The paper makes three contributions. First, it documents selection into ESG rating coverage in Southeast Asian markets and adds valuation to the rating-coverage literature (Bikmetova & Pirinsky, 2026; Tsang et al., 2024, 2025): one provider scored firms that had outgrown their peers, most clearly outside its largest wave. Second, it shows why the valuation effect of coverage is hard to identify: entry follows growth and the recorded first score may precede publication, so the estimates depend on dating and on trend assumptions. None of the main specifications detects a gain, but the bounds do not exclude one. Third, it warns that comparisons of scored and unscored firms, and regressions that pool all years around entry, can attribute selection to the score.+}
 
 {+Section 2 sets out the channels through which a score could change value and the selection that can mimic them. Section 3 describes the markets, the data, and what the first recorded score does and does not date. Section 4 presents the estimator and its identifying assumption. Section 5 reports who gets scored, the valuation path around entry, and the checks that the timing and the sample raise. Section 6 discusses what the evidence can and cannot say about mechanisms and policy, Section 7 lists the limitations, and Section 8 concludes.+}
 
@@ -98,7 +98,7 @@ The first {+recorded score+} may precede the year in which investors first see a
 
 The primary outcome is the natural logarithm of the MTB ratio, the market value of equity divided by its book value. The secondary outcomes are log market capitalization, log total assets, and book leverage, total debt divided by total assets. Because the data contain neither stock returns nor shares outstanding, we use MTB for valuation and treat market capitalization, which mixes price and share changes, and total assets as measures of firm scale. Amounts are in U.S. dollars. We winsorize all four variables at the 1st and 99th percentiles of the pooled sample before taking logarithms.
 
-{+A few market capitalization records are implausibly large; one Indonesian firm is recorded at {{s_flag_ID_maxmcap}} billion U.S. dollars. We identify such records with an internal-consistency rule. Market capitalization divided by the MTB ratio gives the implied book equity, which cannot exceed total assets. Ratios slightly above one can arise when the two are measured on different dates, so we flag firm-years in which the implied book equity exceeds ten times total assets, an error of an order of magnitude. The rule flags {{s_flag_All_n}} of {{s_flag_All_checked}} firm-years ({{s_flag_pct_checked}}%), {{s_flag_All_scored}} of them for scored firms. Winsorization limits their influence but does not correct them, so Section 5.7 re-estimates without them.+}
+{+A few market capitalization records are implausibly large; one Indonesian firm is recorded at {{s_flag_ID_maxmcap}} billion U.S. dollars. We identify such records with an internal-consistency rule. Market capitalization divided by the MTB ratio gives the implied book equity, which cannot exceed total assets. Of the {{s_flag_All_checked}} firm-years with all three items, {{s_flag_All_r12}} have ratios between one and two, which can arise when the items are measured on different dates, and {{s_flag_All_r210}} have ratios between two and ten. Our main rule flags firm-years in which the implied book equity exceeds ten times total assets, an error of an order of magnitude: {{s_flag_All_n}} firm-years ({{s_flag_pct_checked}}%), {{s_flag_All_scored}} of them for scored firms. A stricter rule, a ratio above two, flags {{s_flag_All_n2}} firm-years. Winsorization limits their influence but does not correct them, so Section 5.7 re-estimates without them.+}
 
 # 4. Methods
 
@@ -122,7 +122,7 @@ For each cohort g and year t, we regress the long difference ΔY~i,t~ = Y~i,t~ �
 
 $$latex \Delta Y_{i,t}=X_i'\beta_{g,t}+u_{i,t},\qquad G_i=\infty | (3)
 
-where β~g,t~ is the coefficient vector of the cell and u~i,t~ is the error. We omit the propensity-score model of the doubly robust estimator because total assets overlap poorly: {{pct_scored_above_p95}}% of scored firms have larger base-year total assets than the 95th percentile of never-scored firms. {+Outcome regression does not remove this support problem; it extrapolates the relation estimated among controls to scored firms larger than most controls. Section 5.6 therefore restricts scored firms to the size range of the controls, where the doubly robust estimator becomes usable (Crump et al., 2009; Sant'Anna & Zhao, 2020).+} The estimated group-time effect is
+where β~g,t~ is the coefficient vector of the cell and u~i,t~ is the error. We omit the propensity-score model of the doubly robust estimator because total assets overlap poorly: {{pct_scored_above_p95}}% of scored firms have larger base-year total assets than the 95th percentile of never-scored firms. {+Outcome regression does not remove this support problem; it extrapolates the relation estimated among controls to scored firms larger than most controls. Section 5.6 therefore restricts scored firms to the size range of the controls, in the spirit of the overlap trimming of Crump et al. (2009), where the doubly robust estimator becomes usable (Sant'Anna & Zhao, 2020).+} The estimated group-time effect is
 
 $$latex \widehat{\mathrm{ATT}}(g,t)=\frac{1}{N_{g,t}}\sum_{i:\,G_i=g}\left(\Delta Y_{i,t}-X_i'\hat{\beta}_{g,t}\right) | (4)
 
@@ -178,7 +178,7 @@ The pre-analysis plan fixed rows R1 to R6 of Table 3: four robustness checks, a 
 
 ## 5.1. Which firms get scored
 
-Table 1 compares scored firms in the base year with never-scored firm-years in the sample. Scored firms are larger: their median market capitalization is {{t1_mcap_tr_med}} million U.S. dollars against {{t1_mcap_nv_med}} million, and their median total assets are {{t1_asset_ratio_med}} times as large. Their MTB ratio is also higher, while leverage differs little. Because scored firms are concentrated in the base years 2019 to 2022, these level differences mix calendar effects with selection. In Malaysia, where the expansion was broadest, the median total assets of scored firms were {{my_asset_ratio_med}} times those of the {{n_my_never}} never-scored firms.
+Table 1 compares scored firms in the base year with never-scored firm-years in the sample. Scored firms are larger: their median market capitalization is {{t1_mcap_tr_med}} million U.S. dollars against {{t1_mcap_nv_med}} million, and their median total assets are {{t1_asset_ratio_med}} times as large. Their MTB ratio is also higher, while leverage differs little. Because scored firms are concentrated in the base years 2019 to 2022, these level differences mix calendar effects with selection. In Malaysia, where the expansion was broadest, the median total assets of scored firms, each firm measured by its median over all sample years, were {{my_asset_ratio_med}} times those of the {{n_my_never}} never-scored firms.
 
 ## 5.2. {+The valuation path before and after the first recorded score+}
 
@@ -186,7 +186,7 @@ Figure 1 plots the event-time estimates of Eq. (5) for all four outcomes. Before
 
 After the first {+recorded+} score, the MTB estimates for event years 0 to 3 lie between {{mtb_e3}} and {{mtb_e2}}, and none differs from zero at the 5% level. Event year 4 rests on only {{mtb_nfirms_e4}} scored firms, so we plot it but exclude it from Eq. (6). The MTB gap between scored and never-scored firms thus widens before coverage and stops widening afterward. {+This description of the observed gap does not depend on assumption (2); reading the post-coverage part as an effect of coverage does.+} Because we cannot separate rising prices from new shares in market capitalization, we base statements about valuation on the MTB ratio.
 
-Figure 2 separates the two largest coverage waves from the remaining cohorts; because we drew the wave boundaries after seeing the coverage counts, this split is exploratory. The {{n_wTHSG}} Thai and Singaporean firms first scored in 2019 and 2020 show the largest run-up: from event year −5 to the base year, their MTB ratio grew {{mtb_r4wTHSG_runup_m5}}% more than that of never-scored firms (pre-trend p {{mtb_r4wTHSG_pre_p_txt}}). The {{n_wMY}} Malaysian firms first scored in 2021 and 2022 show no run-up (pre-trend p {{mtb_r4wMY_pre_p_txt}}), and the {{n_wOth}} firms in the remaining cohorts fall in between. After the first recorded score, no wave shows an MTB gain (Table S10), while market capitalization fell in the Malaysian wave ({{mcap_r4wMY}}, p {{mcap_r4wMY_p_txt}}), which accounts for the negative pooled market capitalization estimate.
+Figure 2 separates the two largest coverage waves from the remaining cohorts; because we drew the wave boundaries after seeing the coverage counts, this split is exploratory. The {{n_wTHSG}} Thai and Singaporean firms first scored in 2019 and 2020 show the largest run-up: from event year −5 to the base year, their MTB ratio grew {{mtb_r4wTHSG_runup_m5}}% more than that of never-scored firms (pre-trend p {{mtb_r4wTHSG_pre_p_txt}}). The {{n_wMY}} Malaysian firms first scored in 2021 and 2022 show no detectable run-up: {{s_mtb_wMY_runup_m5}}% (95% interval {{s_mtb_wMY_runup_m5_lo}}% to {{s_mtb_wMY_runup_m5_hi}}%; pre-trend p {{mtb_r4wMY_pre_p_txt}}), so a run-up of the pooled size cannot be ruled out for this wave, and the {{n_wOth}} firms in the remaining cohorts fall in between. After the first recorded score, no wave shows a detectable MTB gain (Table S10), while market capitalization fell in the Malaysian wave ({{mcap_r4wMY}}, p {{mcap_r4wMY_p_txt}}), which accounts for the negative pooled market capitalization estimate.
 
 ## 5.3. {+Average change after entry under assumption (2)+}
 
@@ -198,9 +198,9 @@ After Holm adjustment, no secondary outcome changes significantly at the 5% leve
 
 ## 5.4. {+Reconciling the two datings+}
 
-{+Table 4 moves from the first-recorded-year estimate to the one-year-later estimate one step at a time, so that each step changes one feature. Row 2 keeps only firms observed in both g − 1 and g, so that the same firms enter every later row; this changes the MTB estimate by {{s_mtb_d_sample_A1_A0}}. Row 3 averages event years 1 to 4 instead of 0 to 3, with the same reference year g − 1; this changes it by {{s_mtb_d_window_B1_A1}} (p {{s_mtb_d_window_B1_A1_p_txt}}). Row 4 moves the reference year from g − 1 to g, which is what dating coverage one year later does to the comparison; this changes the estimate by {{s_mtb_d_reference_C1_B1}} (p {{s_mtb_d_reference_C1_B1_p_txt}}), {{s_mtb_d_reference_C1_B1_share}}% of the total gap of {{s_mtb_gap_total}}. Measuring size in g instead of g − 1 (row 5) and returning to all firms (row 6) change little.+}
+{+Table 4 moves from the first-recorded-year estimate to the one-year-later estimate one step at a time, so that each step changes one feature. Row 2 keeps only firms observed in both g − 1 and g, so that every later row draws on the same set of firms (a few drop out when the window or the size measure changes); this changes the MTB estimate by {{s_mtb_d_sample_A1_A0}}. Row 3 averages event years 1 to 4 instead of 0 to 3, with the same reference year g − 1; this changes it by {{s_mtb_d_window_B1_A1}} (p {{s_mtb_d_window_B1_A1_p_txt}}). Row 4 moves the reference year from g − 1 to g, which is what dating coverage one year later does to the comparison; this changes the estimate by {{s_mtb_d_reference_C1_B1}} (p {{s_mtb_d_reference_C1_B1_p_txt}}), {{s_mtb_d_reference_C1_B1_share}}% of the total gap of {{s_mtb_gap_total}}. Measuring size in g instead of g − 1 (row 5) and returning to all firms (row 6) change little. The steps are sequential, so the shares depend on their order; we take the window step before the reference step.+}
 
-{+The reference year thus drives the difference. Dated one year later, every later valuation is compared with the first recorded year, the last year of the run-up. In the cohorts that contribute to event years 1 to 4, the MTB ratio of scored firms rose by {{s_mtb_d_reference_C1_B1_abs}} relative to never-scored firms between g − 1 and g, and row 4 subtracts exactly this rise, so a later dating starts from a higher point. The cohorts observed through event year 4 (rows 7 to 10) show the same pattern more strongly. Composition matters as well: the timing difference is concentrated in the waves that had a run-up. Table S10 of the supplementary material shows that under the one-year-later dating the MTB change is {{s_mtb_R10_TH_SG_2019_20}} for the Thai and Singaporean wave and {{s_mtb_R10_other}} for the remaining cohorts, but {{s_mtb_R10_MY_2021_22}} for the Malaysian wave, whose estimate under the first recorded year is {{s_mtb_base_MY_2021_22}}. Where valuations did not run up before entry, neither dating detects an MTB change (95% intervals {{s_mtb_base_MY_2021_22_lo}} to {{s_mtb_base_MY_2021_22_hi}} and {{s_mtb_R10_MY_2021_22_lo}} to {{s_mtb_R10_MY_2021_22_hi}}).+}
+{+The reference year thus drives the difference. Dated one year later, every later valuation is compared with the first recorded year, the last year of the run-up. Moving the reference year from g − 1 to g subtracts from each later estimate the change in log MTB of the same scored firms, relative to the same never-scored firms, between g − 1 and g. The row 4 step is therefore this event-year-0 change, {{s_mtb_d_reference_C1_B1_abs}}, averaged with the weights that the cohorts receive in event years 1 to 4; it is an accounting identity, not a separate estimate. A later dating thus starts from a higher point, and part of the decline it reports is the rise in the first recorded year itself. The cohorts observed through event year 4 (rows 7 to 10) show the same pattern more strongly. Composition matters as well: the timing difference is concentrated in the waves that had a run-up. Table S10 of the supplementary material shows that under the one-year-later dating the MTB change is {{s_mtb_R10_TH_SG_2019_20}} for the Thai and Singaporean wave and {{s_mtb_R10_other}} for the remaining cohorts, but {{s_mtb_R10_MY_2021_22}} for the Malaysian wave, whose estimate under the first recorded year is {{s_mtb_base_MY_2021_22}}. Where no run-up was detected before entry, neither dating detects an MTB change (95% intervals {{s_mtb_base_MY_2021_22_lo}} to {{s_mtb_base_MY_2021_22_hi}} and {{s_mtb_R10_MY_2021_22_lo}} to {{s_mtb_R10_MY_2021_22_hi}}).+}
 
 {+Two readings fit this pattern, and the data cannot separate them. If firms were selected at an unusually high valuation that later partly reversed, the one-year-later estimate measures that reversal and could hide a gain from coverage; if valuations would otherwise have stayed at their peak, coverage lowered them. What the datings share is that neither shows a gain and that the decline appears only where a run-up preceded entry. Dating coverage two years later gives {{mtb_r4R12}} (95% interval {{mtb_r4R12_lo}} to {{mtb_r4R12_hi}}), and Figure S2 plots the one-year-later path.+}
 
@@ -214,7 +214,7 @@ Table S5 reports the bounds of Eq. (10). With M̄ = 0.25, the interval for the M
 
 {+Scored firms are much larger than most controls, so the outcome regression extrapolates for the largest firms. Table 5 varies the size adjustment and the support. Across functional forms (none, linear, quadratic, cubic, quintile indicators, or size measured at g − 3), the MTB estimate stays between {{s_mtb_ff_min}} and {{s_mtb_ff_max}}. Restricting scored firms to the size range of the controls changes the estimand to the effect on scored firms that have comparable controls. Keeping scored firms no larger than the 95th percentile of controls in their cell retains {{s_mtb_trim95_ntr}} scored firms and gives {{s_mtb_trim95}} (p {{s_mtb_trim95_p_txt}}); the 90th and 99th percentile cut-offs give {{s_mtb_trim90}} and {{s_mtb_trim99}}. Within this support the doubly robust estimator of Sant'Anna and Zhao (2020) gives {{s_mtb_dr_trim95}} (p {{s_mtb_dr_trim95_p_txt}}), and only {{s_ps_dr_trim95_share95}}% of scored firm-cells have an estimated propensity score above 0.95. The MTB result therefore does not depend on extrapolating the size adjustment to the largest firms.+}
 
-{+Market capitalization is more sensitive. Its estimate is {{s_mcap_no_covariates}} without covariates and between {{s_mcap_cov_min}} and {{s_mcap_cov_max}} with them, so the negative market capitalization change depends on how size is modeled. This is expected, because size enters both the selection into coverage and market capitalization itself. Table 6 describes the scored firms that the 95th percentile restriction keeps and drops. The {{s_sup_excluded_n}} excluded firms are large (median total assets of {{s_sup_excluded_assets}} million U.S. dollars against {{s_sup_retained_assets}} million) and more often Singaporean ({{s_sup_excluded_sg}}% against {{s_sup_retained_sg}}%), Indonesian ({{s_sup_excluded_id}}% against {{s_sup_retained_id}}%), or Thai ({{s_sup_excluded_th}}% against {{s_sup_retained_th}}%). Because the restriction uses the controls' percentile within each cell, it drops fewer firms than the pooled comparison in Section 4.2 suggests. The retained firms are mostly Malaysian ({{s_sup_retained_my}}%). The restricted estimate thus describes mid-sized scored firms, largely from the Malaysian expansion, and says little about the largest firms in each market.+}
+{+Market capitalization is more sensitive. Its estimate is {{s_mcap_no_covariates}} without covariates, between {{s_mcap_ff_min}} and {{s_mcap_ff_max}} across the functional forms that adjust for size, and between {{s_mcap_sup_min}} and {{s_mcap_sup_max}} on the restricted supports, so the negative market capitalization change depends on how size is modeled. This is expected, because size enters both the selection into coverage and market capitalization itself. Table 6 describes the scored firms that the 95th percentile restriction keeps and drops. The {{s_sup_excluded_n}} excluded firms are large (median total assets of {{s_sup_excluded_assets}} million U.S. dollars against {{s_sup_retained_assets}} million) and more often Singaporean ({{s_sup_excluded_sg}}% against {{s_sup_retained_sg}}%), Indonesian ({{s_sup_excluded_id}}% against {{s_sup_retained_id}}%), or Thai ({{s_sup_excluded_th}}% against {{s_sup_retained_th}}%). Because the restriction uses the controls' percentile within each cell, it drops fewer firms than the pooled comparison in Section 4.2 suggests. The retained firms are mostly Malaysian ({{s_sup_retained_my}}%). The restricted estimate thus describes mid-sized scored firms, largely from the Malaysian expansion, and says little about the largest firms in each market.+}
 
 ## 5.7. {+Missing valuation data and recording errors+}
 
@@ -260,7 +260,7 @@ The absence of a detected gain fits the evidence on certification by sustainabil
 
 {+These implications are bounded by the design: one provider, annual data, five markets, and no data on ownership, returns, or publication dates. For researchers, comparisons of scored and unscored firms, static TWFE estimates, and backtests built on the first recorded score can attribute selection to the score (Table S8; Berg et al., 2020; Sahin et al., 2023). Studies of ESG ratings in Southeast Asia should model when firms enter coverage, report pre-entry dynamics, and record the download date of their rating data.+}
 
-{+For rating providers and data users, the scored universe in these markets tilts toward large firms and, outside the Malaysian wave, toward firms that had just outgrown their peers. Publishing the date on which each firm's coverage began, and keeping the vintages of revised scores, would separate what was known from what was filled in later.+}
+{+For rating providers and data users, the scored universe in these markets tilts toward large firms and toward firms that had outgrown their peers, most clearly in the Thai and Singaporean wave. Publishing the date on which each firm's coverage began, and keeping the vintages of revised scores, would separate what was known from what was filled in later.+}
 
 {+For exchanges, regulators, and listed firms, broad expansions such as the Malaysian wave appear to select less on prior growth, and we detect no MTB gain within it. Our results do not show that expanding ESG coverage has no valuation benefit; they show that such a benefit cannot be established from these data, so arguments for expanding coverage should rest on grounds other than an expected rise in issuer valuations. Under assumption (2), the interval excludes increases above {{mtb_hi_pct}}%, but smaller effects remain possible.+}
 
@@ -270,7 +270,7 @@ The absence of a detected gain fits the evidence on certification by sustainabil
 
 # 8. Conclusion
 
-{+Entry into LSEG ESG coverage in five Southeast Asian markets was selective. The firms that received a first recorded score were larger than never-scored firms, and outside the broad Malaysian wave of 2021 and 2022 their market-to-book ratio had grown faster than that of similar firms before entry, by {{mtb_runup_m5}}% over five years. After entry, the valuation gap stopped widening. Whether coverage itself changed valuations cannot be settled with these data: the answer moves from no detected change (95% interval {{mtb_lo}} to {{mtb_hi}} in log MTB) to a decline of {{s_mtb_C3_declpct}}% depending on when investors are assumed to have seen the score, the decline appears only where valuations had run up, and modest departures from parallel trends change either reading.+}
+{+Entry into LSEG ESG coverage in five Southeast Asian markets was selective. The firms that received a first recorded score were larger than never-scored firms, and on average their market-to-book ratio had grown {{mtb_runup_m5}}% faster than that of similar firms over the five years before entry. The run-up was concentrated in the Thai and Singaporean wave of 2019 and 2020 and was not detected in the broad Malaysian wave of 2021 and 2022 (95% interval {{s_mtb_wMY_runup_m5_lo}}% to {{s_mtb_wMY_runup_m5_hi}}%). After entry, the valuation gap stopped widening. Whether coverage itself changed valuations cannot be settled with these data: the answer moves from no detected change (95% interval {{mtb_lo}} to {{mtb_hi}} in log MTB) to a decline of {{s_mtb_C3_declpct}}% depending on when investors are assumed to have seen the score, the decline appears only where valuations had run up, and modest departures from parallel trends change either reading.+}
 
 {+A rated firm is not a random firm, and research and investment screens that start from a provider's universe inherit the provider's selection. Two kinds of data would move the question forward: point-in-time records of when each firm's score was first published, which would date the event as investors saw it, and ownership and trading data, which would show whether new coverage brings new investors. With both, future work could test whether ESG coverage in Southeast Asian markets changes who holds a firm and at what price.+}
 
@@ -375,15 +375,15 @@ note:={+Scored firms in the base year g − 1; never-scored firms over 2014 to 2
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 kind:=figure
-caption:=Figure 1|Event-time effects of the first {+recorded+} LSEG ESG score on market-to-book ratio, market capitalization, leverage, and total assets
+caption:=Figure 1|Event-time {+changes around+} the first {+recorded+} LSEG ESG score on market-to-book ratio, market capitalization, leverage, and total assets
 png:=Fig1.png
-note:={+Estimates of Eq. (5) relative to event year −1, with bootstrap 95% intervals; open markers are pre-coverage years. Event year 4 is excluded from Eq. (6).+}
+note:={+Estimates of Eq. (5) relative to event year −1, with firm-bootstrap 95% intervals; open markers are pre-coverage years. Event year 4 is excluded from Eq. (6).+}
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 kind:=figure
 caption:=Figure 2|Event-time effects on market-to-book ratio and market capitalization by coverage wave
 png:=Fig2.png
-note:={+Estimates of Eq. (5) by wave against all never-scored firms, with bootstrap 95% intervals. Other cohorts are firms first scored outside the two waves.+}
+note:={+Estimates of Eq. (5) by wave against all never-scored firms, with firm-bootstrap 95% intervals. Other cohorts are firms first scored outside the two waves.+}
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 kind:=table
@@ -391,15 +391,15 @@ caption:=Table 2|Average {+change after the first recorded LSEG ESG score over e
 csvfile:=table2_formatted.csv
 widths:=1.45,0.6,0.5,1.15,0.6,0.5,0.6,0.6,0.6
 size:=9
-note:={+Eq. (6) with bootstrap standard errors and unadjusted 95% confidence intervals (CI); secondary p-values are Holm-adjusted. MDE is the 80%-power minimum detectable effect; pre-trend p tests Eq. (8).+}
+note:={+Eq. (6), firm-bootstrap standard errors, unadjusted 95% CI; secondary p-values Holm-adjusted. MDE: 80%-power minimum detectable effect; pre-trend p tests Eq. (8). Firm counts cover all event-time cells.+}
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 kind:=table
 caption:=Table 3|Robustness checks, timing of coverage, and heterogeneity by initial ESG score
 csvfile:=table3_formatted.csv
-widths:=1.9,1.15,1.15,1.15,1.15
+widths:=1.7,0.95,0.95,0.95,0.95,1.0
 size:=9
-note:={+Effects over event years 0 to 3 (R5: 0 to 2; R6: Eq. 11, firm-clustered) with bootstrap standard errors in parentheses. \*, \*\*, \*\*\*: 10%, 5%, 1% significance (unadjusted).+}
+note:={+Outcome-regression changes over event years 0 to 3 (R5: 0 to 2; R6: Eq. 11, firm-clustered), firm-bootstrap standard errors; firm counts for ln(MTB). \*, \*\*, \*\*\*: 10%, 5%, 1%.+}
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 kind:=table
@@ -408,7 +408,7 @@ csvfile:=tableSAJE4_formatted.csv
 widths:=3.3,1.15,1.25,0.8
 size:=9
 blue:=1
-note:=Outcome-regression effects with bootstrap standard errors in parentheses; each row changes one feature of the row it names. \*, \*\*, \*\*\*: 10%, 5%, 1% significance.
+note:=Outcome-regression changes, firm-bootstrap standard errors in parentheses; each row changes one feature. \*, \*\*, \*\*\*: 10%, 5%, 1%.
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 kind:=table
@@ -417,7 +417,7 @@ csvfile:=tableSAJE5_formatted.csv
 widths:=3.0,1.25,1.3,0.9
 size:=9
 blue:=1
-note:=Bootstrap standard errors in parentheses; percentile rows cap scored firms' base-year assets at that control percentile. \*, \*\*, \*\*\*: 10%, 5%, 1% significance.
+note:=Outcome regression unless labeled doubly robust; firm-bootstrap standard errors in parentheses. Percentile rows cap scored firms' base-year assets at that control percentile. \*, \*\*, \*\*\*: 10%, 5%, 1%.
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 kind:=table
@@ -435,11 +435,11 @@ csvfile:=tableSAJE8_formatted.csv
 widths:=3.2,1.2,1.25,0.8
 size:=9
 blue:=1
-note:=Bootstrap standard errors in parentheses; flags mark implied book equity above ten times assets (Section 3.4). \*, \*\*, \*\*\*: 10%, 5%, 1% significance.
+note:=Outcome-regression changes, firm-bootstrap standard errors in parentheses; flags mark implied book equity above ten times assets (Section 3.4). \*, \*\*, \*\*\*: 10%, 5%, 1%.
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 @@ supp_intro
-This supplementary material accompanies "Who Gets an ESG Score? Coverage Selection and Firm Value in Five Southeast Asian Markets." Table S1 re-estimates the average effects of the first {+recorded+} score over event years 0 to 3 after excluding one market at a time. Table S2 shows the number of non-financial firms that received their first LSEG ESG score in each year by market, and Figure S1 for all markets combined. Table S3 reports the estimates for each market separately, Table S4 the number of firm-years available for each outcome, Table S5 the relative-magnitude bounds of Eq. (10) in the paper, and Table S6 the number of scored and control firms by event year for ln MTB. Table S7 and Figure S2 report {+further exploratory specifications+}, and Table S8 decomposes the gap between the static two-way fixed effects estimate and the baseline. {+Table S9 reports the weight of each market and coverage wave in the pooled estimate, Table S10 the estimates by wave under both datings, and Table S11 compares firm-years with and without an MTB ratio. Appendix A gives additional results.+} The pre-analysis plan is provided with the replication package.
+This supplementary material accompanies "Who Gets an ESG Score? Coverage Selection and Firm Value in Five Southeast Asian Markets." Table S1 re-estimates the average {+changes after+} the first {+recorded+} score over event years 0 to 3 after excluding one market at a time. Table S2 shows the number of non-financial firms that received their first {+recorded+} LSEG ESG score in each year by market, and Figure S1 for all markets combined. Table S3 reports the estimates for each market separately, Table S4 the number of firm-years available for each outcome, Table S5 the relative-magnitude bounds of Eq. (10) in the paper, and Table S6 the number of scored and control firms by event year for ln MTB. Table S7 and Figure S2 report {+further exploratory specifications+}, and Table S8 decomposes the gap between the static two-way fixed effects estimate and the baseline. {+Table S9 reports the weight of each market and coverage wave in the pooled estimate, Table S10 the estimates by wave under both datings, and Table S11 compares firm-years with and without an MTB ratio. Appendix A gives additional results.+} The pre-analysis plan is provided with the replication package.
 
 @@ supp_body
 # {+Appendix A.+} Additional robustness results
@@ -466,7 +466,7 @@ Table S8 shows the decomposition of the gap between the static TWFE estimate in 
 
 ## A.6. Market-by-market and early versus late cohorts (Section {+5.8+}, Table S3)
 
-Estimated market by market in Table S3, the MTB effect is {{mtb_pm_MY}} in Malaysia, with {{mtb_pm_MY_ntr}} scored firms, and {{mtb_pm_TH}} in Thailand, with {{mtb_pm_TH_ntr}}. Indonesia, the Philippines, and Singapore have few scored firms and imprecise estimates. The {{mtb_r4c19_ntr}} firms first scored by 2019 show a positive post-coverage MTB estimate of {{mtb_r4c19}} (p {{mtb_r4c19_p_txt}}; 95% interval {{mtb_r4c19_lo}} to {{mtb_r4c19_hi}}), and the larger group first scored from 2020 shows {{mtb_r4c20}} (p {{mtb_r4c20_p_txt}}). The early estimate rests on few firms, is one of many exploratory comparisons, and is not adjusted for multiple testing, so we do not read it as evidence of a gain for early entrants.
+Estimated market by market in Table S3, the MTB effect is {{mtb_pm_MY}} in Malaysia, with {{mtb_pm_MY_ntr}} scored firms, and {{mtb_pm_TH}} in Thailand, with {{mtb_pm_TH_ntr}}. Indonesia, the Philippines, and Singapore have few scored firms and imprecise estimates. The {{mtb_r4c19_ntr}} firms first scored by 2019 that enter the MTB estimate show a positive post-coverage MTB estimate of {{mtb_r4c19}} (p {{mtb_r4c19_p_txt}}; 95% interval {{mtb_r4c19_lo}} to {{mtb_r4c19_hi}}), and the larger group first scored from 2020 shows {{mtb_r4c20}} (p {{mtb_r4c20_p_txt}}). The early estimate rests on few firms, is one of many exploratory comparisons, and is not adjusted for multiple testing, so we do not read it as evidence of a gain for early entrants.
 
 ## A.7. Breadth of the Malaysian wave (Section {+5.2+}, Figure 2)
 
@@ -490,30 +490,30 @@ The Malaysian wave added {{n_wMY}} firms in two years, yet {{n_my_never}} Malays
 
 @@ exhibits_supp
 kind:=table
-caption:=Table S1|Leave-one-market-out estimates of the average effect of the first LSEG ESG score
+caption:=Table S1|Leave-one-market-out estimates of the average change after the first {+recorded+} LSEG ESG score
 csvfile:=tableIA1_formatted.csv
 widths:=1.9,1.15,1.15,1.15,1.15
-note:=Cells show the average effect over event years 0 to 3 without the named market, with bootstrap standard errors in parentheses. \*, \*\*, and \*\*\* denote significance at 10%, 5%, and 1% (unadjusted p-values).
+note:=Average change over event years 0 to 3 without the named market; firm-bootstrap standard errors in parentheses. \*, \*\*, \*\*\*: 10%, 5%, 1% (unadjusted).
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 kind:=table
-caption:=Table S2|Number of non-financial firms by year of first LSEG ESG score and market
+caption:=Table S2|Number of non-financial firms by year of first {+recorded+} LSEG ESG score and market
 csvfile:=tableIA2_formatted.csv
 widths:=1.3,0.85,0.85,0.9,0.9,0.85,0.75
 note:=Firms first scored in 2014 are excluded because they have no pre-coverage year.
 source:=Authors' calculations from LSEG ESG scores.
 
 kind:=figure
-caption:=Figure S1|Number of non-financial firms by year of first LSEG ESG score
+caption:=Figure S1|Number of non-financial firms by year of first {+recorded+} LSEG ESG score
 png:=FigIA1.png
 note:=Bars show the number of firms in the estimation sample first scored in each year, all five markets combined.
 source:=Authors' calculations from LSEG ESG scores.
 
 kind:=table
-caption:=Table S3|Estimates of the average effect of the first LSEG ESG score by market
+caption:=Table S3|Average change after the first {+recorded+} LSEG ESG score by market
 csvfile:=tableIA3_formatted.csv
 widths:=1.2,1.1,1.1,1.1,1.1,0.9
-note:=Cells show the average effect over event years 0 to 3 estimated within each market, with bootstrap standard errors in parentheses. \*, \*\*, and \*\*\* denote significance at 10%, 5%, and 1% (unadjusted p-values).
+note:=Average change over event years 0 to 3 within each market; firm-bootstrap standard errors in parentheses. \*, \*\*, \*\*\*: 10%, 5%, 1% (unadjusted).
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 kind:=table
@@ -524,10 +524,10 @@ note:=Counts refer to the estimation sample; the last column is the share of fir
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 kind:=table
-caption:=Table S5|Relative-magnitude bounds for the average effect of the first LSEG ESG score
+caption:=Table S5|Relative-magnitude bounds for the average change after the first {+recorded+} LSEG ESG score
 csvfile:=tableIA5_formatted.csv
 widths:=1.7,0.6,1.2,0.9,1.6
-note:=The bias bound is M̄ times the largest change between consecutive pre-coverage estimates times the weighted mean of (e + 1) over event years 0 to 3 (Eq. 10). The robust interval widens the bootstrap 95% interval by this bound.
+note:=Bias bound: M̄ × largest pre-coverage step × weighted mean of (e + 1) over event years 0 to 3 (Eq. 10); the robust interval widens the firm-bootstrap interval by it.
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 kind:=table
@@ -538,23 +538,23 @@ note:=Scored firms are summed over cohorts; control firms are the smallest and l
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 kind:=table
-caption:=Table S7|Alternative specifications, inference, and initial-score splits for the average effect of the first LSEG ESG score
+caption:=Table S7|Alternative specifications, inference, and initial-score splits for the average change after the first {+recorded+} LSEG ESG score
 csvfile:=tableIA7_formatted.csv
 widths:=2.3,1.1,0.75,1.1,0.75
-note:=Cells show the average effect over event years 0 to 3 with bootstrap standard errors in parentheses and the joint pre-trend p-value of Eq. (8); all rows are exploratory. \*, \*\*, and \*\*\* denote significance at 10%, 5%, and 1% (unadjusted p-values).
+note:=Average change over event years 0 to 3, firm-bootstrap standard errors in parentheses, and the pre-trend p of Eq. (8); all rows exploratory. \*, \*\*, \*\*\*: 10%, 5%, 1%.
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 kind:=table
 caption:=Table S8|Decomposition of the gap between the static two-way fixed effects estimate and the baseline estimate
 csvfile:=tableIA8_formatted.csv
 widths:=3.0,1.4,1.4
-note:=Rows move step by step from Eq. (11) on all firm-years to the baseline of Eq. (6), with standard errors in parentheses (firm-clustered for TWFE, bootstrap otherwise). \*, \*\*, and \*\*\* denote significance at 10%, 5%, and 1%.
+note:=Steps from Eq. (11) on all firm-years to the baseline Eq. (6); standard errors firm-clustered for TWFE, firm bootstrap otherwise. \*, \*\*, \*\*\*: 10%, 5%, 1%.
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 kind:=figure
 caption:=Figure S2|Event-time effects on ln(MTB) under alternative specifications and dating
 png:=FigIA2.png
-note:=Panel A varies the size covariate and the support with the first {+recorded+} fiscal year as event; panel B dates the event one year later. Marker shape and line type identify the specification, and bars are bootstrap 95% intervals.
+note:=Panel A varies the size covariate and support, dated at the first {+recorded+} year; panel B dates the event one year later. Bars are firm-bootstrap 95% intervals.
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 kind:=table
@@ -571,7 +571,7 @@ csvfile:=tableSAJES10_formatted.csv
 widths:=1.9,1.15,1.15,1.15,1.15
 size:=9
 blue:=1
-note:=Cells show the average effect over event years 0 to 3 of each dating, with bootstrap standard errors in parentheses, for each wave against all never-scored firms. \*, \*\*, and \*\*\* denote significance at 10%, 5%, and 1%.
+note:=Average change over event years 0 to 3 for each wave against all never-scored firms, with firm-bootstrap standard errors in parentheses. \*, \*\*, \*\*\*: 10%, 5%, 1%.
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 kind:=table

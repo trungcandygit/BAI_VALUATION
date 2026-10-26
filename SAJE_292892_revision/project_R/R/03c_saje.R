@@ -98,7 +98,11 @@ agg_win <- function(cells, ca, lo, hi) {
 CACHE <- file.path(OUT, "cache_saje"); dir.create(CACHE, showWarnings = FALSE)
 run_win <- function(y, lo = 0L, hi = 3L, ..., W = WBOOT) {
   # Results are cached by their arguments and the bootstrap matrix, so an interrupted run resumes where it stopped.
-  tf <- tempfile(); saveRDS(list(y, lo, hi, list(...), dim(W), sum(W[1:50, 1:50])), tf)
+  # The key also covers the data and the code of the estimator, so a changed input never returns a stale result.
+  if (!exists("CACHE_SIG")) CACHE_SIG <<- list(unname(tools::md5sum(c("R/00_setup.R", "R/01_data.R", "R/02_cs_did.R"))),
+    dim(panel), lapply(panel[vapply(panel, is.numeric, logical(1))], sum, na.rm = TRUE),
+    lapply(list(make_X2, build_cells2, cell_atts2, agg_win, run_win_), deparse))
+  tf <- tempfile(); saveRDS(list(y, lo, hi, list(...), dim(W), sum(W[1:50, 1:50]), CACHE_SIG), tf)
   ck <- file.path(CACHE, paste0(unname(tools::md5sum(tf)), ".rds")); unlink(tf)
   if (file.exists(ck)) return(readRDS(ck))
   res <- run_win_(y, lo, hi, ..., W = W); saveRDS(res, ck); res
@@ -281,7 +285,8 @@ flag <- raw_nf %>% filter(!is.na(marketcap), !is.na(mtb), !is.na(asset), mtb > 0
 flag_fy <- flag %>% filter(flag) %>% transmute(k = paste(firm_id, year), firm_id, year, country, G)
 flag2_fy <- flag %>% filter(flag2) %>% transmute(k = paste(firm_id, year))
 fsum <- function(d) summarise(d, checked = n(), flagged = sum(flag), flagged_scored = sum(flag & is.finite(G)),
-  firms_flagged = n_distinct(firm_id[flag]), flagged_ratio2 = sum(flag2), max_mcap_busd = max(marketcap) / 1e9)
+  firms_flagged = n_distinct(firm_id[flag]), flagged_ratio2 = sum(flag2), ratio_1_2 = sum(ratio > 1 & ratio <= 2),
+  ratio_2_10 = sum(ratio > 2 & ratio <= 10), max_mcap_busd = max(marketcap) / 1e9)
 flag_sum <- bind_rows(flag %>% group_by(country) %>% fsum(), flag %>% fsum() %>% mutate(country = "All"))
 write_out(flag_sum, "s_flag_summary.csv")
 out_rows <- list()
@@ -327,3 +332,18 @@ for (y in S_OUT) for (w in names(wav_ids)) {
   wav_rows[[paste(y, w, "b")]] <- row_of(r, y, paste0("base_", w))
 }
 write_out(bind_rows(wav_rows), "s_waves_dating.csv")
+
+# ---- (g) Cells in which a country or industry indicator has no control firm ----
+# lm.wfit returns NA for such a coefficient and cell_atts2 sets it to zero, so scored firms with that indicator are
+# predicted at the reference level. Counted for the baseline cells of event years 0 to 3.
+na_rows <- list()
+for (y in S_OUT) {
+  cells <- build_cells2(y); cells <- cells[vapply(cells, function(cl) cl$e >= 0 && cl$e <= 3, logical(1))]
+  hit <- vapply(cells, function(cl) {
+    b <- lm.wfit(cl$Xc, cl$yc)$coefficients; na <- names(b)[is.na(b)]
+    c(any(colSums(cl$Xt[, na, drop = FALSE]) > 0), sum(rowSums(cl$Xt[, na, drop = FALSE]) > 0), nrow(cl$Xt))
+  }, numeric(3))
+  na_rows[[y]] <- data.frame(outcome = y, cells = length(cells), cells_affected = sum(hit[1, ] > 0),
+                             scored_firm_cells = sum(hit[3, ]), scored_firm_cells_affected = sum(hit[2, ]))
+}
+write_out(bind_rows(na_rows), "s_na_coefficients.csv")

@@ -33,6 +33,10 @@ ff <- sup$est[sup$outcome == "ln_mtb" & sup$spec %in% c("baseline", "no_covariat
 put("s_mtb_ff_min", fmt(min(ff))); put("s_mtb_ff_max", fmt(max(ff)))
 cv <- sup$est[sup$outcome == "ln_mcap" & sup$spec != "no_covariates"]
 put("s_mcap_cov_min", fmt(min(cv))); put("s_mcap_cov_max", fmt(max(cv)))
+cf <- sup$est[sup$outcome == "ln_mcap" & sup$spec %in% c("baseline", "linear", "cubic", "bins", "size_g3")]
+put("s_mcap_ff_min", fmt(min(cf))); put("s_mcap_ff_max", fmt(max(cf)))
+cs <- sup$est[sup$outcome == "ln_mcap" & grepl("trim", sup$spec)]
+put("s_mcap_sup_min", fmt(min(cs))); put("s_mcap_sup_max", fmt(max(cs)))
 oo <- ol$est[ol$outcome == "ln_mtb"]
 put("s_mtb_out_min", fmt(min(oo))); put("s_mtb_out_max", fmt(max(oo)))
 het <- rd("heterogeneity_initial_score.csv")
@@ -43,6 +47,15 @@ for (i in seq_len(nrow(cp))) {
   k <- paste0("s_", ab[[cp$outcome[i]]], "_cp_", ifelse(cp$reference[i] == "g", "rg", "rgm1"), "_e", tag)
   put(k, fmt(cp$est[i])); put(paste0(k, "_lo"), fmt(cp$ci_lo[i])); put(paste0(k, "_hi"), fmt(cp$ci_hi[i]))
   put(paste0(k, "_abs"), fmt(abs(cp$est[i])))
+}
+
+ep <- rd("r4_event_profiles.csv")   # run-up from e = -5 to the base year by wave, with the interval transformed the same way
+wk <- c(MY_2021_22 = "wMY", TH_SG_2019_20 = "wTHSG", other = "wOth")
+for (w in names(wk)) {
+  x <- ep[ep$outcome == "ln_mtb" & ep$spec == paste0("wave_", w) & ep$term == "-5", ]
+  k <- paste0("s_mtb_", wk[[w]], "_runup_m5")
+  put(k, fmt(100 * (exp(-x$est) - 1), 1)); put(paste0(k, "_lo"), fmt(100 * (exp(-x$ci_hi) - 1), 1))
+  put(paste0(k, "_hi"), fmt(100 * (exp(-x$ci_lo) - 1), 1))
 }
 
 ret <- rd("s_support_retained.csv")
@@ -83,7 +96,7 @@ for (i in seq_len(nrow(fl))) {
   k <- paste0("s_flag_", fl$country[i])
   put(paste0(k, "_n"), fmtn(fl$flagged[i])); put(paste0(k, "_firms"), fmtn(fl$firms_flagged[i]))
   put(paste0(k, "_scored"), fmtn(fl$flagged_scored[i])); put(paste0(k, "_checked"), fmtn(fl$checked[i]))
-  put(paste0(k, "_n2"), fmtn(fl$flagged_ratio2[i])); put(paste0(k, "_maxmcap"), formatC(fl$max_mcap_busd[i], digits = 1, format = "f", big.mark = ","))
+  put(paste0(k, "_n2"), fmtn(fl$flagged_ratio2[i])); put(paste0(k, "_r12"), fmtn(fl$ratio_1_2[i])); put(paste0(k, "_r210"), fmtn(fl$ratio_2_10[i])); put(paste0(k, "_maxmcap"), formatC(fl$max_mcap_busd[i], digits = 1, format = "f", big.mark = ","))
 }
 fa <- fl[fl$country == "All", ]
 put("s_flag_share_ID", fmt(100 * fl$flagged[fl$country == "ID"] / fa$flagged, 1))

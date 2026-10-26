@@ -28,7 +28,7 @@ p2 <- ggplot(wv, aes(x = e, y = est, group = wave)) +
   scale_y_continuous(labels = function(x) sub("^-", "−", as.character(x))) +
   facet_wrap(~ panel, ncol = 1, scales = "free_y") +
   labs(x = "Years relative to the first recorded LSEG ESG score (base year = −1)", y = "Effect relative to base year (log points)") +
-  theme_bw(base_size = 10, base_family = "sans") +
+  theme_bw(base_size = 11.5, base_family = "sans") +
   theme(legend.position = "bottom", legend.direction = "vertical", panel.grid.minor = element_blank(),
         strip.background = element_rect(fill = "grey92"))
 ggsave(file.path(FIG, "Fig2.eps"), p2, width = 6.5, height = 6, device = cairo_ps); strip_eps_date(file.path(FIG, "Fig2.eps"))
@@ -54,7 +54,7 @@ ps2 <- ggplot(alt, aes(x = e, y = est, group = label)) +
   scale_y_continuous(labels = function(x) sub("^-", "−", as.character(x))) +
   facet_wrap(~ group, ncol = 1) +
   labs(x = "Years relative to the event (base year = −1)", y = "Effect on ln(MTB) relative to base year (log points)") +
-  theme_bw(base_size = 10, base_family = "sans") +
+  theme_bw(base_size = 11.5, base_family = "sans") +
   theme(legend.position = "bottom", legend.direction = "vertical", panel.grid.minor = element_blank(),
         strip.background = element_rect(fill = "grey92"))
 ggsave(file.path(FIG, "FigIA2.eps"), ps2, width = 6.5, height = 7, device = cairo_ps); strip_eps_date(file.path(FIG, "FigIA2.eps"))
