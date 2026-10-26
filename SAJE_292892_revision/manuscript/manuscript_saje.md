@@ -94,7 +94,7 @@ The first {+recorded score+} may precede the year in which investors first see a
 
 {+Late dating cannot create the pre-coverage growth we report, because that growth occurs before g and therefore before any possible publication. It can, however, place pre-publication years in the post-coverage window of the baseline estimate, which is why Section 5.4 compares the datings directly.+}
 
-## {+3.4.+} Outcomes {+and recording errors+}
+## {+3.4. Outcomes and recording errors+}
 
 The primary outcome is the natural logarithm of the MTB ratio, the market value of equity divided by its book value. The secondary outcomes are log market capitalization, log total assets, and book leverage, total debt divided by total assets. Because the data contain neither stock returns nor shares outstanding, we use MTB for valuation and treat market capitalization, which mixes price and share changes, and total assets as measures of firm scale. Amounts are in U.S. dollars. We winsorize all four variables at the 1st and 99th percentiles of the pooled sample before taking logarithms.
 
@@ -228,7 +228,7 @@ Table S5 reports the bounds of Eq. (10). With M̄ = 0.25, the interval for the M
 
 The placebo in row R5, which dates coverage three years before the first {+recorded+} score within pre-score years, yields {{mtb_R5}} on log MTB (p {{mtb_R5_p_txt}}). This failure restates the pre-coverage growth in Figure 1 {+and shows how hard it is to construct a counterfactual path for firms that were growing toward the provider's universe+}. The static TWFE regression in Eq. (11) in row R6 attributes an increase of {{mtb_R6}} in log MTB (p {{mtb_R6_p_txt}}) to coverage. {+Table S8 shows that comparing each cohort with its own base year accounts for about half of the gap to the headline estimate and conditioning on base-year size for most of the rest.+}
 
-## {+5.9.+} Does the {+initial+} score matter?
+## {+5.9. Does the initial score matter?+}
 
 The last three rows of Table 3 divide scored firms at the cohort median of their first ESG score. The difference between high- and low-score entrants is {{mtb_diff}} (standard error {{mtb_diff_se}}, p {{mtb_diff_p_txt}}). Because the score rises with firm size (correlation {{h3_cor_score_size}} with base-year log total assets), Table S7 repeats the split after purging the score of size, country, and cohort; the difference is then {{mtb_h3r_diff}} (p {{mtb_h3r_diff_p_txt}}). {+Neither split shows the sign pattern that the preference channel predicts, but the test is weak: with minimum detectable differences of {{mtb_diff_mde}} and {{mtb_h3r_diff_mde}}, about {{s_mtb_diff_mde_pct}}% in the MTB ratio, neither can detect a moderate difference, and the residual split removes only part of the link between the score and firm characteristics. The insignificant difference therefore does not show that ESG preferences are unimportant; our sample cannot detect them if they are moderate.+}
 
@@ -256,7 +256,7 @@ The absence of a detected gain fits the evidence on certification by sustainabil
 
 {+The run-up also fits evidence that realized green returns reflect unexpected shifts in ESG demand (Pástor et al., 2022): a one-time demand shift, or selection after one, would produce a run-up followed by a flat path. Without ownership data, we cannot tell whether ESG investors bought these firms before or after coverage.+}
 
-## {+6.4.+} Implications
+## {+6.4. Implications+}
 
 {+These implications are bounded by the design: one provider, annual data, five markets, and no data on ownership, returns, or publication dates. For researchers, comparisons of scored and unscored firms, static TWFE estimates, and backtests built on the first recorded score can attribute selection to the score (Table S8; Berg et al., 2020; Sahin et al., 2023). Studies of ESG ratings in Southeast Asia should model when firms enter coverage, report pre-entry dynamics, and record the download date of their rating data.+}
 
