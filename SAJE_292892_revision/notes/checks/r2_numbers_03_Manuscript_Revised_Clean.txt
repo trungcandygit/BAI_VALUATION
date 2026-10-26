@@ -1,0 +1,8 @@
+# Number check: 03_Manuscript_Revised_Clean.docx against project_R/outputs
+
+Summary: 490 decimal numbers checked; 490 matched a CSV value; 0 unmatched; 18036 CSV values from the folder.
+Weak matches (1 printed decimal, or matched only after a x100, /100 or sign transform; coincidence is likely): 254. Check these by hand.
+
+Unmatched by location: 
+
+## Unmatched numbers (need a named source: an output file, a calculation, or a citation)
