@@ -252,7 +252,7 @@ The flat post-coverage MTB path admits three readings, depending on the counterf
 
 {+The recognition and preference channels motivate the hypotheses, but the evidence speaks to them only indirectly. Recognition predicts a lasting gain for every newly scored firm; we detect none under assumption (2), but without ownership, trading, or fund-holding data we cannot tell whether recognition did not increase or whether it increased without moving prices. Investor participation is a natural place to look, since investor groups in the region respond differently to trading conditions (Sudsawasd & Sakdapat, 2026). Preferences predict opposite signs for high- and low-score entrants; the split in Section 5.9 cannot detect a moderate difference. What the data evaluate directly is selection into coverage and the valuation path that follows it.+}
 
-The absence of a detected gain fits the evidence on certification by sustainability indices, where additions have little price effect relative to comparable firms (Durand et al., 2019; Hawn et al., 2018), and contrasts with the price effects of MSCI downgrades (Berg, Heeb, et al., 2022). {+Two features of our setting may explain the contrast: ESG fund holdings respond to MSCI ratings, not to those of other providers (Berg, Heeb, et al., 2022), and scored firms were large and visible before coverage (Table 1), which leaves less room for recognition (Merton, 1987). U.S. studies find that coverage changes firm conduct and payout (Bikmetova & Pirinsky, 2026; Tsang et al., 2024, 2025); we find no stable change in leverage or total assets.+}
+The absence of a detected gain fits the evidence on certification by sustainability indices, where additions have little price effect relative to comparable firms (Durand et al., 2019; Hawn et al., 2018), and contrasts with the price effects of MSCI downgrades (Berg, Heeb, et al., 2022). {+Two features of our setting may explain the contrast: ESG fund holdings respond to MSCI ratings, not to those of other providers (Berg, Heeb, et al., 2022), and scored firms were large and visible before coverage (Table 1), which leaves less room for recognition (Merton, 1987). Studies, mostly of U.S. firms, find that coverage changes firm conduct and payout (Bikmetova & Pirinsky, 2026; Tsang et al., 2024, 2025); we find no stable change in leverage or total assets.+}
 
 {+The run-up also fits evidence that realized green returns reflect unexpected shifts in ESG demand (Pástor et al., 2022): a one-time demand shift, or selection after one, would produce a run-up followed by a flat path. Without ownership data, we cannot tell whether ESG investors bought these firms before or after coverage.+}
 
@@ -391,7 +391,7 @@ caption:=Table 2|Average {+change after the first recorded LSEG ESG score over e
 csvfile:=table2_formatted.csv
 widths:=1.45,0.6,0.5,1.15,0.6,0.5,0.6,0.6,0.6
 size:=9
-note:={+Eq. (6), firm-bootstrap standard errors, unadjusted 95% CI; secondary p-values Holm-adjusted. MDE: 80%-power minimum detectable effect; pre-trend p tests Eq. (8). Firm counts cover all event-time cells.+}
+note:={+Eq. (6), firm-bootstrap standard errors, unadjusted 95% CI; secondary p-values Holm-adjusted; firm counts cover all event-time cells. MDE is the 80%-power minimum detectable effect; pre-trend p tests Eq. (8).+}
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 kind:=table
@@ -417,7 +417,7 @@ csvfile:=tableSAJE5_formatted.csv
 widths:=3.0,1.25,1.3,0.9
 size:=9
 blue:=1
-note:=Outcome regression unless labeled doubly robust; firm-bootstrap standard errors in parentheses. Percentile rows cap scored firms' base-year assets at that control percentile. \*, \*\*, \*\*\*: 10%, 5%, 1%.
+note:=Outcome regression unless labeled doubly robust, firm-bootstrap standard errors in parentheses; \*, \*\*, \*\*\*: 10%, 5%, 1%. Percentile rows cap scored firms' base-year assets at that control percentile.
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 kind:=table
@@ -488,6 +488,8 @@ The Malaysian wave added {{n_wMY}} firms in two years, yet {{n_my_never}} Malays
 
 {+Rows R1 to R4 of Table 3 give MTB effects of {{mtb_R1}} with not-yet-scored firms among the controls, {{mtb_R2}} without covariates, {{mtb_R3}} without the 2020 and 2021 cohorts, and {{mtb_R4}} when control firms below the size range of scored firms are dropped. Under the last restriction the market capitalization effect shrinks to {{mcap_R4}} and the total assets effect is {{asset_R4}}, against {{asset_R2}} without covariates. Row R7 removes a linear pre-trend with Eq. (9); its MTB effect is negative because a continued run-up would have raised valuations further. Row R8 adds market capitalization growth from g − 3 to the base year to the covariates; because control firms matched on past growth can themselves revert, it does not settle the reversal question. The placebo in row R5 gives {{mcap_R5}} for log market capitalization (p {{mcap_R5_p_txt}}), and the static TWFE regression gives {{mcap_R6}}. Without Malaysia (row R9), the MTB effect is {{mtb_R9}} (p {{mtb_R9_p_txt}}) and the market capitalization effect {{mcap_R9}}.+}
 
+{+In the outcome regression of Eq. (3), a country or industry indicator would be unidentified in a cell with no control firm in that country or industry, and its coefficient would be set to zero. This does not occur: in all {{s_na_mtb_cells}} cells of event years 0 to 3 for ln(MTB), and all {{s_na_mcap_cells}} for ln(market capitalization), every indicator carried by a scored firm is also carried by a control firm.+}
+
 @@ exhibits_supp
 kind:=table
 caption:=Table S1|Leave-one-market-out estimates of the average change after the first {+recorded+} LSEG ESG score
@@ -527,7 +529,7 @@ kind:=table
 caption:=Table S5|Relative-magnitude bounds for the average change after the first {+recorded+} LSEG ESG score
 csvfile:=tableIA5_formatted.csv
 widths:=1.7,0.6,1.2,0.9,1.6
-note:=Bias bound: M̄ × largest pre-coverage step × weighted mean of (e + 1) over event years 0 to 3 (Eq. 10); the robust interval widens the firm-bootstrap interval by it.
+note:=Bias bound: M̄ × largest pre-coverage step × weighted mean of (e + 1) in event years 0–3 (Eq. 10). The robust interval widens the bootstrap interval by it.
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 kind:=table
@@ -541,14 +543,14 @@ kind:=table
 caption:=Table S7|Alternative specifications, inference, and initial-score splits for the average change after the first {+recorded+} LSEG ESG score
 csvfile:=tableIA7_formatted.csv
 widths:=2.3,1.1,0.75,1.1,0.75
-note:=Average change over event years 0 to 3, firm-bootstrap standard errors in parentheses, and the pre-trend p of Eq. (8); all rows exploratory. \*, \*\*, \*\*\*: 10%, 5%, 1%.
+note:=Average change over event years 0 to 3 with firm-bootstrap standard errors and the pre-trend p of Eq. (8); \*, \*\*, \*\*\*: 10%, 5%, 1%. All rows are exploratory.
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 kind:=table
 caption:=Table S8|Decomposition of the gap between the static two-way fixed effects estimate and the baseline estimate
 csvfile:=tableIA8_formatted.csv
 widths:=3.0,1.4,1.4
-note:=Steps from Eq. (11) on all firm-years to the baseline Eq. (6); standard errors firm-clustered for TWFE, firm bootstrap otherwise. \*, \*\*, \*\*\*: 10%, 5%, 1%.
+note:=Steps from the two-way fixed effects Eq. (11) to the baseline Eq. (6). Standard errors are firm-clustered for Eq. (11) and firm-bootstrap otherwise; \*, \*\*, \*\*\*: 10%, 5%, 1%.
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 kind:=figure

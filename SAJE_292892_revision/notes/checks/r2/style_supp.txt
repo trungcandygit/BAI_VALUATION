@@ -1,0 +1,37 @@
+# Style check: 05_Supplementary_Material_Clean.docx
+
+Summary: dashes=0, banned=0, causal=2, acronyms=4, abstract_stats=0, define_before_use=0, dense_paragraphs=3, lit_not_revisited=0, long_notes=3
+
+## 1. Dashes: 0 (em dash: 0)
+
+## 2. Banned phrases: 0
+
+## 3. Causal wording to check against the design: 2
+Each hit is fine only if the design identifies a causal effect (core C-21); otherwise rewrite as an association (C-20).
+- drive [negated] | p 8 | ... base year gives −0.074 (p = 0.002), so the covariate timing does not [[drive]] R10. Dating coverage two years later gives −0.048 (95% interval −0.09...
+- effects of | p 26 | Rows R1 to R4 of Table 3 give MTB [[effects of]] −0.001 with not-yet-scored firms among the controls, 0.025 without co...
+
+## 4. Acronyms used before or without a definition (heuristic): 4
+Variable names in code font (e.g. BROWNWASH) also show up here; whitelist them with --allow if the paper defines them in words.
+- ESG: never defined as 'Full term (ESG)' | first use p 2 | Who Gets an [[ESG]] Score? Coverage Selection and Firm Value in Five ...
+- LSEG: never defined as 'Full term (LSEG)' | first use p 3 | ...inancial firms that received their first recorded [[LSEG]] ESG score in each year by market, and Figure S1 f...
+- MTB: never defined as 'Full term (MTB)' | first use p 3 | ... of scored and control firms by event year for ln [[MTB]]. Table S7 and Figure S2 report further explorator...
+- TWFE: never defined as 'Full term (TWFE)' | first use p 13 | A.5. Decomposition of the [[TWFE]] gap (Section 5.8, Table S8)
+
+## 6. Statistics in the abstract (p-values, CIs, test statistics): 0
+
+## 7. Used before defined (forward equation references, early coefficient symbols): 0
+
+## 8. Number-dense paragraphs (more than 6 decimals; rewrite as narrative): 3
+- 7 decimals | p 12 | Table S7 and Figure S2 vary the size covariate and support; Table 5 of the paper reports the full set of variants. The run-up does not depen
+- 8 decimals | p 16 | Estimated market by market in Table S3, the MTB effect is 0.009 in Malaysia, with 372 scored firms, and 0.027 in Thailand, with 157. Indones
+- 13 decimals | p 26 | Rows R1 to R4 of Table 3 give MTB effects of −0.001 with not-yet-scored firms among the controls, 0.025 without covariates, 0.031 without th
+
+## 9. Citations never revisited in results, discussion or conclusion: 0 of 0 cited works
+Empirical papers from the review should return where the findings are compared (S1-60); theory and method citations have no count requirement. Classify each by hand.
+
+## 5. Table/figure notes longer than 2 sentences or 30 words (or ending in '. .'): 3
+- 1 sentences, 32 words | p 308 | Note: Bias bound: M̄ × largest pre-coverage step × weighted mean of (e + 1) over event years 0 to 3 (Eq. 10); the robust interval widens the firm-bootstrap interval by it.
+- 3 sentences, 30 words | p 443 | Note: Average change over event years 0 to 3, firm-bootstrap standard errors in parentheses, and the pre-trend p of Eq. (8); all rows exploratory. *, **, ***: 10%, 5%, 1%.
+- 4 sentences, 27 words | p 461 | Note: Steps from Eq. (11) on all firm-years to the baseline Eq. (6); standard errors firm-clustered for TWFE, firm bootstrap otherwise. *, **, ***: 10%, 5%, 1%.
+

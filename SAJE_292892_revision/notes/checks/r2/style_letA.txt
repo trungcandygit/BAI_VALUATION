@@ -1,0 +1,45 @@
+# Style check: 07_Response_to_Reviewer_A.docx
+
+Summary: dashes=0, banned=0, causal=8, acronyms=5, abstract_stats=0, define_before_use=0, dense_paragraphs=4, lit_not_revisited=3, long_notes=0
+
+## 1. Dashes: 0 (em dash: 0)
+
+## 2. Banned phrases: 0
+
+## 3. Causal wording to check against the design: 8
+Each hit is fine only if the design identifies a causal effect (core C-21); otherwise rewrite as an association (C-20).
+- effect of | p 6 | ...vidence supports selection into coverage more firmly than a valuation [[effect of]] coverage, is correct, and the revision is organized around it. We res...
+- causal | p 25 | On the distinction between observed evolution and [[causal]] effect, the text now separates the two wherever results are reported....
+- effect of | p 25 | ...es not depend on assumption (2); reading the post-coverage part as an [[effect of]] coverage does.” Section 5.3 is titled “Average change after entry und...
+- effect of | p 35 | ...both estimates as answers to different questions. Neither isolates an [[effect of]] coverage, because the later dating measures valuations from the top o...
+- effect of | p 35 | ...adings, a reversal of the run-up that could hide a gain or a negative [[effect of]] coverage, and that the data cannot separate them. What the datings sh...
+- causal [negated] | p 75 | ...ve; after entry the gap stops widening but the data do not pin down a [[causal]] effect; and a static regression attributes selection to the score. Th...
+- effect of | p 75 | ...mpirical work. Section 6.2, “What the evidence says about a valuation [[effect of]] coverage,” now makes the reviewer’s point: “With annual data, a provi...
+- effect of | p 75 | ... score, and recorded scores that may precede publication, a valuation [[effect of]] coverage cannot be reliably identified without additional assumptions...
+
+## 4. Acronyms used before or without a definition (heuristic): 5
+Variable names in code font (e.g. BROWNWASH) also show up here; whitelist them with --allow if the paper defines them in words.
+- ESG: never defined as 'Full term (ESG)' | first use p 2 | Manuscript 292892: “Who Gets an [[ESG]] Score? Coverage Selection and Firm Value in Five ...
+- LSEG: never defined as 'Full term (LSEG)' | first use p 13 | We looked for the dates. Our extract of [[LSEG]] Workspace contains each score by fiscal year, wit...
+- MTB: never defined as 'Full term (MTB)' | first use p 14 | ...ected change (95% interval −0.046 to 0.048 in log [[MTB]]) to a decline of 6.6% depending on when investors...
+- ESG-: never defined as 'Full term (ESG-)' | first use p 51 | ...sponse reflects weak recognition, weak demand for [[ESG-]]rated firms, or something else. What the data can ...
+- COVID-19: never defined as 'Full term (COVID-19)' | first use p 67 | ...nsion and the Thai cohorts in the years after the [[COVID-19]] pandemic,” that it is not an average effect for t...
+
+## 6. Statistics in the abstract (p-values, CIs, test statistics): 0
+
+## 7. Used before defined (forward equation references, early coefficient symbols): 0
+
+## 8. Number-dense paragraphs (more than 6 decimals; rewrite as narrative): 4
+- 8 decimals | p 33 | Each row of Table 4 changes one feature. Restricting to firms observed in both g − 1 and g, so that every later row draws on the same set of
+- 10 decimals | p 34 | The wave comparison in Table S10 adds the most informative evidence. Under the one-year-later dating the MTB change is −0.136 for the Thai a
+- 10 decimals | p 43 | Table 5 varies the size adjustment and the support. Across functional forms (no covariates, linear, quadratic, cubic, quintile indicators, a
+- 7 decimals | p 59 | Table S11 compares firm-years with and without an MTB ratio. Firm-years without one are more often highly levered (leverage above 0.5 in 25.
+
+## 9. Citations never revisited in results, discussion or conclusion: 3 of 3 cited works
+Empirical papers from the review should return where the findings are compared (S1-60); theory and method citations have no count requirement. Classify each by hand.
+- Anna 2020 | 1x | Comment 4: Common support and size adjus
+- Crump 2009 | 1x | Comment 4: Common support and size adjus
+- Roth 2022 | 1x | Comment 2: Conditional parallel trends
+
+## 5. Table/figure notes longer than 2 sentences or 30 words (or ending in '. .'): 0
+

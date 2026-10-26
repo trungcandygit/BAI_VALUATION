@@ -1,4 +1,4 @@
-"Specification","ln(MTB)","ln(market cap)","Scored firms"
+"Specification","ln(MTB)","ln(market cap)","Scored firms in averaged event years"
 "Baseline","0.002 (0.024)","−0.055* (0.030)","625"
 "Market capitalization on firm-years with an MTB ratio","","−0.023 (0.029)","624"
 "Complete MTB series, scored and control firms","0.008 (0.025)","","598"

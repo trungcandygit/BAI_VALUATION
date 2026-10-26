@@ -1,0 +1,40 @@
+# Style check: 06_Response_to_Editor.docx
+
+Summary: dashes=0, banned=0, causal=4, acronyms=4, abstract_stats=0, define_before_use=0, dense_paragraphs=0, lit_not_revisited=7, long_notes=0
+
+## 1. Dashes: 0 (em dash: 0)
+
+## 2. Banned phrases: 0
+
+## 3. Causal wording to check against the design: 4
+Each hit is fine only if the design identifies a causal effect (core C-21); otherwise rewrite as an association (C-20).
+- effect of | p 5 | ...support best: entry into ESG coverage is selective, and the valuation [[effect of]] coverage cannot be reliably identified without additional assumptions...
+- effect of | p 11 | ...that came before it. The paper asks how far the data can separate the [[effect of]] being scored from the selection of who is scored. The findings paragr...
+- effect of | p 11 | ...rage in Southeast Asian markets, a demonstration of why the valuation [[effect of]] coverage is hard to identify, and a practical warning for empirical w...
+- effect of | p 20 | ...rical Refinitiv ESG scores, and Berg, Heeb, and Kölbel (2022), on the [[effect of]] MSCI rating changes on fund holdings and returns. We searched for jou...
+
+## 4. Acronyms used before or without a definition (heuristic): 4
+Variable names in code font (e.g. BROWNWASH) also show up here; whitelist them with --allow if the paper defines them in words.
+- ESG: never defined as 'Full term (ESG)' | first use p 2 | Manuscript 292892: “Who Gets an [[ESG]] Score? Coverage Selection and Firm Value in Five ...
+- MSCI: never defined as 'Full term (MSCI)' | first use p 20 | ...d Berg, Heeb, and Kölbel (2022), on the effect of [[MSCI]] rating changes on fund holdings and returns. We s...
+- AI: never defined as 'Full term (AI)' | first use p 26 | ...have added a declaration of the use of generative [[AI]] tools to the title page, under the heading “Decla...
+- AI-: never defined as 'Full term (AI-)' | first use p 26 | ...der the heading “Declaration of generative AI and [[AI-]]assisted technologies”. It describes the tool, the...
+
+## 6. Statistics in the abstract (p-values, CIs, test statistics): 0
+
+## 7. Used before defined (forward equation references, early coefficient symbols): 0
+
+## 8. Number-dense paragraphs (more than 6 decimals; rewrite as narrative): 0
+
+## 9. Citations never revisited in results, discussion or conclusion: 7 of 7 cited works
+Empirical papers from the review should return where the findings are compared (S1-60); theory and method citations have no count requirement. Classify each by hand.
+- Crump 2009 | 1x | Comment E3
+- Merton 1987 | 1x | Comment E1
+- Nguyen 2025 | 1x | Comment E1
+- Prukumpai 2022 | 1x | Comment E1
+- Sautner 2020 | 1x | Comment E3
+- Serafeim 2023 | 1x | Comment E3
+- Sudsawasd 2026 | 1x | Comment E1
+
+## 5. Table/figure notes longer than 2 sentences or 30 words (or ending in '. .'): 0
+

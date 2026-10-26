@@ -94,7 +94,9 @@ ORIG = orig_sentences()
 
 def automark(text):
     """Wrap every sentence that is not in the round-0 submission in {+ +}; keep explicit marks."""
-    parts = SPLIT.split(text)
+    # never split inside an italic span (*...*): sentence marks inside titles would break the span
+    prot = re.sub(r'(?<!\\)\*[^*]+\*', lambda m: m.group(0).replace(' ', '\u0001'), text)
+    parts = [x.replace('\u0001', ' ') for x in SPLIT.split(prot)]
     out = []
     for s in parts:
         if '{+' in s or '+}' in s:

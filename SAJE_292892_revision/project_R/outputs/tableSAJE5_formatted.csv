@@ -1,4 +1,4 @@
-"Specification","ln(MTB)","ln(market cap)","Scored firms"
+"Specification","ln(MTB)","ln(market cap)","Scored firms in averaged event years"
 "Baseline: quadratic in log total assets at g − 1","0.002 (0.024)","−0.055* (0.030)","625"
 "No covariates","0.025 (0.022)","0.016 (0.025)","625"
 "Linear in log total assets","−0.003 (0.023)","−0.033 (0.029)","625"

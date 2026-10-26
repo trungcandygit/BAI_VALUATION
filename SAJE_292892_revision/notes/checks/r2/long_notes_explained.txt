@@ -1,0 +1,1 @@
+Remaining long_notes hits: sentence splitter counts 'Eq.' as a sentence end; each flagged note has 2 real sentences and <=30 words (checked 2026-10-26).

@@ -340,7 +340,7 @@ na_rows <- list()
 for (y in S_OUT) {
   cells <- build_cells2(y); cells <- cells[vapply(cells, function(cl) cl$e >= 0 && cl$e <= 3, logical(1))]
   hit <- vapply(cells, function(cl) {
-    b <- lm.wfit(cl$Xc, cl$yc)$coefficients; na <- names(b)[is.na(b)]
+    b <- lm.fit(cl$Xc, cl$yc)$coefficients; na <- names(b)[is.na(b)]
     c(any(colSums(cl$Xt[, na, drop = FALSE]) > 0), sum(rowSums(cl$Xt[, na, drop = FALSE]) > 0), nrow(cl$Xt))
   }, numeric(3))
   na_rows[[y]] <- data.frame(outcome = y, cells = length(cells), cells_affected = sum(hit[1, ] > 0),

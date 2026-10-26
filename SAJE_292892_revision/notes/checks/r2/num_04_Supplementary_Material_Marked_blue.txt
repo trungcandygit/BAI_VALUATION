@@ -1,0 +1,8 @@
+# Number check: 04_Supplementary_Material_Marked_blue.docx against project_R/outputs
+
+Summary: 403 decimal numbers checked; 403 matched a CSV value; 0 unmatched; 18146 CSV values from the folder.
+Weak matches (1 printed decimal, or matched only after a x100, /100 or sign transform; coincidence is likely): 179. Check these by hand.
+
+Unmatched by location: 
+
+## Unmatched numbers (need a named source: an output file, a calculation, or a citation)

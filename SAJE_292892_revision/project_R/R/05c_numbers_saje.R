@@ -102,6 +102,10 @@ fa <- fl[fl$country == "All", ]
 put("s_flag_share_ID", fmt(100 * fl$flagged[fl$country == "ID"] / fa$flagged, 1))
 put("s_flag_pct_checked", fmt(100 * fa$flagged / fa$checked, 2))
 
+na <- rd("s_na_coefficients.csv")
+for (i in seq_len(nrow(na))) { k <- paste0("s_na_", ab[[na$outcome[i]]])
+  put(paste0(k, "_cells"), fmtn(na$cells[i])); put(paste0(k, "_affected"), fmtn(na$cells_affected[i])) }
+
 wt <- rd("s_weights.csv")
 for (i in seq_len(nrow(wt))) put(paste0("s_w_", wt$dim[i], "_", wt$level[i]), fmt(100 * wt$weight[i], 1))
 cy <- wt[wt$dim == "calendar_year", ]
