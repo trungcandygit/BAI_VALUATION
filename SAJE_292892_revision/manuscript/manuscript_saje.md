@@ -492,8 +492,8 @@ The Malaysian wave added {{n_wMY}} firms in two years, yet {{n_my_never}} Malays
 kind:=table
 caption:=Table S1|Leave-one-market-out estimates of the average change after the first {+recorded+} LSEG ESG score
 csvfile:=tableIA1_formatted.csv
-widths:=1.9,1.15,1.15,1.15,1.15
-note:=Average change over event years 0 to 3 without the named market; firm-bootstrap standard errors in parentheses. \*, \*\*, \*\*\*: 10%, 5%, 1% (unadjusted).
+widths:=1.6,0.95,0.95,0.95,0.95,1.1
+note:=Average change over event years 0 to 3 without the named market; firm-bootstrap standard errors; firm counts for ln(MTB). \*, \*\*, \*\*\*: 10%, 5%, 1% (unadjusted).
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 kind:=table
@@ -512,8 +512,8 @@ source:=Authors' calculations from LSEG ESG scores.
 kind:=table
 caption:=Table S3|Average change after the first {+recorded+} LSEG ESG score by market
 csvfile:=tableIA3_formatted.csv
-widths:=1.2,1.1,1.1,1.1,1.1,0.9
-note:=Average change over event years 0 to 3 within each market; firm-bootstrap standard errors in parentheses. \*, \*\*, \*\*\*: 10%, 5%, 1% (unadjusted).
+widths:=1.3,1.0,1.05,1.05,1.0,1.1
+note:=Average change over event years 0 to 3 within each market; firm-bootstrap standard errors; firm counts for ln(MTB). \*, \*\*, \*\*\*: 10%, 5%, 1% (unadjusted).
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 kind:=table

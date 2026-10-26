@@ -120,9 +120,7 @@ write.csv(tia2, file.path(OUT, "tableIA2_formatted.csv"), row.names = FALSE)
 
 # Per-market estimates (Table IA3), sample sizes by outcome (Table IA4), relative-magnitude bounds (Table IA5)
 pm <- read.csv(file.path(OUT, "per_market.csv"))
-tia3 <- bind_rows(lapply(names(cn), function(cc) {
-  r <- row_of(cn[[cc]], pm[pm$market == cc, ])
-  r$`Scored firms` <- fmtn(pm$n_treated_firms[pm$market == cc & pm$outcome == "ln_mtb"]); r }))
+tia3 <- bind_rows(lapply(names(cn), function(cc) row_of(cn[[cc]], pm[pm$market == cc, ])))
 names(tia3)[1] <- "Market"
 write.csv(tia3, file.path(OUT, "tableIA3_formatted.csv"), row.names = FALSE)
 ss <- bind_rows(lapply(names(OUTCOMES), function(y) {
