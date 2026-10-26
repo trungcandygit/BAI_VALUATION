@@ -48,8 +48,8 @@ f1 <- ggplot(ev, aes(e, est, colour = period, shape = period)) + ref_lines +
 save_fig(f1, "Fig1", h = 5.2)
 
 # ---- Figure 2: by coverage wave ----
-WAVE <- c(wave_MY_2021_22 = "Malaysia, first recorded 2021–2022",
-          wave_TH_SG_2019_20 = "Thailand and Singapore, 2019–2020", wave_other = "All other cohorts")
+WAVE <- c(wave_MY_2021_22 = "Malaysia 2021–22", wave_TH_SG_2019_20 = "Thailand and Singapore 2019–20",
+          wave_other = "Other cohorts")
 OUT2P <- c(ln_mtb = "(a) ln(MTB)", ln_mcap = "(b) ln(market cap)")
 r4ev <- read.csv(file.path(OUT, "r4_event_profiles.csv")) %>% mutate(e = as.integer(term))
 wv <- r4ev %>% filter(spec %in% names(WAVE), outcome %in% names(OUT2P)) %>% select(outcome, spec, e, est, ci_lo, ci_hi) %>%
@@ -65,8 +65,8 @@ f2 <- ggplot(wv, aes(e, est, colour = wave, shape = wave, group = wave)) + ref_l
   x_event + scale_y_continuous(labels = minus) +
   facet_wrap(~ panel, ncol = 1, scales = "free_y") +
   labs(x = "Years relative to the first recorded LSEG ESG score", y = "Change relative to event year −1") +
-  theme_saje() + guides(colour = guide_legend(ncol = 1), shape = guide_legend(ncol = 1))
-save_fig(f2, "Fig2", h = 6.2)
+  theme_saje() + guides(colour = guide_legend(nrow = 1), shape = guide_legend(nrow = 1))
+save_fig(f2, "Fig2", h = 5.6)
 
 # ---- Figure S1: firms by year of first recorded score ----
 cs <- read.csv(file.path(OUT, "cohort_sizes.csv"))
@@ -76,9 +76,9 @@ fs1 <- ggplot(cs, aes(G, total)) + geom_col(fill = "grey55", width = 0.7) +
 save_fig(fs1, "FigIA1", h = 3.4)
 
 # ---- Figure S2: ln(MTB) paths under alternative specifications and dating ----
-ALT <- c(baseline = "Baseline", no_covariates = "No covariates", size_at_g3 = "Size measured at g − 3",
-         trim_top_p95 = "Scored firms within control size range")
-R10 <- c(R10_shift1 = "Dated one year later", R10_size_at_g1 = "Dated one year later, size at original g − 1")
+ALT <- c(baseline = "Baseline", no_covariates = "No covariates", size_at_g3 = "Size at g \u2212 3",
+         trim_top_p95 = "Within control size range")
+R10 <- c(R10_shift1 = "One year later", R10_size_at_g1 = "One year later, size at g \u2212 1")
 alt <- r4ev %>% filter(outcome == "ln_mtb", spec %in% c(names(ALT), names(R10))) %>% select(spec, e, est, ci_lo, ci_hi) %>%
   bind_rows(data.frame(spec = c(names(ALT), names(R10)), e = -1L, est = 0, ci_lo = NA, ci_hi = NA)) %>%
   filter(!is.na(est)) %>%
@@ -92,5 +92,5 @@ fs2 <- ggplot(alt, aes(e, est, colour = label, shape = label, group = label)) + 
   x_event + scale_y_continuous(labels = minus) +
   facet_wrap(~ panel, ncol = 1) +
   labs(x = "Years relative to the event", y = "Change in ln(MTB) relative to event year −1") +
-  theme_saje() + guides(colour = guide_legend(ncol = 2), shape = guide_legend(ncol = 2))
-save_fig(fs2, "FigIA2", h = 6.8)
+  theme_saje() + guides(colour = guide_legend(nrow = 2), shape = guide_legend(nrow = 2))
+save_fig(fs2, "FigIA2", h = 6.4)
