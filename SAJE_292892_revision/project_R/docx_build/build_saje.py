@@ -2,15 +2,16 @@
 
 Sources: manuscript/manuscript_saje.md (text, {{key}} numbers, exhibits), project_R/outputs/numbers.csv and
 numbers_saje.csv (numbers), project_R/outputs/*_formatted.csv (tables), outputs/figures (figures).
-Markup in addition to build_manuscript.py: {+ ... +} marks text that is new or changed in this revision. The marked
-manuscript prints it in blue (editor's instruction), the clean manuscript in black.
+Marking: a sentence is printed in blue in the marked files when it does not appear verbatim in the round-0 submission
+(ORIG_DOCX), and text wrapped in {+ ... +} is always blue. The clean files print everything in black.
 SAJE guidelines: blinded article, separate title page, abstract of 150 words or less, tables and figures within the
-text at the appropriate points.
+text at the appropriate points. Section numbers follow the journal's sample paper ("1. Introduction", "2.1 Data").
 Usage: python3 build_saje.py OUTDIR
 """
 import csv, os, re, subprocess, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from build_manuscript import (blocks, base_doc, set_spacing, latex_to_omml, save_doc, border, OUTR, ROOT)
+from docx import Document
 from docx.enum.table import WD_TABLE_ALIGNMENT
 from docx.enum.text import WD_ALIGN_PARAGRAPH, WD_TAB_ALIGNMENT
 from docx.oxml import OxmlElement
@@ -18,9 +19,13 @@ from docx.oxml.ns import qn
 from docx.shared import Inches, Pt, RGBColor
 
 MS = os.path.join(ROOT, 'manuscript', 'manuscript_saje.md')
+LETTER = os.path.join(ROOT, 'manuscript', 'response_letter_saje.md')
+SRC0 = '/home/user/trungcandygit/b-i-esg2/submission/AAMJAF_submission'
+ORIG_DOCX = [os.path.join(SRC0, '02_Manuscript_Anonymized.docx'), os.path.join(SRC0, '05_Supplementary_material.docx')]
 BLUE = RGBColor(0, 0, 0xFF)
 TOKEN = re.compile(r'(\*[^*]+\*|\^[^^]+\^|~[^~]+~)')
 STAR = '∗'
+REF = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'saje_reference.docx')
 
 
 def load_numbers():
@@ -57,13 +62,59 @@ def strip_marks(t):
     return t.replace('{+', '').replace('+}', '')
 
 
+# ---- automatic change marking against the round-0 submission ----
+def norm(s):
+    s = strip_marks(s).replace('\\*', '*')
+    s = re.sub(r'[*^~]', '', s)
+    s = s.replace('’', "'").replace('‘', "'").replace('“', '"').replace('”', '"').replace(' ', ' ')
+    return re.sub(r'\s+', ' ', s).strip()
+
+
+SPLIT = re.compile(r'(?<=[.?!:;])\s+(?=[A-Z(\[0-9H])')
+
+
+def orig_sentences():
+    out = set()
+    for f in ORIG_DOCX:
+        d = Document(f)
+        texts = [p.text for p in d.paragraphs]
+        for t in d.tables:
+            for row in t.rows:
+                texts += [c.text for c in row.cells]
+        for tx in texts:
+            for s in SPLIT.split(tx):
+                n = norm(s)
+                if n:
+                    out.add(n)
+    return out
+
+
+ORIG = orig_sentences()
+
+
+def automark(text):
+    """Wrap every sentence that is not in the round-0 submission in {+ +}; keep explicit marks."""
+    parts = SPLIT.split(text)
+    out = []
+    for s in parts:
+        if '{+' in s or '+}' in s:
+            out.append(s)   # explicitly marked already
+        elif norm(s) and norm(s) not in ORIG:
+            out.append('{+' + s + '+}')
+        else:
+            out.append(s)
+    return ' '.join(out)
+
+
 class Writer:
     """Adds runs with italics, super- and subscripts, and blue for {+ ... +} when marked=True."""
 
     def __init__(self, marked):
         self.marked = marked
 
-    def runs(self, p, text, bold=False, size=None, italic=False, force_blue=False):
+    def runs(self, p, text, bold=False, size=None, italic=False, force_blue=False, auto=True):
+        if auto and self.marked and not force_blue:
+            text = automark(text)
         text = text.replace('\\*', STAR).replace('\n', ' ')
         blue = False
         for seg in re.split(r'(\{\+|\+\})', text):
@@ -94,8 +145,14 @@ class Writer:
         return p
 
 
+def sec_number(text):
+    """'## 2.1. Title' in the source becomes '2.1 Title' (journal style); level-1 keeps '1. Title'."""
+    return re.sub(r'^(\{\+)?(\d+\.\d+(?:\.\d+)?)\.\s', lambda m: (m.group(1) or '') + m.group(2) + ' ', text)
+
+
 def heading(d, w, text, level):
-    p = d.add_paragraph(style='Heading %d' % level); w.runs(p, text, bold=True, size=13 if level == 1 else 12)
+    p = d.add_paragraph(style='Heading %d' % level)
+    w.runs(p, sec_number(text), bold=True, size=13 if level == 1 else 12)
     for r in p.runs:   # real Word headings, typeset like the journal's sample (Times New Roman, black)
         r.font.name = 'Times New Roman'; r.italic = False
         r._r.get_or_add_rPr().get_or_add_rFonts().set(qn('w:eastAsia'), 'Times New Roman')
@@ -129,7 +186,7 @@ def equation(d, w, text):
 
 def set_cell(w, cell, text, bold=False, align=None, size=10, blue=False):
     cell.text = ''
-    p = cell.paragraphs[0]; w.runs(p, text, bold=bold, size=size, force_blue=blue)
+    p = cell.paragraphs[0]; w.runs(p, text, bold=bold, size=size, force_blue=blue, auto=False)
     p.paragraph_format.space_after = Pt(0); p.paragraph_format.line_spacing = 1.0
     if align:
         p.alignment = align
@@ -146,9 +203,16 @@ def table_exhibit(d, w, caption, csvfile, note, source, widths=None, size=10, bl
         e = OxmlElement('w:' + side); e.set(qn('w:w'), str(v)); e.set(qn('w:type'), 'dxa'); mar.append(e)
     t._tbl.tblPr.append(mar)
     for i, row in enumerate(rows):
+        trPr = t.rows[i]._tr.get_or_add_trPr()
+        cs = OxmlElement('w:cantSplit'); trPr.append(cs)
+        if i == 0:   # header row repeats on a new page
+            th = OxmlElement('w:tblHeader'); trPr.append(th)
         for j, v in enumerate(row):
             c = t.cell(i, j)
             set_cell(w, c, v, bold=(i == 0), align=None if j == 0 else WD_ALIGN_PARAGRAPH.CENTER, size=size, blue=blue)
+            if i < len(rows) - 1:
+                for par in c.paragraphs:
+                    par.paragraph_format.keep_with_next = True   # keep the table on one page where it fits
             if i == 0:
                 border(c, ['top', 'bottom'])
             if i == len(rows) - 1:
@@ -196,8 +260,9 @@ def place(d, w, ex):
 
 
 def write_body(d, w, text, exhibits):
-    left = list(exhibits)
-    for b in blocks(text):
+    left = list(exhibits); pending = []
+    bl = blocks(text)
+    for k, b in enumerate(bl):
         plain = strip_marks(b)
         if plain.startswith('## '):
             heading(d, w, b.replace('## ', '', 1), 2)
@@ -210,7 +275,14 @@ def write_body(d, w, text, exhibits):
             for ex in list(left):   # SAJE: each exhibit after the paragraph that first cites it
                 lab = ex['args']['caption'].split('|')[0].strip()
                 if re.search(r'\b' + re.escape(lab) + r'(?![\dA-Za-z])', plain):
-                    place(d, w, ex); left.remove(ex)
+                    pending.append(ex); left.remove(ex)
+        nxt = strip_marks(bl[k + 1]) if k + 1 < len(bl) else ''
+        if pending and not nxt.startswith('$$latex') and not plain.rstrip().endswith((' is', ':')):
+            for ex in pending:   # never between a sentence and the equation that completes it
+                place(d, w, ex)
+            pending = []
+    for ex in pending:
+        place(d, w, ex)
     assert not left, 'exhibit never cited: ' + str([e['args']['caption'] for e in left])
 
 
@@ -236,12 +308,12 @@ def manuscript(out, secs, marked):
     p = d.add_paragraph(); w.runs(p, 'Abstract', bold=True, size=13); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     set_spacing(p, 1.5, 6)
     body_par(d, w, secs['abstract'], indent=True)
-    p = d.add_paragraph(); w.runs(p, 'Keywords:', bold=True); w.runs(p, ' ' + secs['keywords'])
+    p = d.add_paragraph(); w.runs(p, 'Keywords:', bold=True, auto=False); w.runs(p, ' ' + secs['keywords'])
     set_spacing(p, 1.5, 6); p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
-    p = d.add_paragraph(); w.runs(p, 'JEL Classification:', bold=True); w.runs(p, ' ' + secs['jel']); set_spacing(p, 1.5, 6)
+    p = d.add_paragraph(); w.runs(p, '{+JEL Classification:+}', bold=True, auto=False); w.runs(p, ' {+' + secs['jel'] + '+}')
+    set_spacing(p, 1.5, 6)
     d.add_page_break()
     write_body(d, w, secs['body'], parse_exhibits(secs['exhibits']))
-    heading(d, w, secs['ack_head'], 1); body_par(d, w, secs['ack_blind'], indent=False)
     references(d, w, secs['references'])
     save_doc(d, out)
 
@@ -254,28 +326,24 @@ def supplement(out, secs, marked):
     p = d.add_paragraph(); w.runs(p, secs['title'], bold=True); p.alignment = WD_ALIGN_PARAGRAPH.CENTER; set_spacing(p, 1.5, 12)
     body_par(d, w, secs['supp_intro'], indent=False)
     write_body(d, w, secs['supp_body'], [])
-    for ex in parse_exhibits(secs['exhibits_supp']):   # all exhibits after Appendix B, in numbered order
+    for ex in parse_exhibits(secs['exhibits_supp']):   # all exhibits after the appendix text, in numbered order
         place(d, w, ex)
     save_doc(d, out)
 
 
-def title_page(out, secs):
-    """Title page through pandoc, which writes a real Word footnote for the acknowledgement."""
-    md = os.path.join(os.path.dirname(out), '_title_page.md')
-    open(md, 'w', encoding='utf-8').write(secs['title_page'] + '\n')
-    ref = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'saje_reference.docx')
-    subprocess.run(['pandoc', md, '-f', 'markdown', '-o', out, '--reference-doc', ref], check=True)
+def pandoc(md_text, out):
+    md = out + '.md'
+    open(md, 'w', encoding='utf-8').write(md_text + '\n')
+    subprocess.run(['pandoc', md, '-f', 'markdown', '-o', out, '--reference-doc', REF], check=True)
     os.remove(md)
 
 
 def reference_doc():
     """Pandoc reference document with Times New Roman 12 pt and 1.5 line spacing."""
-    from docx import Document
-    ref = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'saje_reference.docx')
     data = subprocess.run(['pandoc', '--print-default-data-file', 'reference.docx'], check=True,
                           capture_output=True).stdout
-    open(ref, 'wb').write(data)
-    d = Document(ref)
+    open(REF, 'wb').write(data)
+    d = Document(REF)
     for st in d.styles:
         try:
             if st.font is not None:
@@ -289,24 +357,17 @@ def reference_doc():
             pass
     for name in ('Body Text', 'First Paragraph'):
         d.styles[name].paragraph_format.line_spacing = 1.5
-    d.save(ref)
-    return ref
+    d.save(REF)
 
 
-LETTER = os.path.join(ROOT, 'manuscript', 'response_letter_saje.md')
-
-
-def letter(out, nums, secs):
-    """Response letter through pandoc; numbers from the same files, abstract text and word count from the manuscript."""
+def letters(outdir, nums, secs):
+    """Two response files (editor; Reviewer A), so that the referee's copy holds only the referee's part."""
     n2 = dict(nums)
     n2['s_abstract_text'] = strip_marks(secs['abstract']); n2['s_abstract_words'] = str(words(secs['abstract']))
-    body = parse(LETTER, n2)['letter']
-    md = os.path.join(os.path.dirname(out), '_letter.md')
-    open(md, 'w', encoding='utf-8').write(body + '\n')
-    ref = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'saje_reference.docx')
-    subprocess.run(['pandoc', md, '-f', 'markdown', '-o', out, '--reference-doc', ref], check=True)
-    os.remove(md)
-    return body
+    L = parse(LETTER, n2)
+    pandoc(L['editor'], os.path.join(outdir, '06_Response_to_Editor.docx'))
+    pandoc(L['reviewer'], os.path.join(outdir, '07_Response_to_Reviewer_A.docx'))
+    return L
 
 
 if __name__ == '__main__':
@@ -318,12 +379,12 @@ if __name__ == '__main__':
     manuscript(os.path.join(outdir, '03_Manuscript_Revised_Clean.docx'), secs, False)
     supplement(os.path.join(outdir, '04_Supplementary_Material_Marked_blue.docx'), secs, True)
     supplement(os.path.join(outdir, '05_Supplementary_Material_Clean.docx'), secs, False)
-    title_page(os.path.join(outdir, '01_Title_Page.docx'), secs)
-    lt = letter(os.path.join(outdir, '06_Response_to_Editor_and_Reviewer.docx'), nums, secs)
-    print('letter words:', len(re.findall(r'\S+', lt)))
+    pandoc(secs['title_page'], os.path.join(outdir, '01_Title_Page.docx'))
+    L = letters(outdir, nums, secs)
     ab = words(secs['abstract']); body = words(secs['body'])
-    print('abstract words:', ab, '| body words (excl. headings, equations):', body)
+    print('abstract words:', ab, '| body words (excl. headings, equations):', body,
+          '| letter words: editor', len(L['editor'].split()), 'reviewer', len(L['reviewer'].split()))
     assert ab <= 150, 'abstract over 150 words'
-    for k in ('{{', '[[', 'AUTHOR_INPUT'):
-        for s in ('body', 'abstract'):
+    for s in ('body', 'abstract'):
+        for k in ('{{', '[[', 'AUTHOR_INPUT'):
             assert k not in secs[s], 'unresolved %s in %s' % (k, s)

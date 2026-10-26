@@ -48,10 +48,10 @@ for (i in seq_len(nrow(cp))) {
 ret <- rd("s_support_retained.csv")
 for (g in c("retained", "excluded")) {
   x <- ret[ret$group == g, ]
-  put(paste0("s_sup_", g, "_n"), fmtn(x$firms)); put(paste0("s_sup_", g, "_assets"), fmt(x$med_assets_musd, 1))
-  put(paste0("s_sup_", g, "_mcap"), fmt(x$med_mcap_musd, 1)); put(paste0("s_sup_", g, "_mtb"), fmt(x$med_mtb, 2))
+  put(paste0("s_sup_", g, "_n"), fmtn(x$firms)); put(paste0("s_sup_", g, "_assets"), formatC(x$med_assets_musd, digits = 1, format = "f", big.mark = ","))
+  put(paste0("s_sup_", g, "_mcap"), formatC(x$med_mcap_musd, digits = 1, format = "f", big.mark = ",")); put(paste0("s_sup_", g, "_mtb"), fmt(x$med_mtb, 2))
   put(paste0("s_sup_", g, "_my"), fmt(100 * x$share_MY, 1)); put(paste0("s_sup_", g, "_th"), fmt(100 * x$share_TH, 1))
-  put(paste0("s_sup_", g, "_sg"), fmt(100 * x$share_SG, 1)); put(paste0("s_sup_", g, "_id"), fmt(100 * x$share_ID, 1))
+  put(paste0("s_sup_", g, "_sg"), fmt(100 * x$share_SG, 1)); put(paste0("s_sup_", g, "_ph"), fmt(100 * x$share_PH, 1)); put(paste0("s_sup_", g, "_id"), fmt(100 * x$share_ID, 1))
   put(paste0("s_sup_", g, "_early"), fmt(100 * x$share_cohort_le2020, 1)); put(paste0("s_sup_", g, "_score"), fmt(x$mean_score0, 1))
 }
 ps <- rd("s_support_pscore.csv")
@@ -83,7 +83,7 @@ for (i in seq_len(nrow(fl))) {
   k <- paste0("s_flag_", fl$country[i])
   put(paste0(k, "_n"), fmtn(fl$flagged[i])); put(paste0(k, "_firms"), fmtn(fl$firms_flagged[i]))
   put(paste0(k, "_scored"), fmtn(fl$flagged_scored[i])); put(paste0(k, "_checked"), fmtn(fl$checked[i]))
-  put(paste0(k, "_n2"), fmtn(fl$flagged_ratio2[i])); put(paste0(k, "_maxmcap"), fmt(fl$max_mcap_busd[i], 1))
+  put(paste0(k, "_n2"), fmtn(fl$flagged_ratio2[i])); put(paste0(k, "_maxmcap"), formatC(fl$max_mcap_busd[i], digits = 1, format = "f", big.mark = ","))
 }
 fa <- fl[fl$country == "All", ]
 put("s_flag_share_ID", fmt(100 * fl$flagged[fl$country == "ID"] / fa$flagged, 1))

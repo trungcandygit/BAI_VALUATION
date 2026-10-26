@@ -244,7 +244,7 @@ mcmp <- panel %>% mutate(group = ifelse(treated, "scored", "never_scored"), has_
             share_lev_above_05 = mean(lev_w > 0.5, na.rm = TRUE), mean_roa = mean(roa_w, na.rm = TRUE),
             share_ID = mean(country == "ID"), share_MY = mean(country == "MY"), share_TH = mean(country == "TH"),
             share_SG = mean(country == "SG"), share_PH = mean(country == "PH"), mean_year = mean(year),
-            .groups = "drop")
+            share_with_mcap = mean(!is.na(mcap_w)), .groups = "drop")
 write_out(mcmp, "s_missing_compare.csv")
 
 # Scored firms that enter vs. do not enter the ln MTB estimate.

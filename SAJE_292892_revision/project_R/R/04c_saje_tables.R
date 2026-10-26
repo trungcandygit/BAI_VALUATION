@@ -2,6 +2,7 @@
 fmt <- function(x, d = 3) ifelse(is.na(x), "", gsub("-", "−", formatC(x, digits = d, format = "f")))
 fmtp <- function(p) ifelse(is.na(p), "", ifelse(p < 0.001, "<0.001", formatC(p, digits = 3, format = "f")))
 fmtn <- function(x) formatC(x, format = "d", big.mark = ",")
+fmtm <- function(x) gsub("-", "−", formatC(x, digits = 1, format = "f", big.mark = ","))   # amounts in USD million
 stars <- function(p) ifelse(is.na(p), "", ifelse(p < 0.01, "***", ifelse(p < 0.05, "**", ifelse(p < 0.10, "*", ""))))
 cellf <- function(d) ifelse(is.na(d$est), "", paste0(fmt(d$est), stars(d$p), " (", fmt(d$se), ")"))
 rd <- function(f) read.csv(file.path(OUT, f), stringsAsFactors = FALSE)
@@ -56,13 +57,13 @@ t6 <- data.frame(
                      "Median market-to-book ratio", "Mean book leverage", "Mean initial ESG score",
                      "Share Malaysian", "Share Thai", "Share Indonesian", "Share Singaporean", "Share Philippine",
                      "Share first recorded by 2020"),
-  Retained = c(fmtn(r_$firms), fmt(r_$med_assets_musd, 1), fmt(r_$med_mcap_musd, 1), fmt(r_$med_mtb, 2),
+  Retained = c(fmtn(r_$firms), fmtm(r_$med_assets_musd), fmtm(r_$med_mcap_musd), fmt(r_$med_mtb, 2),
                fmt(r_$mean_lev), fmt(r_$mean_score0, 1), fmt(r_$share_MY, 2), fmt(r_$share_TH, 2), fmt(r_$share_ID, 2),
                fmt(r_$share_SG, 2), fmt(r_$share_PH, 2), fmt(r_$share_cohort_le2020, 2)),
-  Excluded = c(fmtn(e_$firms), fmt(e_$med_assets_musd, 1), fmt(e_$med_mcap_musd, 1), fmt(e_$med_mtb, 2),
+  Excluded = c(fmtn(e_$firms), fmtm(e_$med_assets_musd), fmtm(e_$med_mcap_musd), fmt(e_$med_mtb, 2),
                fmt(e_$mean_lev), fmt(e_$mean_score0, 1), fmt(e_$share_MY, 2), fmt(e_$share_TH, 2), fmt(e_$share_ID, 2),
                fmt(e_$share_SG, 2), fmt(e_$share_PH, 2), fmt(e_$share_cohort_le2020, 2)),
-  `Never-scored (all years)` = c(fmtn(n_$firms), fmt(n_$med_assets_musd, 1), fmt(n_$med_mcap_musd, 1),
+  `Never-scored (all years)` = c(fmtn(n_$firms), fmtm(n_$med_assets_musd), fmtm(n_$med_mcap_musd),
                fmt(n_$med_mtb, 2), fmt(n_$mean_lev), "", "", "", "", "", "", ""), check.names = FALSE)
 write.csv(t6, file.path(OUT, "tableSAJE6_formatted.csv"), row.names = FALSE)
 
@@ -72,12 +73,13 @@ grp <- function(g, h) mc[mc$group == g & mc$has_mtb == h, ]
 cols <- list(c("scored", TRUE), c("scored", FALSE), c("never_scored", TRUE), c("never_scored", FALSE))
 t7 <- data.frame(Characteristic = c("Firm-years", "Median total assets (USD million)",
   "Median market capitalization (USD million)", "Mean book leverage", "Share with leverage above 0.5",
-  "Share Indonesian", "Share Malaysian", "Mean calendar year"))
+  "Share Indonesian", "Share Malaysian", "Mean calendar year", "Share with market capitalization"))
 nm <- c("Scored, MTB observed", "Scored, MTB missing", "Never-scored, MTB observed", "Never-scored, MTB missing")
 for (k in seq_along(cols)) {
   x <- grp(cols[[k]][1], as.logical(cols[[k]][2]))
-  t7[[nm[k]]] <- c(fmtn(x$firm_years), fmt(x$med_assets_musd, 1), fmt(x$med_mcap_musd, 1), fmt(x$mean_lev),
-                   fmt(x$share_lev_above_05, 2), fmt(x$share_ID, 2), fmt(x$share_MY, 2), fmt(x$mean_year, 1))
+  t7[[nm[k]]] <- c(fmtn(x$firm_years), fmtm(x$med_assets_musd), fmtm(x$med_mcap_musd), fmt(x$mean_lev),
+                   fmt(x$share_lev_above_05, 2), fmt(x$share_ID, 2), fmt(x$share_MY, 2), fmt(x$mean_year, 1),
+                   fmt(x$share_with_mcap, 2))
 }
 write.csv(t7, file.path(OUT, "tableSAJE7_formatted.csv"), row.names = FALSE)
 
@@ -105,7 +107,7 @@ wt <- rd("s_weights.csv")
 lab <- c(ID = "Indonesia", MY = "Malaysia", PH = "Philippines", SG = "Singapore", TH = "Thailand",
          MY_2021_22 = "Malaysian wave (first recorded 2021–2022)", TH_SG_2019_20 = "Thai and Singaporean wave (2019–2020)",
          other = "All other cohorts")
-s9 <- wt %>% filter(dim != "calendar_year") %>%
+s9 <- wt %>% mutate(level = ifelse(dim == "calendar_year", paste("Calendar year", level), level)) %>%
   transmute(Group = ifelse(level %in% names(lab), lab[level], level), `Scored firm-cells` = fmtn(firm_cells),
             `Weight in the pooled estimate` = fmt(weight, 3))
 write.csv(s9, file.path(OUT, "tableSAJES9_formatted.csv"), row.names = FALSE)
