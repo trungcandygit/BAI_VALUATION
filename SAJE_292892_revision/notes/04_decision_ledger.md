@@ -51,3 +51,14 @@ Records decisions; it does not create them (orchestrator O-59). User words are q
 - A-4 The source repository B-i-ESG2 is public and contains the licensed data file, which conflicts with the data
   availability statement.
 - A-5 Authorship change form and CRediT wording for Ha Hong Hanh to be confirmed by both authors.
+
+## Round-1 panel fixes (2026-10-26)
+- D-R1-01: Pooled 10.0% run-up now attributed to all scored firms (abstract, conclusion, introduction contribution, implications). Malaysian wave reported as "not detected" with its 95% interval (new keys s_mtb_wMY_runup_m5[_lo,_hi] from r4_event_profiles.csv, e = −5, transformed as in 03b).
+- D-R1-02: Section 5.4 and letter: the reference step is described as an accounting identity (event-year-0 change of the same firm-cells, weighted by event years 1–4), not as a separately estimated rise; order dependence of the sequential decomposition stated.
+- D-R1-03: Table 3 gains a scored/control firm column (ln(MTB)); Tables 4, 5, 7 header renamed "Scored firms in averaged event years"; Table 2/3 notes say counts cover all event-time cells (628 vs 625 explained by definition).
+- D-R1-04: Market-capitalization range split into functional forms and restricted supports (new keys s_mcap_ff_*, s_mcap_sup_*).
+- D-R1-05: Flag counts by ratio band reported (new columns ratio_1_2, ratio_2_10; keys s_flag_All_r12, _r210, _n2).
+- D-R1-06: run_win cache key now includes md5 of setup/data/estimator files, a panel signature and the deparsed estimator functions; stale outputs/run_log.txt removed; NA-coefficient cells counted in s_na_coefficients.csv.
+- D-R1-07: Notes ≤30 words, name firm bootstrap and estimator; one table font size (9 pt); figure base_size 11.5; S-table titles use "first recorded" and "change".
+- D-R1-08 (user decision, 2026-10-26, verbatim): "việc khai dùng chung data với bài khác thì không cần, vì bài khác tôi chưa submit. bài này có lẽ là bài được đăng trước thì cần gì khai". The companion-study / shared-data disclosure item is closed: no disclosure is added to the title page or letter.
+- D-R1-09 (user instruction, 2026-10-26): "nhớ các hình vẽ lại mạnh nhất theo chuẩn skill". New R/06_figures_saje.R redraws Figures 1, 2, S1, S2 under tables-figures TF-35 to TF-50: theme_classic without gridlines, Liberation Sans (Arial metrics) at ≥9.5 pt at 6.5 in, solid interval bars (no dotted lines), shape + Okabe-Ito colour per group, panel letters, no in-plot title, cairo PDF (embedded fonts) + EPS + 600-dpi PNG; y axis "Change relative to event year −1" (no causal "effect").
