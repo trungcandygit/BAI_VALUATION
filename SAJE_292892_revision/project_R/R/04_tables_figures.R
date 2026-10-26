@@ -74,19 +74,19 @@ write.csv(t3, file.path(OUT, "table3_formatted.csv"), row.names = FALSE)
 ev <- read.csv(file.path(OUT, "event_study.csv")) %>% mutate(e = as.integer(term))
 base <- expand.grid(outcome = names(OUTCOMES), e = -1L) %>% mutate(est = 0, ci_lo = 0, ci_hi = 0)
 ev <- bind_rows(ev %>% select(outcome, e, est, ci_lo, ci_hi), base) %>%
-  mutate(period = factor(ifelse(e < 0, "Before first score", "After first score"), levels = c("Before first score", "After first score")),
+  mutate(period = factor(ifelse(e < 0, "Before first recorded score", "After first recorded score"), levels = c("Before first recorded score", "After first recorded score")),
          panel = factor(OUTCOMES[outcome], levels = OUTCOMES))
 p1 <- ggplot(ev, aes(x = e, y = est)) +
   geom_hline(yintercept = 0, linetype = "solid", linewidth = 0.3, colour = "grey40") +
   geom_vline(xintercept = -0.5, linetype = "dashed", linewidth = 0.3, colour = "grey40") +
   geom_errorbar(aes(ymin = ci_lo, ymax = ci_hi, linetype = period), width = 0.25, linewidth = 0.4) +
   geom_point(aes(shape = period), size = 2, fill = "white") +
-  scale_shape_manual(values = c("Before first score" = 21, "After first score" = 16), name = NULL) +
-  scale_linetype_manual(values = c("Before first score" = "dotted", "After first score" = "solid"), name = NULL) +
+  scale_shape_manual(values = c("Before first recorded score" = 21, "After first recorded score" = 16), name = NULL) +
+  scale_linetype_manual(values = c("Before first recorded score" = "dotted", "After first recorded score" = "solid"), name = NULL) +
   scale_x_continuous(breaks = E_MIN:E_MAX, labels = function(x) sub("^-", "−", as.character(x))) +
   scale_y_continuous(labels = function(x) sub("^-", "−", as.character(x))) +
   facet_wrap(~ panel, ncol = 2, scales = "free_y") +
-  labs(x = "Years relative to the first LSEG ESG score (base year = −1)",
+  labs(x = "Years relative to the first recorded LSEG ESG score (base year = −1)",
        y = "Effect relative to base year (log points; leverage: ratio)") +
   theme_bw(base_size = 10, base_family = "sans") +
   theme(legend.position = "bottom", panel.grid.minor = element_blank(), strip.background = element_rect(fill = "grey92"))
@@ -97,7 +97,7 @@ ggsave(file.path(FIG, "Fig1.png"), p1, width = 6.5, height = 5, dpi = 600)
 cs <- read.csv(file.path(OUT, "cohort_sizes.csv"))
 pia <- ggplot(cs, aes(x = G, y = total)) + geom_col(fill = "grey60", colour = "black", width = 0.7) +
   scale_x_continuous(breaks = cs$G) +
-  labs(x = "Year of first LSEG ESG score", y = "Number of non-financial firms") +
+  labs(x = "Year of first recorded LSEG ESG score", y = "Number of non-financial firms") +
   theme_bw(base_size = 10) + theme(panel.grid.minor = element_blank())
 ggsave(file.path(FIG, "FigIA1.eps"), pia, width = 6, height = 3.5, device = cairo_ps); strip_eps_date(file.path(FIG, "FigIA1.eps"))
 ggsave(file.path(FIG, "FigIA1.png"), pia, width = 6, height = 3.5, dpi = 600)

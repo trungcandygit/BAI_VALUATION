@@ -10,7 +10,7 @@ h3r <- read.csv(file.path(OUT, "r4_h3_residual_score.csv")); br <- read.csv(file
 OUT2 <- c(ln_mtb = "ln(MTB)", ln_mcap = "ln(market cap)")
 
 # ---- Fig. 2: event-time paths by coverage wave (ln MTB and ln market cap) ----
-WAVE_LAB <- c(wave_MY_2021_22 = "Malaysia, first scored 2021–2022", wave_TH_SG_2019_20 = "Thailand and Singapore, 2019–2020",
+WAVE_LAB <- c(wave_MY_2021_22 = "Malaysia, first recorded 2021–2022", wave_TH_SG_2019_20 = "Thailand and Singapore, 2019–2020",
               wave_other = "All other cohorts")
 wv <- r4ev %>% filter(spec %in% names(WAVE_LAB)) %>% select(outcome, spec, e, est, ci_lo, ci_hi)
 wv <- bind_rows(wv, expand.grid(outcome = names(OUT2), spec = names(WAVE_LAB), e = -1L, stringsAsFactors = FALSE) %>%
@@ -27,7 +27,7 @@ p2 <- ggplot(wv, aes(x = e, y = est, group = wave)) +
   scale_x_continuous(breaks = E_MIN:E_MAX, labels = function(x) sub("^-", "−", as.character(x))) +
   scale_y_continuous(labels = function(x) sub("^-", "−", as.character(x))) +
   facet_wrap(~ panel, ncol = 1, scales = "free_y") +
-  labs(x = "Years relative to the first LSEG ESG score (base year = −1)", y = "Effect relative to base year (log points)") +
+  labs(x = "Years relative to the first recorded LSEG ESG score (base year = −1)", y = "Effect relative to base year (log points)") +
   theme_bw(base_size = 10, base_family = "sans") +
   theme(legend.position = "bottom", legend.direction = "vertical", panel.grid.minor = element_blank(),
         strip.background = element_rect(fill = "grey92"))
@@ -41,7 +41,7 @@ R10_LAB <- c(R10_shift1 = "Dated one year later", R10_size_at_g1 = "Dated one ye
 alt <- r4ev %>% filter(outcome == "ln_mtb", spec %in% c(names(ALT_LAB), names(R10_LAB))) %>%
   select(spec, e, est, ci_lo, ci_hi)
 alt <- bind_rows(alt, data.frame(spec = c(names(ALT_LAB), names(R10_LAB)), e = -1L, est = 0, ci_lo = 0, ci_hi = 0)) %>%
-  mutate(group = ifelse(spec %in% names(ALT_LAB), "A. First scored fiscal year as event", "B. Event dated one year later"),
+  mutate(group = ifelse(spec %in% names(ALT_LAB), "A. First recorded score year as event", "B. Event dated one year later"),
          label = factor(c(ALT_LAB, R10_LAB)[spec], levels = c(ALT_LAB, R10_LAB)))
 ps2 <- ggplot(alt, aes(x = e, y = est, group = label)) +
   geom_hline(yintercept = 0, linewidth = 0.3, colour = "grey40") +
@@ -75,7 +75,7 @@ S7 <- list(
   c("no_covariates", "No covariates"), c("size_at_g3", "Size measured at g − 3"), c("size_bins", "Size quintile indicators"),
   c("trim_top_p95", "Scored firms within control size range"), c("R10_shift1", "Dated one year later (R10)"),
   c("R10_size_at_g1", "R10, size at original g − 1"), c("R12_shift2", "Dated two years later"),
-  c("wave_MY_2021_22", "Malaysia, first scored 2021–2022"), c("wave_TH_SG_2019_20", "Thailand and Singapore, 2019–2020"),
+  c("wave_MY_2021_22", "Malaysia, first recorded 2021–2022"), c("wave_TH_SG_2019_20", "Thailand and Singapore, 2019–2020"),
   c("wave_other", "All other cohorts"), c("cohorts_to_2019", "Cohorts first scored by 2019"),
   c("cohorts_from_2020", "Cohorts first scored from 2020"))
 t7 <- bind_rows(
