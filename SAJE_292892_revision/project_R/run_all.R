@@ -9,5 +9,6 @@ source("R/03b_round4.R")      # revision round 4 (exploratory)
 source("R/04_tables_figures.R")
 source("R/04b_round4_exhibits.R")
 source("R/05_numbers.R")
+source("R/06_figures_saje.R")   # all figure files
 writeLines(capture.output(sessionInfo()), file.path(OUT, "sessionInfo.txt"))
 cat("Done in", round(as.numeric(difftime(Sys.time(), t0, units = "mins")), 1), "minutes\n")

@@ -194,7 +194,15 @@ def equation(d, w, text):
 
 def set_cell(w, cell, text, bold=False, align=None, size=10, blue=False):
     cell.text = ''
-    p = cell.paragraphs[0]; w.runs(p, text, bold=bold, size=size, force_blue=blue, auto=not blue)
+    p = cell.paragraphs[0]
+    m = re.match(r'^(\S+) (\([^()]+\))$', text)   # "coef (se)": standard error on its own line below (TF-05)
+    if m:
+        fb = blue or (w.marked and is_new(text))   # mark the cell as a whole against the original cell
+        w.runs(p, m.group(1), bold=bold, size=size, force_blue=fb, auto=False)
+        p.add_run().add_break()
+        w.runs(p, m.group(2), bold=bold, size=size, force_blue=fb, auto=False)
+    else:
+        w.runs(p, text, bold=bold, size=size, force_blue=blue, auto=not blue)
     p.paragraph_format.space_after = Pt(0); p.paragraph_format.line_spacing = 1.0
     if align:
         p.alignment = align

@@ -17,7 +17,7 @@ est_keys <- function(d) for (i in seq_len(nrow(d))) {
   if (!is.na(d$n_treated_firms[i])) { put(paste0(k, "_ntr"), fmtn(d$n_treated_firms[i]))
     put(paste0(k, "_nco"), fmtn(d$n_control_firms[i])); put(paste0(k, "_ncoh"), fmtn(d$n_cohorts[i])) }
 }
-for (f in c("s_r10_decomposition.csv", "s_support.csv", "s_missing_checks.csv", "s_outliers.csv",
+for (f in c("s_r10_decomposition.csv", "s_support.csv", "s_missing_checks.csv", "s_outliers.csv", "s_wave_contrasts.csv",
             "s_waves_dating.csv")) est_keys(rd(f))
 
 dec <- rd("s_r10_decomposition.csv")

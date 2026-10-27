@@ -347,3 +347,23 @@ for (y in S_OUT) {
                              scored_firm_cells = sum(hit[3, ]), scored_firm_cells_affected = sum(hit[2, ]))
 }
 write_out(bind_rows(na_rows), "s_na_coefficients.csv")
+
+# ---- (h) Differences between coverage waves, with joint firm-bootstrap draws ----
+# Each wave is estimated against all never-scored firms with the same bootstrap matrix, so the difference of two
+# waves' draws gives its standard error. Rows: run-up cell e = -5 (relative to g - 1), baseline window 0..3, and the
+# one-year-later dating (window 1..4, reference g).
+wc_rows <- list()
+for (y in S_OUT) {
+  fit <- function(w, kind) switch(kind,
+    pre5 = run_win(y, lo = -5, hi = -5, keep_treated = wav_ids[[w]]),
+    base = run_win(y, lo = 0, hi = 3, keep_treated = wav_ids[[w]]),
+    R10  = run_win(y, lo = 1, hi = 4, base_off = 0, size_off = 0, keep_treated = wav_ids[[w]]))
+  for (kind in c("pre5", "base", "R10")) {
+    my <- fit("MY_2021_22", kind)
+    for (w in c("TH_SG_2019_20", "other")) {
+      cat("SAJE wave contrast:", y, kind, w, "\n")
+      wc_rows[[paste(y, kind, w)]] <- diff_row(fit(w, kind), my, y, paste0(kind, "_", w, "_minus_MY"))
+    }
+  }
+}
+write_out(bind_rows(wc_rows), "s_wave_contrasts.csv")

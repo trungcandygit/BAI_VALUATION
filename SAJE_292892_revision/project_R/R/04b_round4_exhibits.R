@@ -9,56 +9,7 @@ clb <- read.csv(file.path(OUT, "r4_cluster_bootstrap.csv")); clpre <- read.csv(f
 h3r <- read.csv(file.path(OUT, "r4_h3_residual_score.csv")); br <- read.csv(file.path(OUT, "r4_twfe_bridge.csv"))
 OUT2 <- c(ln_mtb = "ln(MTB)", ln_mcap = "ln(market cap)")
 
-# ---- Fig. 2: event-time paths by coverage wave (ln MTB and ln market cap) ----
-WAVE_LAB <- c(wave_MY_2021_22 = "Malaysia, first recorded 2021–2022", wave_TH_SG_2019_20 = "Thailand and Singapore, 2019–2020",
-              wave_other = "All other cohorts")
-wv <- r4ev %>% filter(spec %in% names(WAVE_LAB)) %>% select(outcome, spec, e, est, ci_lo, ci_hi)
-wv <- bind_rows(wv, expand.grid(outcome = names(OUT2), spec = names(WAVE_LAB), e = -1L, stringsAsFactors = FALSE) %>%
-                  mutate(est = 0, ci_lo = 0, ci_hi = 0)) %>%
-  mutate(wave = factor(WAVE_LAB[spec], levels = WAVE_LAB), panel = factor(OUT2[outcome], levels = OUT2))
-pd <- position_dodge(width = 0.5)
-p2 <- ggplot(wv, aes(x = e, y = est, group = wave)) +
-  geom_hline(yintercept = 0, linewidth = 0.3, colour = "grey40") +
-  geom_vline(xintercept = -0.5, linetype = "dashed", linewidth = 0.3, colour = "grey40") +
-  geom_errorbar(aes(ymin = ci_lo, ymax = ci_hi, linetype = wave), width = 0.3, linewidth = 0.35, position = pd) +
-  geom_point(aes(shape = wave), size = 1.8, fill = "white", position = pd) +
-  scale_shape_manual(values = c(16, 21, 17), name = NULL) +
-  scale_linetype_manual(values = c("solid", "dotted", "dashed"), name = NULL) +
-  scale_x_continuous(breaks = E_MIN:E_MAX, labels = function(x) sub("^-", "−", as.character(x))) +
-  scale_y_continuous(labels = function(x) sub("^-", "−", as.character(x))) +
-  facet_wrap(~ panel, ncol = 1, scales = "free_y") +
-  labs(x = "Years relative to the first recorded LSEG ESG score (base year = −1)", y = "Effect relative to base year (log points)") +
-  theme_bw(base_size = 11.5, base_family = "sans") +
-  theme(legend.position = "bottom", legend.direction = "vertical", panel.grid.minor = element_blank(),
-        strip.background = element_rect(fill = "grey92"))
-ggsave(file.path(FIG, "Fig2.eps"), p2, width = 6.5, height = 6, device = cairo_ps); strip_eps_date(file.path(FIG, "Fig2.eps"))
-ggsave(file.path(FIG, "Fig2.png"), p2, width = 6.5, height = 6, dpi = 600)
-
-# ---- Fig. S2: ln MTB paths under alternative specifications ----
-ALT_LAB <- c(baseline = "Baseline", no_covariates = "No covariates", size_at_g3 = "Size measured at g − 3",
-             trim_top_p95 = "Scored firms within control size range")
-R10_LAB <- c(R10_shift1 = "Dated one year later", R10_size_at_g1 = "Dated one year later, size at original g − 1")
-alt <- r4ev %>% filter(outcome == "ln_mtb", spec %in% c(names(ALT_LAB), names(R10_LAB))) %>%
-  select(spec, e, est, ci_lo, ci_hi)
-alt <- bind_rows(alt, data.frame(spec = c(names(ALT_LAB), names(R10_LAB)), e = -1L, est = 0, ci_lo = 0, ci_hi = 0)) %>%
-  mutate(group = ifelse(spec %in% names(ALT_LAB), "A. First recorded score year as event", "B. Event dated one year later"),
-         label = factor(c(ALT_LAB, R10_LAB)[spec], levels = c(ALT_LAB, R10_LAB)))
-ps2 <- ggplot(alt, aes(x = e, y = est, group = label)) +
-  geom_hline(yintercept = 0, linewidth = 0.3, colour = "grey40") +
-  geom_vline(xintercept = -0.5, linetype = "dashed", linewidth = 0.3, colour = "grey40") +
-  geom_errorbar(aes(ymin = ci_lo, ymax = ci_hi, linetype = label), width = 0.3, linewidth = 0.35, position = pd) +
-  geom_point(aes(shape = label), size = 1.8, fill = "white", position = pd) +
-  scale_shape_manual(values = c(16, 21, 17, 24, 15, 22), name = NULL) +
-  scale_linetype_manual(values = c("solid", "dotted", "dashed", "dotdash", "solid", "dotted"), name = NULL) +
-  scale_x_continuous(breaks = E_MIN:E_MAX, labels = function(x) sub("^-", "−", as.character(x))) +
-  scale_y_continuous(labels = function(x) sub("^-", "−", as.character(x))) +
-  facet_wrap(~ group, ncol = 1) +
-  labs(x = "Years relative to the event (base year = −1)", y = "Effect on ln(MTB) relative to base year (log points)") +
-  theme_bw(base_size = 11.5, base_family = "sans") +
-  theme(legend.position = "bottom", legend.direction = "vertical", panel.grid.minor = element_blank(),
-        strip.background = element_rect(fill = "grey92"))
-ggsave(file.path(FIG, "FigIA2.eps"), ps2, width = 6.5, height = 7, device = cairo_ps); strip_eps_date(file.path(FIG, "FigIA2.eps"))
-ggsave(file.path(FIG, "FigIA2.png"), ps2, width = 6.5, height = 7, dpi = 600)
+# Figures 2 and S2 are drawn by 06_figures_saje.R (one script owns each figure file).
 
 # ---- Table S7: alternative specifications (ln MTB and ln market cap) ----
 cell7 <- function(d) paste0(fmt(d$est), stars(d$p), " (", fmt(d$se), ")")
