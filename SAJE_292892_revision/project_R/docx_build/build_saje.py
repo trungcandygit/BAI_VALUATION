@@ -233,7 +233,7 @@ def table_exhibit(d, w, caption, csvfile, note, source, widths=None, size=9, blu
             gc.set(qn('w:w'), str(int(wd * 1440)))
         lay = OxmlElement('w:tblLayout'); lay.set(qn('w:type'), 'fixed'); t._tbl.tblPr.append(lay)
     q = d.add_paragraph(); w.runs(q, 'Note: ' + note, size=9, force_blue=blue); set_spacing(q, 1.0, 2, 4)
-    q.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+    q.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY; q.paragraph_format.keep_with_next = True   # note and source stay together
     q = d.add_paragraph(); w.runs(q, 'Source: ' + source, size=9, force_blue=blue); set_spacing(q, 1.0, 12)
 
 
@@ -244,7 +244,7 @@ def figure_exhibit(d, w, caption, png, note, source, blue=False, width=6.5):
     d.add_picture(os.path.join(OUTR, 'figures', png), width=Inches(float(width)))
     d.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER; d.paragraphs[-1].paragraph_format.keep_with_next = True
     q = d.add_paragraph(); w.runs(q, 'Note: ' + note, size=9, force_blue=blue); set_spacing(q, 1.0, 2, 4)
-    q.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+    q.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY; q.paragraph_format.keep_with_next = True   # note and source stay together
     q = d.add_paragraph(); w.runs(q, 'Source: ' + source, size=9, force_blue=blue); set_spacing(q, 1.0, 12)
 
 
@@ -356,7 +356,10 @@ def reference_doc():
         try:
             if st.font is not None:
                 st.font.name = 'Times New Roman'
-                st.element.get_or_add_rPr().get_or_add_rFonts().set(qn('w:eastAsia'), 'Times New Roman')
+                rf = st.element.get_or_add_rPr().get_or_add_rFonts()
+                rf.set(qn('w:eastAsia'), 'Times New Roman')
+                for att in ('w:asciiTheme', 'w:hAnsiTheme', 'w:eastAsiaTheme', 'w:cstheme'):
+                    rf.attrib.pop(qn(att), None)   # theme fonts would override the explicit Times New Roman
                 if st.name in ('Normal', 'Body Text', 'First Paragraph', 'Compact'):
                     st.font.size = Pt(12)
                 if st.name.startswith('Heading') or st.name == 'Title':
