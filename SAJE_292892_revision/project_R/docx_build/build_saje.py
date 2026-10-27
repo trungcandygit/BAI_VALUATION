@@ -66,6 +66,7 @@ def strip_marks(t):
 def norm(s):
     s = strip_marks(s).replace('\\*', '*')
     s = re.sub(r'[*^~]', '', s)
+    s = re.sub(r'^(\d+(?:\.\d+)*)\.?\s', r'\1 ', s.strip())   # "4.1." and "4.1" headings compare equal
     s = s.replace('’', "'").replace('‘', "'").replace('“', '"').replace('”', '"').replace(' ', ' ')
     return re.sub(r'\s+', ' ', s).strip()
 
@@ -92,19 +93,24 @@ def orig_sentences():
 ORIG = orig_sentences()
 
 
+def is_new(s):
+    """True if any sentence of s (split as in the original, without markup) is absent from the round-0 text."""
+    plain = re.sub(r'(?<!\\)[*^~]', '', strip_marks(s))
+    return any(norm(x) not in ORIG for x in SPLIT.split(plain) if norm(x))
+
+
 def automark(text):
-    """Wrap every sentence that is not in the round-0 submission in {+ +}; keep explicit marks."""
+    """Mark in blue exactly the sentences that are not in the round-0 submission.
+
+    Explicit {+ +} marks in the source are dropped first, so the marking depends only on the comparison with the
+    original: a new or changed sentence is blue, an unchanged one is black."""
+    text = strip_marks(text)
     # never split inside an italic span (*...*): sentence marks inside titles would break the span
     prot = re.sub(r'(?<!\\)\*[^*]+\*', lambda m: m.group(0).replace(' ', '\u0001'), text)
     parts = [x.replace('\u0001', ' ') for x in SPLIT.split(prot)]
     out = []
     for s in parts:
-        if '{+' in s or '+}' in s:
-            out.append(s)   # explicitly marked already
-        elif norm(s) and norm(s) not in ORIG:
-            out.append('{+' + s + '+}')
-        else:
-            out.append(s)
+        out.append('{+' + s + '+}' if is_new(s) else s)
     return ' '.join(out)
 
 
@@ -188,7 +194,7 @@ def equation(d, w, text):
 
 def set_cell(w, cell, text, bold=False, align=None, size=10, blue=False):
     cell.text = ''
-    p = cell.paragraphs[0]; w.runs(p, text, bold=bold, size=size, force_blue=blue, auto=False)
+    p = cell.paragraphs[0]; w.runs(p, text, bold=bold, size=size, force_blue=blue, auto=not blue)
     p.paragraph_format.space_after = Pt(0); p.paragraph_format.line_spacing = 1.0
     if align:
         p.alignment = align
@@ -279,7 +285,7 @@ def write_body(d, w, text, exhibits):
                 if re.search(r'\b' + re.escape(lab) + r'(?![\dA-Za-z])', plain):
                     pending.append(ex); left.remove(ex)
         nxt = strip_marks(bl[k + 1]) if k + 1 < len(bl) else ''
-        if pending and not nxt.startswith('$$latex') and not plain.rstrip().endswith((' is', ':')):
+        if pending and not nxt.startswith(('$$latex', 'where ')) and not plain.rstrip().endswith((' is', ':')):
             for ex in pending:   # never between a sentence and the equation that completes it
                 place(d, w, ex)
             pending = []

@@ -114,7 +114,7 @@ tia1 <- bind_rows(lapply(names(cn), function(cc) row_of(paste("Without", cn[[cc]
 names(tia1)[1] <- "Sample"
 write.csv(tia1, file.path(OUT, "tableIA1_formatted.csv"), row.names = FALSE)
 csz <- read.csv(file.path(OUT, "cohort_sizes.csv"))
-tia2 <- data.frame(`First score year` = csz$G, Indonesia = csz$ID, Malaysia = csz$MY, Philippines = csz$PH,
+tia2 <- data.frame(`First recorded score year` = csz$G, Indonesia = csz$ID, Malaysia = csz$MY, Philippines = csz$PH,
                    Singapore = csz$SG, Thailand = csz$TH, Total = csz$total, check.names = FALSE)
 write.csv(tia2, file.path(OUT, "tableIA2_formatted.csv"), row.names = FALSE)
 
