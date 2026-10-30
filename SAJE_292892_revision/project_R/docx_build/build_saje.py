@@ -341,9 +341,9 @@ def supplement(out, secs, marked):
     p = d.add_paragraph(); w.runs(p, 'Supplementary material', bold=True, size=14); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p = d.add_paragraph(); w.runs(p, secs['title'], bold=True); p.alignment = WD_ALIGN_PARAGRAPH.CENTER; set_spacing(p, 1.5, 12)
     body_par(d, w, secs['supp_intro'], indent=False)
+    for ex in parse_exhibits(secs['exhibits_supp']):   # exhibits first, in numbered order, so that Appendix A
+        place(d, w, ex)                                  # never cites a table or figure before it appears
     write_body(d, w, secs['supp_body'], [])
-    for ex in parse_exhibits(secs['exhibits_supp']):   # all exhibits after the appendix text, in numbered order
-        place(d, w, ex)
     save_doc(d, out)
 
 
