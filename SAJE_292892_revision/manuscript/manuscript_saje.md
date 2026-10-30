@@ -100,9 +100,9 @@ We identify it under conditional parallel trends relative to the base year:
 
 $$latex \mathbb{E}\left[Y_{i,t}(\infty)-Y_{i,g-1}(\infty)\;|\; X_i,G_i=g\right]=\mathbb{E}\left[Y_{i,t}(\infty)-Y_{i,g-1}(\infty)\;|\; X_i,G_i=\infty\right] | (2)
 
-where X~i~ contains country and industry indicators and log total assets and its square, measured in the base year. Assumption (2) concerns changes in outcomes, so level differences between scored and never-scored firms do not violate it, but a different growth path before coverage would.
+where X~i~ contains country and industry indicators and log total assets and its square, measured in the base year. This assumption concerns changes in outcomes, so level differences between scored and never-scored firms do not violate it, but a different growth path before coverage would.
 
-The pooled sample violates the analogous condition before the base year (Section 5.2). Two arguments make assumption (2) plausible in parts of the sample, and one argues against it. In the large Malaysian wave the pre-coverage estimates show no detectable run-up, so for these firms the assumption does not require a trend to stop; the run-up interval is wide, however ({{s_mtb_wMY_runup_m5_lo}}% to {{s_mtb_wMY_runup_m5_hi}}%), and the wave split is exploratory. If the provider adds firms once they cross a size or visibility threshold, relative growth stops being a reason for selection after the threshold, and conditioning on base-year size compares firms on the same side of it. Against it, if part of the run-up was transitory, scored firms would have fallen back even without a score, and the estimates would understate any effect of coverage. We therefore treat the post-coverage estimates as conditional on assumption (2) and give most weight to evidence that does not depend on it: the ordering of growth and entry, and the contrast between waves with and without a run-up.
+The pooled sample violates the analogous condition before the base year (Section 5.2). Two arguments make it plausible in parts of the sample, and one argues against it. In the large Malaysian wave the pre-coverage estimates show no detectable run-up, so for these firms the assumption does not require a trend to stop; the run-up interval is wide, however ({{s_mtb_wMY_runup_m5_lo}}% to {{s_mtb_wMY_runup_m5_hi}}%), and the wave split is exploratory. If the provider adds firms once they cross a size or visibility threshold, relative growth stops being a reason for selection after the threshold, and conditioning on base-year size compares firms on the same side of it. Against it, if part of the run-up was transitory, scored firms would have fallen back even without a score, and the estimates would understate any effect of coverage. We therefore treat the post-coverage estimates as conditional on the parallel trends assumption and give most weight to evidence that does not depend on it: the ordering of growth and entry, and the contrast between waves with and without a run-up.
 
 ## 4.2. Estimation
 
@@ -130,7 +130,7 @@ We bootstrap the aggregated effects by resampling firms with their full time ser
 
 ## 4.4. Sensitivity to Departures from Parallel Trends
 
-Because the pre-coverage estimates cast doubt on assumption (2), we add three exploratory checks. The first removes a linear pre-coverage trend that passes through zero in the base year (row R7); the second adds the growth of log market capitalization from year g − 3 to the base year to X~i~ (row R8). The third bounds the bias in the spirit of the relative-magnitude restriction of Rambachan and Roth (2023). Let δ(e) denote the post-coverage violation of assumption (2) in event year e; we assume
+Because the pre-coverage estimates cast doubt on the parallel trends assumption, we add three exploratory checks. The first removes a linear pre-coverage trend that passes through zero in the base year (row R7); the second adds the growth of log market capitalization from year g − 3 to the base year to X~i~ (row R8). The third bounds the bias in the spirit of the relative-magnitude restriction of Rambachan and Roth (2023). Let δ(e) denote the post-coverage violation of the parallel trends assumption in event year e; we assume
 
 $$latex \left|\delta(e)-\delta(e-1)\right|\le \bar{M}\,\max_{s\le -1}\left|\hat{\theta}(s)-\hat{\theta}(s-1)\right|\equiv \bar{M}\,\Delta,\qquad \delta(-1)=0 | (7)
 
@@ -144,7 +144,7 @@ $$latex Y_{i,t}=\alpha_i+\lambda_t+\beta\,D_{i,t}+\varepsilon_{i,t},\qquad D_{i,
 
 where α~i~ and λ~t~ are firm and year effects, D~i,t~ marks years from the first recorded score onward, and ε~i,t~ is the error term; standard errors are clustered by firm. The coefficient β compares all post-coverage with all pre-coverage years, so it averages over any run-up and, with staggered timing, uses already scored firms as controls for later cohorts.
 
-The pre-analysis plan fixed six checks, labeled R1 to R6 in the results. They add not-yet-scored firms to the controls (R1), drop the covariates (R2), exclude the 2020 and 2021 cohorts (R3), keep only control firms whose base-year log total assets reach the 10th percentile among scored firms of the same cohort (R4), date coverage three years early as a placebo (R5), and estimate Eq. (8) (R6). All other checks are exploratory.
+The pre-analysis plan fixed six checks, labeled R1 to R6 in the results. They add not-yet-scored firms to the controls (R1), drop the covariates (R2), exclude the 2020 and 2021 cohorts (R3), keep only control firms whose base-year log total assets reach the 10th percentile among scored firms of the same cohort (R4), date coverage three years early as a placebo (R5), and estimate the TWFE regression (R6). All other checks are exploratory.
 
 # 5. Results
 
@@ -154,13 +154,13 @@ Table 1 compares scored firms in the base year with never-scored firm-years. Sco
 
 ## 5.2. The Valuation Path Before and After the First Recorded Score
 
-Figure 1 plots the event-time estimates of Eq. (5). Before the first recorded score, the estimates for market capitalization and MTB are negative and rise toward zero; in event years −5 and −4, the MTB estimates are {{mtb_em5}} and {{mtb_em4}} (p {{mtb_em5_p_txt}} and p {{mtb_em4_p_txt}}). From event year −5 to the base year, scored firms' market capitalization grew {{mcap_runup_m5}}% more than that of never-scored firms, and their MTB ratio {{mtb_runup_m5}}% more; we call this relative growth the run-up. The joint pre-trend test rejects for market capitalization (p {{mcap_pre_p_txt}}) but not at the 5% level for MTB (p {{mtb_pre_p_txt}}). The MTB non-rejection is not evidence of parallel trends: the estimates for event years −5 and −4 differ from zero, and pre-trend tests have low power (Roth, 2022). After the first recorded score, the MTB estimates for event years 0 to 3 lie between {{mtb_e3}} and {{mtb_e2}}, and none differs from zero at the 5% level; event year 4 rests on only {{mtb_nfirms_e4}} scored firms and is excluded from Eq. (6). The MTB gap thus widens before coverage and stops widening afterward. Only reading the post-coverage part as an effect of coverage depends on assumption (2).
+Figure 1 plots the event-time estimates. Before the first recorded score, the estimates for market capitalization and MTB are negative and rise toward zero; in event years −5 and −4, the MTB estimates are {{mtb_em5}} and {{mtb_em4}} (p {{mtb_em5_p_txt}} and p {{mtb_em4_p_txt}}). From event year −5 to the base year, scored firms' market capitalization grew {{mcap_runup_m5}}% more than that of never-scored firms, and their MTB ratio {{mtb_runup_m5}}% more; we call this relative growth the run-up. The joint pre-trend test rejects for market capitalization (p {{mcap_pre_p_txt}}) but not at the 5% level for MTB (p {{mtb_pre_p_txt}}). The MTB non-rejection is not evidence of parallel trends: the estimates for event years −5 and −4 differ from zero, and pre-trend tests have low power (Roth, 2022). After the first recorded score, the MTB estimates for event years 0 to 3 lie between {{mtb_e3}} and {{mtb_e2}}, and none differs from zero at the 5% level; event year 4 rests on only {{mtb_nfirms_e4}} scored firms and is excluded from the headline estimate. The MTB gap thus widens before coverage and stops widening afterward. Only reading the post-coverage part as an effect of coverage depends on the parallel trends assumption.
 
 Figure 2 separates the two largest coverage waves from the remaining cohorts; because we drew the wave boundaries after seeing the coverage counts, this split is exploratory. The {{n_wTHSG}} Thai and Singaporean firms first scored in 2019 and 2020 show the largest run-up: {{mtb_r4wTHSG_runup_m5}}% in MTB relative to never-scored firms (pre-trend p {{mtb_r4wTHSG_pre_p_txt}}). The {{n_wMY}} Malaysian firms first scored in 2021 and 2022 show no detectable run-up, {{s_mtb_wMY_runup_m5}}% (95% interval {{s_mtb_wMY_runup_m5_lo}}% to {{s_mtb_wMY_runup_m5_hi}}%; pre-trend p {{mtb_r4wMY_pre_p_txt}}), although a run-up of the pooled size cannot be ruled out, and the {{n_wOth}} firms in the remaining cohorts fall in between. After the first recorded score, no wave shows a detectable MTB gain, while market capitalization fell in the Malaysian wave ({{mcap_r4wMY}}, p {{mcap_r4wMY_p_txt}}), which accounts for most of the negative pooled market capitalization estimate.
 
-## 5.3. Average Change After Entry Under Assumption (2)
+## 5.3. Average Change After Entry Under Parallel Trends
 
-Table 2 reports the headline estimates of Eq. (6). The change in log MTB is {{mtb_att}}, with a 95% confidence interval of {{mtb_lo}} to {{mtb_hi}}, so the data are compatible with changes in the MTB ratio from {{mtb_lo_pct}}% to {{mtb_hi_pct}}%; the MDE is about {{mtb_mde_pct}}%. With the cluster bootstrap, the interval is {{mtb_cl_lo}} to {{mtb_cl_hi}}. After Holm adjustment, no secondary outcome changes significantly at the 5% level: log market capitalization changes by {{mcap_att}} (p {{mcap_pholm_txt}}), leverage by {{lev_att_pp}} percentage points (p {{lev_pholm_txt}}), and log total assets by {{asset_att}} (p {{asset_pholm_txt}}). The MTB estimate shows no sign of the gain that the recognition channel predicts (Merton, 1987).
+Table 2 reports the headline estimates. The change in log MTB is {{mtb_att}}, with a 95% confidence interval of {{mtb_lo}} to {{mtb_hi}}, so the data are compatible with changes in the MTB ratio from {{mtb_lo_pct}}% to {{mtb_hi_pct}}%; the MDE is about {{mtb_mde_pct}}%. With the cluster bootstrap, the interval is {{mtb_cl_lo}} to {{mtb_cl_hi}}. After Holm adjustment, no secondary outcome changes significantly at the 5% level: log market capitalization changes by {{mcap_att}} (p {{mcap_pholm_txt}}), leverage by {{lev_att_pp}} percentage points (p {{lev_pholm_txt}}), and log total assets by {{asset_att}} (p {{asset_pholm_txt}}). The MTB estimate shows no sign of the gain that the recognition channel predicts (Merton, 1987).
 
 Table 3 presents the robustness checks; rows R1 to R6 were pre-specified, and rows R7 to R11 are exploratory. Row R10 dates coverage one year after the first recorded score, the earliest year in which a score could have been public. Its MTB change is {{mtb_R10}}, about {{mtb_R10_pct}}% (95% interval {{mtb_R10_lo}} to {{mtb_R10_hi}}; p {{mtb_R10_p_txt}}), with a joint pre-trend p {{mtb_R10_pre_p_txt}}. Pre-specification does not make the recorded year the date on which investors learned of coverage, so we give the two datings equal standing.
 
@@ -176,7 +176,7 @@ Two readings fit this pattern. If firms were selected at an unusually high valua
 
 ## 5.5. Sensitivity to Departures from Parallel Trends
 
-Row R11 keeps the {{n_R11_cohorts}} cohorts observed through event year 3 and gives {{mtb_R11}} (p {{mtb_R11_p_txt}}), so changing cohort composition does not explain the headline estimate. Removing a linear pre-trend (row R7) gives {{mtb_R7}}, and matching on pre-coverage growth (row R8) gives {{mtb_R8}}; both intervals include zero. Under the bounds of Eq. (7) (Table S7), with M̄ = 0.25 the interval for the MTB effect is {{mtb_rm025_lo}} to {{mtb_rm025_hi}}, and any departure with M̄ above {{mtb_bd5}} admits a 5% increase. Under the one-year-later dating, the decline loses significance with M̄ = 0.25, when its interval runs from {{mtb_R10_rm025_lo}} to {{mtb_R10_rm025_hi}}. Departures from parallel trends smaller than those observed before coverage are therefore enough to change the reading of either dating.
+Row R11 keeps the {{n_R11_cohorts}} cohorts observed through event year 3 and gives {{mtb_R11}} (p {{mtb_R11_p_txt}}), so changing cohort composition does not explain the headline estimate. Removing a linear pre-trend (row R7) gives {{mtb_R7}}, and matching on pre-coverage growth (row R8) gives {{mtb_R8}}; both intervals include zero. Under the relative-magnitude bounds (Table S7), with M̄ = 0.25 the interval for the MTB effect is {{mtb_rm025_lo}} to {{mtb_rm025_hi}}, and any departure with M̄ above {{mtb_bd5}} admits a 5% increase. Under the one-year-later dating, the decline loses significance with M̄ = 0.25, when its interval runs from {{mtb_R10_rm025_lo}} to {{mtb_R10_rm025_hi}}. Departures from parallel trends smaller than those observed before coverage are therefore enough to change the reading of either dating.
 
 ## 5.6. Firm Size and Common Support
 
@@ -200,13 +200,13 @@ The last three rows of Table 3 divide scored firms at the cohort median of their
 
 ## 5.10. What the Pooled Estimate Represents
 
-The pooled estimate weights cohorts and event years by the number of scored firms in each cell (Eq. 6). Malaysian firms carry {{s_w_market_MY}}% of the weight in the headline MTB estimate and Thai firms {{s_w_market_TH}}%, together {{s_w_my_th}}%; the Malaysian wave of 2021 and 2022 alone carries {{s_w_wave_MY_2021_22}}%, and firm-years from 2021 to 2024 carry {{s_w_years_2021_2024}}% (Table S10). The pooled estimate therefore describes mainly the Malaysian expansion and the Thai cohorts after the COVID-19 pandemic, not an average effect for the five markets; the estimates for Indonesia, the Philippines, and Singapore in Table S11 rest on too few scored firms to support conclusions. Under assumption (2), the largest increase compatible with the headline interval is of the same order as the announcement return of 4.86% that Demiroglu and Ryngaert (2010) report for the first analyst coverage of neglected stocks, and because annual ratios miss short-lived price pressure, our estimates concern lasting revaluation (Chen et al., 2004).
+The pooled estimate weights cohorts and event years by the number of scored firms in each cell. Malaysian firms carry {{s_w_market_MY}}% of the weight in the headline MTB estimate and Thai firms {{s_w_market_TH}}%, together {{s_w_my_th}}%; the Malaysian wave of 2021 and 2022 alone carries {{s_w_wave_MY_2021_22}}%, and firm-years from 2021 to 2024 carry {{s_w_years_2021_2024}}% (Table S10). The pooled estimate therefore describes mainly the Malaysian expansion and the Thai cohorts after the COVID-19 pandemic, not an average effect for the five markets; the estimates for Indonesia, the Philippines, and Singapore in Table S11 rest on too few scored firms to support conclusions. Under the parallel trends assumption, the largest increase compatible with the headline interval is of the same order as the announcement return of 4.86% that Demiroglu and Ryngaert (2010) report for the first analyst coverage of neglected stocks, and because annual ratios miss short-lived price pressure, our estimates concern lasting revaluation (Chen et al., 2004).
 
 # 6. Discussion
 
 ## 6.1. What the Ordering of Events Shows
 
-The clearest result is an ordering of events: firms entered the scored universe after their MTB ratio and market capitalization had grown faster than those of never-scored firms, and their MTB ratio stopped gaining afterward. The provider may have added firms once they were large and visible enough to matter to its clients, or firms may have become scoreable by reporting, joining an index, or issuing equity; the fall in leverage toward the base year fits equity issuance. Either way, entry marks the end of a period of relative growth, not a random draw, and this finding does not rest on assumption (2) or on the dating of publication.
+The clearest result is an ordering of events: firms entered the scored universe after their MTB ratio and market capitalization had grown faster than those of never-scored firms, and their MTB ratio stopped gaining afterward. The provider may have added firms once they were large and visible enough to matter to its clients, or firms may have become scoreable by reporting, joining an index, or issuing equity; the fall in leverage toward the base year fits equity issuance. Either way, entry marks the end of a period of relative growth, not a random draw, and this finding does not rest on the parallel trends assumption or on the dating of publication.
 
 ## 6.2. What the Evidence Says About a Valuation Effect of Coverage
 
@@ -214,7 +214,7 @@ The flat post-coverage MTB path admits three readings, depending on the counterf
 
 ## 6.3. Mechanisms That the Data Can and Cannot Evaluate
 
-Recognition predicts a lasting gain for every newly scored firm; we detect none under assumption (2), but without ownership, trading, or fund-holding data we cannot tell whether recognition did not increase or whether it increased without moving prices. Preferences predict opposite signs for high- and low-score entrants, and the split in Section 5.9 cannot detect a moderate difference. The absence of a detected gain fits the evidence on certification by sustainability indices (Durand et al., 2019; Hawn et al., 2018) and contrasts with the price effects of MSCI downgrades (Berg, Heeb, et al., 2022). Two features of our setting may explain the contrast: U.S. ESG fund holdings respond to MSCI ratings, not to those of other providers (Berg, Heeb, et al., 2022), and scored firms were large and visible before coverage, which leaves less room for recognition (Merton, 1987). Unlike U.S. evidence that coverage changes firm conduct and payout (Bikmetova & Pirinsky, 2026; Tsang et al., 2024, 2025), we find no stable change in leverage or total assets. The run-up also fits evidence that realized green returns reflect unexpected shifts in ESG demand (Pástor et al., 2022), but without ownership data we cannot tell whether ESG investors bought these firms before or after coverage.
+Recognition predicts a lasting gain for every newly scored firm; we detect none under parallel trends, but without ownership, trading, or fund-holding data we cannot tell whether recognition did not increase or whether it increased without moving prices. Preferences predict opposite signs for high- and low-score entrants, and the split in Section 5.9 cannot detect a moderate difference. The absence of a detected gain fits the evidence on certification by sustainability indices (Durand et al., 2019; Hawn et al., 2018) and contrasts with the price effects of MSCI downgrades (Berg, Heeb, et al., 2022). Two features of our setting may explain the contrast: U.S. ESG fund holdings respond to MSCI ratings, not to those of other providers (Berg, Heeb, et al., 2022), and scored firms were large and visible before coverage, which leaves less room for recognition (Merton, 1987). Unlike U.S. evidence that coverage changes firm conduct and payout (Bikmetova & Pirinsky, 2026; Tsang et al., 2024, 2025), we find no stable change in leverage or total assets. The run-up also fits evidence that realized green returns reflect unexpected shifts in ESG demand (Pástor et al., 2022), but without ownership data we cannot tell whether ESG investors bought these firms before or after coverage.
 
 ## 6.4. Implications
 
@@ -345,7 +345,7 @@ note:=Estimates by wave against all never-scored firms, with firm-bootstrap 95% 
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 kind:=table
-caption:=Table 2|Average {+change after the first recorded LSEG ESG score over event years 0 to 3, under assumption (2)+}
+caption:=Table 2|Average {+change after the first recorded LSEG ESG score over event years 0 to 3, under parallel trends+}
 csvfile:=table2_formatted.csv
 widths:=1.45,0.6,0.5,1.15,0.6,0.5,0.6,0.6,0.6
 size:=9
@@ -404,11 +404,11 @@ This supplementary material accompanies "Who Gets an ESG Score? Coverage Selecti
 
 ## A.1. Event year 4 (Section {+5.2+})
 
-Only {{mtb_nfirms_e4}} scored firms from {{mtb_ncoh_e4}} cohorts reach event year 4; therefore, we plot that year in Figure 1 but exclude it from Eq. (6). Its estimates are {{mtb_e4}} for MTB (p {{mtb_e4_p_txt}}) and {{mcap_e4}} for market capitalization (p {{mcap_e4_p_txt}}).
+Only {{mtb_nfirms_e4}} scored firms from {{mtb_ncoh_e4}} cohorts reach event year 4; therefore, we plot that year in Figure 1 but exclude it from the headline estimate. Its estimates are {{mtb_e4}} for MTB (p {{mtb_e4_p_txt}}) and {{mcap_e4}} for market capitalization (p {{mcap_e4_p_txt}}).
 
 ## A.2. Further timing variants of R10 (Section {+5.4+})
 
-Under R10, the decline in log MTB loses significance once M̄ in Eq. (7) reaches {{mtb_R10_bd0}}. Holding total assets at the original base year gives {{mtb_r4R10g1}} (p {{mtb_r4R10g1_p_txt}}), so the covariate timing does not drive R10. Dating coverage two years later gives {{mtb_r4R12}} (95% interval {{mtb_r4R12_lo}} to {{mtb_r4R12_hi}}), a smaller decline that is no longer significant at the 5% level.
+Under R10, the decline in log MTB loses significance once M̄ in the relative-magnitude bound reaches {{mtb_R10_bd0}}. Holding total assets at the original base year gives {{mtb_r4R10g1}} (p {{mtb_r4R10g1_p_txt}}), so the covariate timing does not drive R10. Dating coverage two years later gives {{mtb_r4R12}} (95% interval {{mtb_r4R12_lo}} to {{mtb_r4R12_hi}}), a smaller decline that is no longer significant at the 5% level.
 
 ## A.3. Reconciling the R10 and baseline event-time paths (Section {+5.4+}, Figure S2)
 
@@ -432,7 +432,7 @@ The Malaysian wave added {{n_wMY}} firms in two years, yet {{n_my_never}} Malays
 
 ## {+A.8. Composition of the pooled estimate (Section 5.10, Table S10)+}
 
-{+Table S10 counts scored firm-cells, one for each scored firm in each post-coverage cell of the ln(MTB) estimate, by market and by coverage wave. These counts are the weights of Eq. (6).+}
+{+Table S10 counts scored firm-cells, one for each scored firm in each post-coverage cell of the ln(MTB) estimate, by market and by coverage wave. These counts are the weights of the headline estimate.+}
 
 ## {+A.9. Dating by wave (Section 5.4, Table S6)+}
 
@@ -446,7 +446,7 @@ The Malaysian wave added {{n_wMY}} firms in two years, yet {{n_my_never}} Malays
 
 {+Rows R1 to R4 of Table 3 give MTB effects of {{mtb_R1}} with not-yet-scored firms among the controls, {{mtb_R2}} without covariates, {{mtb_R3}} without the 2020 and 2021 cohorts, and {{mtb_R4}} when control firms below the size range of scored firms are dropped. Under the last restriction the market capitalization effect shrinks to {{mcap_R4}} and the total assets effect is {{asset_R4}}, against {{asset_R2}} without covariates. Row R7 removes a linear pre-trend that passes through zero in the base year; its MTB effect is negative because a continued run-up would have raised valuations further. Row R8 adds market capitalization growth from g − 3 to the base year to the covariates; because control firms matched on past growth can themselves revert, it does not settle the reversal question. The placebo in row R5 gives {{mcap_R5}} for log market capitalization (p {{mcap_R5_p_txt}}), and the static TWFE regression gives {{mcap_R6}}. Without Malaysia (row R9), the MTB effect is {{mtb_R9}} (p {{mtb_R9_p_txt}}) and the market capitalization effect {{mcap_R9}}.+}
 
-{+In the outcome regression of Eq. (3), a country or industry indicator would be unidentified in a cell with no control firm in that country or industry, and its coefficient would be set to zero. This does not occur: in all {{s_na_mtb_cells}} cells of event years 0 to 3 for ln(MTB), and all {{s_na_mcap_cells}} for ln(market capitalization), every indicator carried by a scored firm is also carried by a control firm.+}
+{+In the outcome regression, a country or industry indicator would be unidentified in a cell with no control firm in that country or industry, and its coefficient would be set to zero. This does not occur: in all {{s_na_mtb_cells}} cells of event years 0 to 3 for ln(MTB), and all {{s_na_mcap_cells}} for ln(market capitalization), every indicator carried by a scored firm is also carried by a control firm.+}
 
 @@ exhibits_supp
 kind:=table
@@ -487,7 +487,7 @@ kind:=table
 caption:=Table S5|Decomposition of the gap between the static two-way fixed effects estimate and the baseline estimate
 csvfile:=tableIA8_formatted.csv
 widths:=3.0,1.4,1.4
-note:=Steps from Eq. (8) to the baseline Eq. (6); standard errors firm-clustered for Eq. (8), firm-bootstrap otherwise. \*, \*\*, \*\*\*: 10%, 5%, 1%.
+note:=Steps from the static TWFE regression to the baseline estimate; standard errors firm-clustered for TWFE, firm-bootstrap otherwise. \*, \*\*, \*\*\*: 10%, 5%, 1%.
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 kind:=table
@@ -509,7 +509,7 @@ kind:=table
 caption:=Table S7|Relative-magnitude bounds for the average change after the first {+recorded+} LSEG ESG score
 csvfile:=tableIA5_formatted.csv
 widths:=1.7,0.6,1.2,0.9,1.6
-note:=Bias bound from Eq. (7); the robust interval widens the firm-bootstrap 95% interval by this bound.
+note:=Relative-magnitude bias bound (Section 4.4); the robust interval widens the firm-bootstrap 95% interval by this bound.
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 kind:=table
@@ -534,7 +534,7 @@ caption:=Table S10|Weight of each market and coverage wave in the pooled ln(MTB)
 csvfile:=tableSAJES9_formatted.csv
 widths:=3.3,1.3,1.6
 blue:=1
-note:=Each scored firm counts once in every post-coverage cell of the baseline ln(MTB) estimate; weights are cell shares (Eq. 6).
+note:=Each scored firm counts once in every post-coverage cell of the baseline ln(MTB) estimate; weights are cell shares.
 source:=Authors' calculations from LSEG ESG scores and Compustat Global.
 
 kind:=table
