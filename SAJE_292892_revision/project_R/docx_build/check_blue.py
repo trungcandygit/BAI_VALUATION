@@ -5,7 +5,7 @@ A sentence is 'blue' if every non-space character in it is in a blue run. Report
 blue and unchanged sentences that are blue."""
 import re, sys
 from docx import Document
-SPLIT = re.compile(r'(?<=[.?!:;])\s+(?=[A-Z(\[0-9H])')
+SPLIT = re.compile(r'(?<!\bal\.)(?<!\be\.g\.)(?<!\bi\.e\.)(?<!\bEq\.)(?<!\bEqs\.)(?<!\bNo\.)(?<!\bvs\.)(?<=[.?!])\s+(?=[A-Z(\[0-9H])')
 
 
 def norm(s):

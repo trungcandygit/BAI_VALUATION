@@ -71,7 +71,7 @@ def norm(s):
     return re.sub(r'\s+', ' ', s).strip()
 
 
-SPLIT = re.compile(r'(?<=[.?!:;])\s+(?=[A-Z(\[0-9H])')
+SPLIT = re.compile(r'(?<!\bal\.)(?<!\be\.g\.)(?<!\bi\.e\.)(?<!\bEq\.)(?<!\bEqs\.)(?<!\bNo\.)(?<!\bvs\.)(?<=[.?!])\s+(?=[A-Z(\[0-9H])')
 
 
 def orig_sentences():
@@ -225,7 +225,7 @@ def table_exhibit(d, w, caption, csvfile, note, source, widths=None, size=9, blu
             th = OxmlElement('w:tblHeader'); trPr.append(th)
         for j, v in enumerate(row):
             c = t.cell(i, j)
-            set_cell(w, c, v, bold=(i == 0), align=None if j == 0 else WD_ALIGN_PARAGRAPH.CENTER, size=size, blue=blue)
+            set_cell(w, c, v, bold=(i == 0 or j == 0), align=None if j == 0 else WD_ALIGN_PARAGRAPH.CENTER, size=size, blue=blue)
             if i < len(rows) - 1:
                 for par in c.paragraphs:
                     par.paragraph_format.keep_with_next = True   # keep the table on one page where it fits
@@ -241,8 +241,7 @@ def table_exhibit(d, w, caption, csvfile, note, source, widths=None, size=9, blu
             gc.set(qn('w:w'), str(int(wd * 1440)))
         lay = OxmlElement('w:tblLayout'); lay.set(qn('w:type'), 'fixed'); t._tbl.tblPr.append(lay)
     q = d.add_paragraph(); w.runs(q, 'Note: ' + note, size=9, force_blue=blue); set_spacing(q, 1.0, 2, 4)
-    q.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY; q.paragraph_format.keep_with_next = True   # note and source stay together
-    q = d.add_paragraph(); w.runs(q, 'Source: ' + source, size=9, force_blue=blue); set_spacing(q, 1.0, 12)
+    q.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY; set_spacing(q, 1.0, 2, 14)   # journal style: a note, no source line
 
 
 def figure_exhibit(d, w, caption, png, note, source, blue=False, width=6.5):
@@ -252,8 +251,7 @@ def figure_exhibit(d, w, caption, png, note, source, blue=False, width=6.5):
     d.add_picture(os.path.join(OUTR, 'figures', png), width=Inches(float(width)))
     d.paragraphs[-1].alignment = WD_ALIGN_PARAGRAPH.CENTER; d.paragraphs[-1].paragraph_format.keep_with_next = True
     q = d.add_paragraph(); w.runs(q, 'Note: ' + note, size=9, force_blue=blue); set_spacing(q, 1.0, 2, 4)
-    q.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY; q.paragraph_format.keep_with_next = True   # note and source stay together
-    q = d.add_paragraph(); w.runs(q, 'Source: ' + source, size=9, force_blue=blue); set_spacing(q, 1.0, 12)
+    q.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY; set_spacing(q, 1.0, 2, 14)   # journal style: a note, no source line
 
 
 def parse_exhibits(text):
@@ -287,7 +285,7 @@ def write_body(d, w, text, exhibits):
         elif plain.startswith('$$latex'):
             equation(d, w, b)
         else:
-            body_par(d, w, b)
+            body_par(d, w, b, indent=not plain.startswith(('where ', 'Where ')))   # "where" continues the equation
             for ex in list(left):   # SAJE: each exhibit after the paragraph that first cites it
                 lab = ex['args']['caption'].split('|')[0].strip()
                 if re.search(r'\b' + re.escape(lab) + r'(?![\dA-Za-z])', plain):
@@ -324,7 +322,7 @@ def manuscript(out, secs, marked):
     p = d.add_paragraph(); w.runs(p, 'Abstract', bold=True, size=13); p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     set_spacing(p, 1.5, 6)
     body_par(d, w, secs['abstract'], indent=True)
-    p = d.add_paragraph(); w.runs(p, 'Keywords:', bold=True, auto=False); w.runs(p, ' ' + secs['keywords'])
+    p = d.add_paragraph(); w.runs(p, 'Keywords:', bold=True, auto=False, force_blue=w.marked); w.runs(p, ' ' + secs['keywords'])
     set_spacing(p, 1.5, 6); p.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
     p = d.add_paragraph(); w.runs(p, '{+JEL Classification:+}', bold=True, auto=False); w.runs(p, ' {+' + secs['jel'] + '+}')
     set_spacing(p, 1.5, 6)
