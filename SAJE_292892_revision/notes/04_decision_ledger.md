@@ -95,3 +95,10 @@ Seat 2 R5: CRITICAL 0, MAJOR 0, MINOR 11, SUGGESTION 2; reproduction byte-identi
 
 ## Round-6 Seat 1 merge (2026-11-01)
 Seat 1 R6: CRITICAL 1 (AUTHOR-DECISION E5), MAJOR 5 (three AUTHOR-DECISION: E4, A1, authorship form). Fixed: Shleifer (1986) no longer cited for the reversal (Harris & Gurel); manuscript now contains every statement the letter attributes to it (pre-entry dynamics and listed firms in Section 5; recording-error limitation; restricted estimate says little about the largest firms; the data cannot separate the two readings; Table 2 estimates under parallel trends); section mapping note in letters; Table 1 calendar caveat restored; reference entries marked blue as whole entries.
+
+## Final round (after round 6)
+- D-F-01 (user request): added a roadmap paragraph at the end of the Introduction naming Sections 2-5. This is a user-approved exception to the no-forward-reference rule.
+- Round-6 Seat 2: CRITICAL 0, MAJOR 0, MINOR 6, SUGGESTION 5. Fixed MINOR 1, 2, 3 and 6; MINOR 4 fixed in part (Table S4 now cited in Section 4.2).
+- Not fixed: MINOR 5 (percent vs two-decimal shares agree to rounding) and the Table S5 citation order (renumbering would cascade through Appendix A).
+- Suggestions were not adopted. The book-equity check leaves estimates unchanged per Seat 2; neither the did package nor HonestDiD is installed; the bound simplification is disclosed.
+- Final package written to deliverables_final/ (7 docx + 7 pdf + README_VI.md).
