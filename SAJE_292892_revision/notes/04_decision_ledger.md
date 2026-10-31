@@ -82,3 +82,4 @@ Seat 2 R3: CRITICAL 0, MAJOR 2, MINOR 2. Reproduction byte-identical (72 files),
 - MINOR: run-up horizon worded as "from five years to one year before"; control-firm column added to Tables 4, 5 and 7.
 - D-R4-01 (user, 2026-10-31): each empirical work in the literature review (not foundational theory or method papers) is cited at least twice, the later citation relating it to our findings; no forward references to sections, tables or figures not yet reached.
 - D-R4-02 (user, 2026-10-31): five IMRAD sections (1 Introduction; 2 Related Literature and Hypotheses; 3 Data and Methods; 4 Results; 5 Discussion and Conclusion), at most four subsections each; no row codes such as "R11" in text (descriptive names; Table 3 and S-table labels regenerated without codes).
+- D-R4-03 (user, 2026-10-31): Section 3 cut by about 30% (2,159 to 1,560 words); Section 5 shortened (1,234 to about 850 words) and written without subsections; body about 5,870 words.
