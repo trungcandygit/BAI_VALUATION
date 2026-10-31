@@ -92,3 +92,6 @@ Seat 1 R5: CRITICAL 2 (one author decision), MAJOR 7 (four author placeholders).
 
 ## Round-5 Seat 2 merge (2026-11-01)
 Seat 2 R5: CRITICAL 0, MAJOR 0, MINOR 11, SUGGESTION 2; reproduction byte-identical and independent recomputation from raw data matches. All 11 minors fixed (A.4 table pointer, letter original Section 3.2, empty-row wording, pre-specified checks named, covariate not matching, Figure 1 N for ln(MTB), estimator named in figure notes, cluster bootstrap in Table S4 note, Table 2 note length, interval for the run-up difference, figure labels ln(assets) and original g − 1).
+
+## Round-6 Seat 1 merge (2026-11-01)
+Seat 1 R6: CRITICAL 1 (AUTHOR-DECISION E5), MAJOR 5 (three AUTHOR-DECISION: E4, A1, authorship form). Fixed: Shleifer (1986) no longer cited for the reversal (Harris & Gurel); manuscript now contains every statement the letter attributes to it (pre-entry dynamics and listed firms in Section 5; recording-error limitation; restricted estimate says little about the largest firms; the data cannot separate the two readings; Table 2 estimates under parallel trends); section mapping note in letters; Table 1 calendar caveat restored; reference entries marked blue as whole entries.

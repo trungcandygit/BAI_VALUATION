@@ -302,8 +302,8 @@ def write_body(d, w, text, exhibits):
 
 def references(d, w, text):
     heading(d, w, 'References', 1)
-    for b in blocks(text):
-        p = d.add_paragraph(); w.runs(p, b); set_spacing(p, 1.5, 4)
+    for b in blocks(text):   # a reference entry is marked as a whole: new or changed entries are blue in full
+        p = d.add_paragraph(); w.runs(p, strip_marks(b), force_blue=w.marked and is_new(b), auto=False); set_spacing(p, 1.5, 4)
         p.paragraph_format.left_indent = Inches(0.5); p.paragraph_format.first_line_indent = Inches(-0.5)
 
 
