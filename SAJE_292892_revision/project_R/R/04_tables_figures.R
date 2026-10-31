@@ -93,6 +93,7 @@ pm <- read.csv(file.path(OUT, "per_market.csv"))
 tia3 <- bind_rows(lapply(names(cn), function(cc) row_of(cn[[cc]], pm[pm$market == cc, ])))
 names(tia3)[1] <- "Market"
 write.csv(tia3, file.path(OUT, "tableIA3_formatted.csv"), row.names = FALSE)
+listed <- !is.na(panel$asset_w) | !is.na(panel$mcap_w) | !is.na(panel$ln_mtb)   # rows before listing carry no data
 ss <- bind_rows(lapply(names(OUTCOMES), function(y) {
   v <- panel[[y]]
   data.frame(Outcome = OUTCOMES[[y]],
@@ -100,7 +101,7 @@ ss <- bind_rows(lapply(names(OUTCOMES), function(y) {
              `Scored firms` = fmtn(n_distinct(panel$firm_id[!is.na(v) & panel$treated])),
              `Never-scored firm-years` = fmtn(sum(!is.na(v) & !panel$treated)),
              `Never-scored firms` = fmtn(n_distinct(panel$firm_id[!is.na(v) & !panel$treated])),
-             `Share missing` = fmt(mean(is.na(v)), 3), check.names = FALSE) }))
+             `Share missing` = fmt(mean(is.na(v[listed])), 3), check.names = FALSE) }))   # over listed firm-years
 write.csv(ss, file.path(OUT, "tableIA4_formatted.csv"), row.names = FALSE)
 rmb <- read.csv(file.path(OUT, "rm_bounds.csv"))
 tia5 <- rmb %>% transmute(Outcome = OUTCOMES[outcome], `M-bar` = fmt(Mbar, 2), `Largest pre-period change` = fmt(dmax),

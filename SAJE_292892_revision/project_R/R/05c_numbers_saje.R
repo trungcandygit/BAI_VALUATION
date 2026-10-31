@@ -71,6 +71,9 @@ ps <- rd("s_support_pscore.csv")
 for (i in seq_len(nrow(ps))) { put(paste0("s_ps_", ps$spec[i], "_share95"), fmt(100 * ps$share_p_above_095[i], 1))
   put(paste0("s_ps_", ps$spec[i], "_max"), fmt(ps$max_p[i], 3)) }
 
+lr <- rd("s_listed_rows.csv")
+put("s_empty_rows", fmtn(lr$empty_rows)); put("s_est_listed_fy", fmtn(lr$est_listed))
+put("s_est_empty_rows", fmtn(lr$est_rows - lr$est_listed))
 ms <- rd("s_missing_source.csv")
 for (g in c("scored", "never_scored")) {
   x <- ms[ms$group == g, ]

@@ -24,7 +24,8 @@ t4_rows <- list(
 t4 <- do.call(rbind, lapply(t4_rows, function(r) {
   a <- pick(dec, "ln_mtb", r[1]); b <- pick(dec, "ln_mcap", r[1])
   data.frame(Specification = r[2], `ln(MTB)` = cellf(a), `ln(market cap)` = cellf(b),
-             `Scored firms in averaged event years` = fmtn(a$n_treated_firms), check.names = FALSE)
+             `Scored firms in averaged event years` = fmtn(a$n_treated_firms), `Control firms` = fmtn(a$n_control_firms),
+             check.names = FALSE)
 }))
 write.csv(t4, file.path(OUT, "tableSAJE4_formatted.csv"), row.names = FALSE)
 
@@ -45,7 +46,8 @@ t5_rows <- list(
 t5 <- do.call(rbind, lapply(t5_rows, function(r) {
   a <- pick(sup, "ln_mtb", r[1]); b <- pick(sup, "ln_mcap", r[1])
   data.frame(Specification = r[2], `ln(MTB)` = cellf(a), `ln(market cap)` = cellf(b),
-             `Scored firms in averaged event years` = fmtn(a$n_treated_firms), check.names = FALSE)
+             `Scored firms in averaged event years` = fmtn(a$n_treated_firms), `Control firms` = fmtn(a$n_control_firms),
+             check.names = FALSE)
 }))
 write.csv(t5, file.path(OUT, "tableSAJE5_formatted.csv"), row.names = FALSE)
 
@@ -88,6 +90,7 @@ mk <- rd("s_missing_checks.csv"); ol <- rd("s_outliers.csv")
 row8 <- function(lbl, a, b) data.frame(Specification = lbl, `ln(MTB)` = if (nrow(a)) cellf(a) else "",
   `ln(market cap)` = if (nrow(b)) cellf(b) else "",
   `Scored firms in averaged event years` = if (nrow(a)) fmtn(a$n_treated_firms) else if (nrow(b)) fmtn(b$n_treated_firms) else "",
+  `Control firms` = if (nrow(a)) fmtn(a$n_control_firms) else if (nrow(b)) fmtn(b$n_control_firms) else "",
   check.names = FALSE)
 none <- mk[0, ]
 t8 <- rbind(

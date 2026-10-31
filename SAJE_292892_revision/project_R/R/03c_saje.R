@@ -232,7 +232,13 @@ write_out(bind_rows(ps_rows), "s_support_pscore.csv")
 # ---- (c) Missing MTB ----
 raw_nf <- raw %>% filter(industry_code != "financials") %>% inner_join(timing %>% select(firm_id, G), by = "firm_id") %>%
   filter(G != 2014)
-miss_src <- raw_nf %>% mutate(group = ifelse(is.finite(G), "scored", "never_scored"),
+# Every firm has a row for each year 2014-2024; rows before listing carry no data at all. Missing-data shares are
+# computed over listed firm-years, those with total assets, market capitalization or an MTB ratio.
+raw_nf <- raw_nf %>% mutate(listed = !is.na(asset) | !is.na(marketcap) | !is.na(mtb))
+write_out(data.frame(rows = nrow(raw_nf), empty_rows = sum(!raw_nf$listed),
+                     est_rows = nrow(panel), est_listed = sum(!is.na(panel$asset_w) | !is.na(panel$mcap_w) |
+                                                               !is.na(panel$ln_mtb))), "s_listed_rows.csv")
+miss_src <- raw_nf %>% filter(listed) %>% mutate(group = ifelse(is.finite(G), "scored", "never_scored"),
                               mtb_missing = is.na(mtb), mcap_obs = !is.na(marketcap) & marketcap > 0,
                               asset_obs = !is.na(asset) & asset > 0) %>%
   group_by(group) %>% summarise(firm_years = n(), share_mtb_missing = mean(mtb_missing),
@@ -241,7 +247,8 @@ miss_src <- raw_nf %>% mutate(group = ifelse(is.finite(G), "scored", "never_scor
 write_out(miss_src, "s_missing_source.csv")
 
 # Firm-years with and without MTB, by group: size, leverage, market, year.
-mcmp <- panel %>% mutate(group = ifelse(treated, "scored", "never_scored"), has_mtb = !is.na(ln_mtb)) %>%
+mcmp <- panel %>% filter(!is.na(asset_w) | !is.na(mcap_w) | !is.na(ln_mtb)) %>%   # listed firm-years only
+  mutate(group = ifelse(treated, "scored", "never_scored"), has_mtb = !is.na(ln_mtb)) %>%
   group_by(group, has_mtb) %>%
   summarise(firm_years = n(), firms = n_distinct(firm_id), med_assets_musd = median(asset_w, na.rm = TRUE) / 1e6,
             med_mcap_musd = median(mcap_w, na.rm = TRUE) / 1e6, mean_lev = mean(lev_w, na.rm = TRUE),
