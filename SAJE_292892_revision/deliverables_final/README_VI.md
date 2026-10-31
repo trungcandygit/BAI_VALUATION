@@ -16,7 +16,6 @@ Tìm chuỗi `AUTHOR_INPUT_NEEDED` trong các file.
 - **E5, AI policy (quan trọng nhất):** nêu cách tác giả tự xây dựng và kiểm tra câu hỏi nghiên cứu, phần diễn giải và kết luận, theo chính sách AI của tạp chí. Thư trả lời Editor đang để trống chỗ này.
 - **A1, dữ liệu point-in-time của LSEG:** cho biết có lấy được dữ liệu này không. Nếu lấy được, nên thêm phân tích theo ngày công bố trước khi nộp lại.
 - **Thay đổi tác giả:** cần nộp form đổi tác giả của tạp chí, có chữ ký của cả hai tác giả.
-- **CRediT (trang tiêu đề):** xác nhận vai trò của Hà Hồng Hạnh và Nguyễn Văn Trưng.
 
 ## Thay đổi ở lượt cuối
 - Thêm đoạn cuối Introduction mô tả cấu trúc phần còn lại của bài (Section 2 đến Section 5).

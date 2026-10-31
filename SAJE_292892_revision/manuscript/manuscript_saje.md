@@ -525,4 +525,4 @@ Not applicable. The study uses firm-level secondary data and involves no human p
 
 **Author contributions**
 
-Ha Hong Hanh: supervision, validation, and writing (review and editing); she directed the revision. [AUTHOR_INPUT_NEEDED: confirm the CRediT roles of both authors.] Nguyen Van Trung: conceptualization, data curation, formal analysis, methodology, software, visualization, and writing (original draft, review and editing).
+Ha Hong Hanh: supervision, validation, and writing (review and editing); she directed the revision. Nguyen Van Trung: conceptualization, data curation, formal analysis, methodology, software, visualization, and writing (original draft, review and editing).
