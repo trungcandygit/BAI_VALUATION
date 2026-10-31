@@ -24,8 +24,8 @@ row7 <- function(label, post, prep) {
 }
 S7 <- list(
   c("no_covariates", "No covariates"), c("size_at_g3", "Size measured at g − 3"), c("size_bins", "Size quintile indicators"),
-  c("trim_top_p95", "Scored firms within control size range"), c("R10_shift1", "Dated one year later (R10)"),
-  c("R10_size_at_g1", "R10, size at original g − 1"), c("R12_shift2", "Dated two years later"),
+  c("trim_top_p95", "Scored firms within control size range"), c("R10_shift1", "Dated one year later"),
+  c("R10_size_at_g1", "One year later, size at original g − 1"), c("R12_shift2", "Dated two years later"),
   c("wave_MY_2021_22", "Malaysia, first recorded 2021–2022"), c("wave_TH_SG_2019_20", "Thailand and Singapore, 2019–2020"),
   c("wave_other", "All other cohorts"), c("cohorts_to_2019", "Cohorts first scored by 2019"),
   c("cohorts_from_2020", "Cohorts first scored from 2020"))
@@ -33,7 +33,7 @@ t7 <- bind_rows(
   row7("Baseline", r4p[r4p$spec == "baseline", ], r4pre[r4pre$spec == "baseline", ]),
   row7("Baseline, market-by-industry cluster bootstrap", clb[clb$spec == "baseline" & clb$term == "post", ],
        clpre[clpre$spec == "baseline", ]),
-  row7("R10, market-by-industry cluster bootstrap", clb[clb$spec == "R10_shift1" & clb$term == "post", ],
+  row7("One year later, market-by-industry cluster bootstrap", clb[clb$spec == "R10_shift1" & clb$term == "post", ],
        clpre[clpre$spec == "R10_shift1", ]),
   bind_rows(lapply(S7, function(s) row7(s[2], r4p[r4p$spec == s[1], ], r4pre[r4pre$spec == s[1], ]))),
   row7("High residual initial score", h3r[h3r$group == "high_residual_score", ], h3r[0, ]),
@@ -43,9 +43,9 @@ names(t7) <- c("Specification", "ln(MTB)", "Pre-trend p", "ln(market cap)", "Pre
 write.csv(t7, file.path(OUT, "tableIA7_formatted.csv"), row.names = FALSE)
 
 # ---- Table S8: bridge from the static TWFE estimate to the heterogeneity-robust estimate ----
-STEP <- c(`1_twfe_all_years` = "Static TWFE, all firm-years (R6)",
+STEP <- c(`1_twfe_all_years` = "Static TWFE, all firm-years",
           `2_twfe_never_controls_window` = "Static TWFE, never-scored controls, event years −5 to 3",
-          `3_cs_no_covariates` = "Heterogeneity-robust, no covariates (R2)", `4_cs_baseline` = "Heterogeneity-robust baseline")
+          `3_cs_no_covariates` = "Heterogeneity-robust, no covariates", `4_cs_baseline` = "Heterogeneity-robust baseline")
 t8 <- bind_rows(lapply(names(STEP), function(s) {
   out <- data.frame(Estimator = STEP[[s]])
   for (y in names(OUT2)) { d <- br[br$outcome == y & br$step == s, ]; out[[OUT2[[y]]]] <- cell7(d) }

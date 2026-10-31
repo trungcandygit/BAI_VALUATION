@@ -16,7 +16,7 @@ t4_rows <- list(
   c("B1", "(3) As (2), event years 1 to 4"),
   c("C1", "(4) As (3), reference year g"),
   c("C2", "(5) As (4), size measured in g"),
-  c("C3", "(6) One year later, all firms (R10)"),
+  c("C3", "(6) One year later, all firms"),
   c("A1_b", "(7) As (2), cohorts first recorded 2015 to 2020"),
   c("B1_b", "(8) As (3), cohorts first recorded 2015 to 2020"),
   c("C1_b", "(9) As (4), cohorts first recorded 2015 to 2020"),
