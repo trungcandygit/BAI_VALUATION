@@ -31,7 +31,7 @@ x_event <- scale_x_continuous(breaks = E_MIN:E_MAX, labels = minus)
 
 # ---- Figure 1: event-time changes, four outcomes ----
 OUT4 <- c(ln_mtb = "(a) ln(MTB)", ln_mcap = "(b) ln(market cap)", leverage = "(c) Leverage (ratio)",
-          ln_asset = "(d) ln(total assets)")
+          ln_asset = "(d) ln(assets)")
 PER <- c("Before the first recorded score", "From the first recorded score")
 ev <- read.csv(file.path(OUT, "event_study.csv")) %>% mutate(e = as.integer(term)) %>%
   select(outcome, e, est, ci_lo, ci_hi) %>%
@@ -78,7 +78,7 @@ save_fig(fs1, "FigIA1", h = 3.4)
 # ---- Figure S2: ln(MTB) paths under alternative specifications and dating ----
 ALT <- c(baseline = "Baseline", no_covariates = "No covariates", size_at_g3 = "Size at g \u2212 3",
          trim_top_p95 = "Within control size range")
-R10 <- c(R10_shift1 = "One year later", R10_size_at_g1 = "One year later, size at g \u2212 1")
+R10 <- c(R10_shift1 = "One year later", R10_size_at_g1 = "One year later, size at original g \u2212 1")
 alt <- r4ev %>% filter(outcome == "ln_mtb", spec %in% c(names(ALT), names(R10))) %>% select(spec, e, est, ci_lo, ci_hi) %>%
   bind_rows(data.frame(spec = c(names(ALT), names(R10)), e = -1L, est = 0, ci_lo = NA, ci_hi = NA)) %>%
   filter(!is.na(est)) %>%

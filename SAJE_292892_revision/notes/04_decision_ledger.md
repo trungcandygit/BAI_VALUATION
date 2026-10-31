@@ -89,3 +89,6 @@ Seat 1 R4 (reviewed the pre-restructure dossier): CRITICAL 0, MAJOR 3. Fixed: le
 
 ## Round-5 Seat 1 merge (2026-11-01)
 Seat 1 R5: CRITICAL 2 (one author decision), MAJOR 7 (four author placeholders). Fixed: reviewer quotes restored verbatim (an earlier section-renumbering pass had altered three section numbers inside the quoted comments; a verbatim check of every quoted sentence now passes), with a note that quoted section numbers refer to the original manuscript; letter locations (exploratory 2019 subgroup in Appendix A.6; Prukumpai in Section 4.2); Supplement A.4 run-up sentence corrected; Table 4 label regenerated without "(R10)"; Dobrick, Drempetic and Berg–Kölbel–Rigobon revisited in Section 5; Tables S2 and S3 referenced in Section 3.1; leverage non-result with estimate and Holm p; Malaysian-wave interval caveat restored.
+
+## Round-5 Seat 2 merge (2026-11-01)
+Seat 2 R5: CRITICAL 0, MAJOR 0, MINOR 11, SUGGESTION 2; reproduction byte-identical and independent recomputation from raw data matches. All 11 minors fixed (A.4 table pointer, letter original Section 3.2, empty-row wording, pre-specified checks named, covariate not matching, Figure 1 N for ln(MTB), estimator named in figure notes, cluster bootstrap in Table S4 note, Table 2 note length, interval for the run-up difference, figure labels ln(assets) and original g − 1).
