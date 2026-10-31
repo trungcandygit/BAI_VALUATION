@@ -387,6 +387,26 @@ def letters(outdir, nums, secs):
     return L
 
 
+def force_tnr(path):
+    """Replace every theme font (docDefaults, styles, theme) by Times New Roman, so Word shows no Calibri or Cambria."""
+    import zipfile, re, shutil
+    tmp = path + '.tmp'
+    with zipfile.ZipFile(path) as zin, zipfile.ZipFile(tmp, 'w', zipfile.ZIP_DEFLATED) as zout:
+        for it in zin.infolist():
+            data = zin.read(it.filename)
+            if it.filename in ('word/styles.xml', 'word/document.xml', 'word/footnotes.xml', 'word/numbering.xml'):
+                x = data.decode('utf8')
+                x = re.sub(r'<w:rFonts [^>]*?(?:Theme|cstheme)[^>]*/>',
+                           '<w:rFonts w:ascii="Times New Roman" w:hAnsi="Times New Roman" w:eastAsia="Times New Roman" w:cs="Times New Roman"/>', x)
+                data = x.encode('utf8')
+            elif it.filename.startswith('word/theme/'):
+                x = data.decode('utf8')
+                x = re.sub(r'<a:latin typeface="[^"]*"', '<a:latin typeface="Times New Roman"', x)
+                data = x.encode('utf8')
+            zout.writestr(it, data)
+    shutil.move(tmp, path)
+
+
 if __name__ == '__main__':
     outdir = sys.argv[1]
     os.makedirs(outdir, exist_ok=True)
@@ -401,6 +421,8 @@ if __name__ == '__main__':
     ab = words(secs['abstract']); body = words(secs['body'])
     print('abstract words:', ab, '| body words (excl. headings, equations):', body,
           '| letter words: editor', len(L['editor'].split()), 'reviewer', len(L['reviewer'].split()))
+    for f in sorted(os.listdir(outdir)):
+        if f.endswith('.docx'): force_tnr(os.path.join(outdir, f))
     assert ab <= 150, 'abstract over 150 words'
     for s in ('body', 'abstract'):
         for k in ('{{', '[[', 'AUTHOR_INPUT'):

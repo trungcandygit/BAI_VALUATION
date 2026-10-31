@@ -14,7 +14,6 @@
 ## Việc tác giả PHẢI tự điền trước khi nộp
 Tìm chuỗi `AUTHOR_INPUT_NEEDED` trong các file.
 - **E5, AI policy (quan trọng nhất):** nêu cách tác giả tự xây dựng và kiểm tra câu hỏi nghiên cứu, phần diễn giải và kết luận, theo chính sách AI của tạp chí. Thư trả lời Editor đang để trống chỗ này.
-- **E4, biên tập ngôn ngữ:** điền tên dịch vụ biên tập chuyên nghiệp và tháng đã biên tập.
 - **A1, dữ liệu point-in-time của LSEG:** cho biết có lấy được dữ liệu này không. Nếu lấy được, nên thêm phân tích theo ngày công bố trước khi nộp lại.
 - **Thay đổi tác giả:** cần nộp form đổi tác giả của tạp chí, có chữ ký của cả hai tác giả.
 - **CRediT (trang tiêu đề):** xác nhận vai trò của Hà Hồng Hạnh và Nguyễn Văn Trưng.
@@ -30,3 +29,9 @@ Tìm chuỗi `AUTHOR_INPUT_NEEDED` trong các file.
 - Hai điểm MINOR giữ nguyên:
   - Thứ tự lần đầu dẫn Table S5. Đánh số lại sẽ phải đổi toàn bộ phụ lục A.
   - Tỷ lệ % trong bài so với tỷ phần 2 chữ số thập phân trong bảng. Hai cách ghi khớp nhau sau làm tròn.
+
+## Lượt chỉnh ngôn ngữ của giáo sư
+- Đã nhận phần lớn chỉnh sửa (dấu câu, tách câu dài, "therefore", "This study", "approximately", v.v.).
+- Bỏ những chỗ làm sai nghĩa chuyên môn hoặc lỗi gõ (xem danh sách trong ghi chú quyết định `notes/04_decision_ledger.md`).
+- Đã bỏ câu cảm ơn người biên tập ngôn ngữ trong lời cảm ơn. Mục E4 trong thư trả lời Editor ghi rằng tác giả Hà Hồng Hạnh biên tập ngôn ngữ, sau đó một học giả bản ngữ đọc soát.
+- Đã ép toàn bộ file Word dùng Times New Roman (trước đây các style tiêu đề còn font theme Cambria/Calibri).

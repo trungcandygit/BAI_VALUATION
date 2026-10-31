@@ -102,3 +102,21 @@ Seat 1 R6: CRITICAL 1 (AUTHOR-DECISION E5), MAJOR 5 (three AUTHOR-DECISION: E4, 
 - Not fixed: MINOR 5 (percent vs two-decimal shares agree to rounding) and the Table S5 citation order (renumbering would cascade through Appendix A).
 - Suggestions were not adopted. The book-equity check leaves estimates unchanged per Seat 2; neither the did package nor HonestDiD is installed; the bound simplification is disclosed.
 - Final package written to deliverables_final/ (7 docx + 7 pdf + README_VI.md).
+
+## Language edit by a native English-speaking professor (user-supplied, after round 6)
+- Accepted: punctuation, sentence splits, "therefore"/"thus", "This study", "approximately", "step by step", "respectively", "square root", "(MDE ≈ 2.8 × SE)", "book leverage (total debt divided by total assets)", and similar edits across the Abstract to Section 4.2.
+- Rejected, because they change the meaning or break a convention:
+  - "or governance"; "screen scores"; "changes valuations" (tense).
+  - "firms that first scored"; "We studied/fell" (tense); missing comma in "Goodman-Bacon 2021"; dropped "first".
+  - "the entry"; "the selection of ESG rating coverage"; "This shows" (antecedent).
+  - Dropped "may"; stray "Therefore,"; "a demand shift that ended with selection on growth or both".
+  - "Avramav"; "Mertens"; "comply or-explain"; "the LSEG"; "differs from the initial score".
+  - "would widen the gap between the two"; the comma moved in "too early but, unless…"; the ungrammatical "every scored firm still has a score in 2024 fits".
+  - "total debt divided by total assets" listed as a separate outcome; "same side" without "of it"; "indexes the cohort h".
+  - Re-defining TWFE; tense shifts to past in results; "rejects the market capitalization".
+  - "Thai and Singaporean waves" (it is one wave); dropping "detectably"; "which gives" (antecedent is plural).
+  - "estimates for parallel trends"; "80%power"; un-hyphenated compound adjectives; periods instead of colons before displayed equations.
+  - "firms that were never scored": reverted to stay within the 150-word abstract limit.
+- The Intro TWFE sentence now says the base-year covariates, including size (Seat 2 MINOR 2).
+- Acknowledgement: removed the language-editor sentence (user: the co-author Ha Hong Hanh did the language edit). Letter E4 placeholder replaced accordingly.
+- Builder: force Times New Roman in docDefaults, styles and theme of every docx.
