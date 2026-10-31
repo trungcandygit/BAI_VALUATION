@@ -1,7 +1,7 @@
 Response to Reviewer A
 Manuscript 292892: “Who Gets an ESG Score? Coverage Selection and Firm Value in Five Southeast Asian Markets”
 Southeast Asian Journal of Economics
-Comments are quoted in full in italics, and our responses follow in plain text. Section numbers inside the quoted comments refer to the original manuscript; in our responses, section and table numbers refer to the revised manuscript, which has five sections (original Section 5 is now Section 4, and Sections 6 to 8 are now Section 5), in which every sentence that is new or differs from the submitted version is highlighted in blue; text we deleted is not shown. Some secondary results moved to Appendix A of the supplementary material.
+Comments are quoted in full in italics, and our responses follow in plain text. Section numbers inside the quoted comments refer to the original manuscript; in our responses, section and table numbers refer to the revised manuscript, which has five sections (original Sections 3 and 4 are now Section 3, original Section 5 is now Section 4, and original Sections 6 to 8 are now Section 5), in which every sentence that is new or differs from the submitted version is highlighted in blue; text we deleted is not shown. Some secondary results moved to Appendix A of the supplementary material.
 Response to Reviewer A
 We thank the reviewer for a careful and constructive report. The reviewer’s main point, that the evidence supports selection into coverage more firmly than a valuation effect of coverage, is correct, and the revision is organized around it. We respond to each comment in turn.
 Comment 1: First recorded score and publicly observable coverage
